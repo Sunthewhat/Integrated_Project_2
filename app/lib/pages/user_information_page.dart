@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InformationPage extends StatefulWidget {
-  const InformationPage({super.key});
+  final bool isRegister;
+  const InformationPage({super.key, required this.isRegister});
 
   @override
   State<InformationPage> createState() => _InformationPageState();
 }
 
 class _InformationPageState extends State<InformationPage> {
-  bool isEditing = false;
+  late bool isEditing;
   String nameTitle = 'Mr.';
   String username = 'johndoe';
   String firstName = 'John';
@@ -47,7 +48,11 @@ class _InformationPageState extends State<InformationPage> {
     lastNameController = TextEditingController(text: lastName);
     emailController = TextEditingController(text: email);
     expectedController = TextEditingController(text: expected);
-
+    if (widget.isRegister) {
+      isEditing = true;
+    } else {
+      isEditing = false;
+    }
     super.initState();
   }
 
