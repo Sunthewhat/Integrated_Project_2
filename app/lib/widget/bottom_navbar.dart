@@ -13,7 +13,7 @@ class BottomNavBar extends StatefulWidget {
   });
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
