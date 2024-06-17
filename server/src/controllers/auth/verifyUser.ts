@@ -30,7 +30,15 @@ const VerifyUserController = async (c: Context) => {
 		return c.json({
 			success: true,
 			message: "User verified",
-			data: user,
+			data: {
+				userId: user.userId,
+				username: user.username,
+				nameTitle: user.nameTitle,
+				firstname: user.firstname,
+				lastname: user.lastname,
+				email: user.email,
+				expectedMonthly: user.expectedMonthly,
+			},
 		});
 	} catch (e) {
 		return c.json({

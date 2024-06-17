@@ -1,5 +1,7 @@
-import 'package:c_trade/pages/signin_page.dart';
 import 'package:flutter/material.dart';
+import 'package:c_trade/local_storage.dart';
+import 'package:c_trade/pages/home_page.dart';
+import 'package:c_trade/pages/signin_page.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});
@@ -12,12 +14,33 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 0), handleLogin);
+    _checkIsLoggedIn();
   }
 
-  void handleLogin() {
+  void _checkIsLoggedIn() async {
+    // await Future.delayed(const Duration(seconds: 1));
+    final isLoggedIn = LocalStorage.getLoggedIn();
+    print(isLoggedIn);
+
+    // Schedule the navigation to happen after the current frame
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (isLoggedIn == null || !isLoggedIn) {
+        _handleLogin();
+      } else {
+        _handleHome();
+      }
+    });
+  }
+
+  void _handleLogin() {
     Navigator.of(context).pushReplacement(MaterialPageRoute(
       builder: (context) => const SignInPage(),
+    ));
+  }
+
+  void _handleHome() {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => const HomePage(),
     ));
   }
 

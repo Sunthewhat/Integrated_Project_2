@@ -1,3 +1,6 @@
+import 'package:c_trade/api/auth/login.dart';
+import 'package:c_trade/pages/home_page.dart';
+import 'package:c_trade/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +12,58 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  void handleSignUp() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const SignUpPage(),
+      ),
+    );
+  }
+
+  void handleLogin() {
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+
+    if (username.isEmpty || password.isEmpty) {
+      handleShowError('Please fill in all fields');
+    } else {
+      Login.login(username, password).then(
+        (value) => {
+          if (value.success)
+            {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const HomePage(),
+              ))
+            }
+          else
+            {handleShowError(value.message)}
+        },
+      );
+    }
+  }
+
+  void handleShowError(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,14 +103,14 @@ class _SignInPageState extends State<SignInPage> {
                     Row(
                       children: [
                         Text(
-                          'New user?',
+                          'New user? ',
                           // style: TextStyle(color: Color(0xFFD2D79F)),
                           style: GoogleFonts.lexendDeca(
                               color: const Color(0xFFD2D79F),
                               fontWeight: FontWeight.w500),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: handleSignUp,
                           child: Text(
                             'Create an account',
                             // style: TextStyle(color: Color(0xFF42855B)),
@@ -67,6 +122,7 @@ class _SignInPageState extends State<SignInPage> {
                       ],
                     ),
                     TextField(
+                      controller: _usernameController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFD2D79F),
@@ -77,6 +133,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                     TextField(
+                      controller: _passwordController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFD2D79F),
@@ -88,7 +145,7 @@ class _SignInPageState extends State<SignInPage> {
                       obscureText: true,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: handleLogin,
                       child: Container(
                         width: double.infinity,
                         height: MediaQuery.of(context).size.width * 0.1,

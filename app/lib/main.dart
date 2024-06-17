@@ -1,8 +1,10 @@
-import 'package:c_trade/pages/certificate.dart';
+import 'package:c_trade/local_storage.dart';
 import 'package:c_trade/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorage.init();
   runApp(const CTrade());
 }
 
@@ -21,7 +23,7 @@ class CTrade extends StatelessWidget {
       },
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Certificate(),
+        home: LoadingPage(),
       ),
     );
   }
