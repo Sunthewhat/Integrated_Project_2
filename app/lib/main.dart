@@ -1,3 +1,4 @@
+import 'package:c_trade/pages/certificate.dart';
 import 'package:c_trade/pages/home_page.dart';
 import 'package:c_trade/pages/loading_page.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class CTrade extends StatelessWidget {
       },
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoadingPage(),
+        home: Certificate(),
       ),
     );
   }

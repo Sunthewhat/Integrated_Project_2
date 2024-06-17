@@ -6,3 +6,31 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model user {
+  userId          Int           @id @default(autoincrement())
+  username        String
+  password        String
+  nameTitle       String?
+  surname         String?
+  lastname        String?
+  email           String
+  expectedMonthly String?
+  certificate     certificate[]
+}
+
+model certificate {
+  certificateId   Int      @id @default(autoincrement())
+  userId          Int
+  amount          String
+  created         DateTime @default(now())
+  date            DateTime
+  userCertificate user     @relation(fields: [userId], references: [userId])
+}
+
+model retail {
+  retailId Int    @id @default(autoincrement())
+  amount   Int
+  method   String
+  prefer   Int
+}
