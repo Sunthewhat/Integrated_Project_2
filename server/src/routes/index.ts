@@ -1,8 +1,8 @@
-import { Hono } from 'hono';
-import { helloRouter } from './hello';
+import { Hono } from "hono";
+import { authRouter } from "./auth";
 
 const mainRouter = new Hono();
 
-mainRouter.route('/', helloRouter);
+mainRouter.route("/auth", authRouter);
 
 export { mainRouter };
