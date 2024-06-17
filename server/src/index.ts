@@ -1,9 +1,9 @@
-import { Hono } from 'hono';
-import { mainRouter } from './routes';
-import { PrismaClient } from '../prisma/client';
-import { config } from 'dotenv';
-import { cors } from 'hono/cors';
-import { logger } from 'hono/logger';
+import { Hono } from "hono";
+import { config } from "dotenv";
+import { cors } from "hono/cors";
+import { logger } from "hono/logger";
+import { mainRouter } from "./routes";
+import { PrismaClient } from "../prisma/client";
 
 config();
 
@@ -14,6 +14,6 @@ app.use(logger());
 
 export const prisma = new PrismaClient();
 
-app.route('', mainRouter);
+app.route("", mainRouter);
 
 export default app;

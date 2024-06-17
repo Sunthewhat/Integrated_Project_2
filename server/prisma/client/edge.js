@@ -143,7 +143,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/sunthewhat/Documents/Code/Projects/Integrated_2/server/prisma/client",
+      "value": "D:\\vscode\\Integrated_2\\server\\prisma\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -152,7 +152,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "windows",
         "native": true
       }
     ],
