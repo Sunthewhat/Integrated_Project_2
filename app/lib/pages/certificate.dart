@@ -1,4 +1,5 @@
 import 'package:c_trade/widget/bottom_navbar.dart';
+import 'package:c_trade/widget/card.dart';
 import 'package:flutter/material.dart';
 
 class Certificate extends StatefulWidget {
@@ -27,6 +28,7 @@ class _CertificateState extends State<Certificate> {
             fit: BoxFit.cover,
           ),
         ),
+        child: CustomCard(title: "<amount> kgCO2eq", date: "MM/DD/YYYY", cert: "Cert. ID: <cert id>)",)
         
       ),
       bottomNavigationBar: BottomNavBar(

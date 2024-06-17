@@ -3,6 +3,40 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model user {
+  userId          Int           @id @default(autoincrement())
+  username        String
+  password        String
+  nameTitle       String?
+  surname         String?
+  lastname        String?
+  email           String?
+  expectedMonthly String?
+  cabonOffSet     cabonOffset[]
+}
+
+model cabonOffset {
+  carbonId        Int          @id @default(autoincrement())
+  userId          Int
+  certificateId   Int          @unique
+  amount          String
+  method          retailMethod
+  date            DateTime     @default(now())
+  userCertificate user         @relation(fields: [userId], references: [userId])
+}
+
+enum retailMethod {
+  cc
+  kg
+}
+
+model trader {
+  traderId    Int    @id @default(autoincrement())
+  companyName String
+  amount      Int
 }
