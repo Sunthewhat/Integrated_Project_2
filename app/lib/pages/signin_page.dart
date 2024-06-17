@@ -24,7 +24,7 @@ class _SignInPageState extends State<SignInPage> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
-                'assets/images/background/auth_bottom.png',
+                'assets/images/background/signin_bottom.png',
                 fit: BoxFit.cover,
               ),
             ),
