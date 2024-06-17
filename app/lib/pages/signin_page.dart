@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -33,34 +34,80 @@ class _SignInPageState extends State<SignInPage> {
                 padding:
                     EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Sign in',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 16),
-                    Text('New user? Create an account',
-                        style: TextStyle(color: Colors.grey)),
-                    SizedBox(height: 32),
-                    TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Username',
+                    for (int i = 0; i < 30; i++) const SizedBox(),
+                    Text(
+                      'Sign in',
+                      style: GoogleFonts.lemonada(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(),
+                    Row(
+                      children: [
+                        Text(
+                          'New user?',
+                          // style: TextStyle(color: Color(0xFFD2D79F)),
+                          style: GoogleFonts.lexendDeca(
+                              color: const Color(0xFFD2D79F),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'Create an account',
+                            // style: TextStyle(color: Color(0xFF42855B)),
+                            style: GoogleFonts.lexendDeca(
+                                color: const Color(0xFF42855B),
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ],
+                    ),
                     TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: const Color(0xFFD2D79F),
+                        border: const OutlineInputBorder(
+                            borderSide: BorderSide.none),
+                        hintText: 'Username',
+                        hintStyle: GoogleFonts.lexendDeca(),
+                      ),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0xFFD2D79F),
+                        border: const OutlineInputBorder(
+                            borderSide: BorderSide.none),
                         hintText: 'Password',
+                        hintStyle: GoogleFonts.lexendDeca(),
                       ),
                       obscureText: true,
                     ),
-                    SizedBox(height: 32),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('Sign In'),
-                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.width * 0.1,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF42855B),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Sign In',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.lexendDeca(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
