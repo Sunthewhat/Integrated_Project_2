@@ -1,26 +1,28 @@
 name: c_trade
 description: "C-Trade for Better World!"
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+    sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
-  dio: ^5.4.3+1
-  flutter:
-    sdk: flutter
-  google_fonts: ^6.2.1
-  image_picker: ^1.1.2
-  shared_preferences: ^2.2.3
+    dio: ^5.4.3+1
+    flutter:
+        sdk: flutter
+    flutter_svg: ^1.0.0
+    google_fonts: ^6.2.1
+    image_picker: ^1.1.2
+    shared_preferences: ^2.2.3
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^3.0.0
+    flutter_test:
+        sdk: flutter
+    flutter_lints: ^3.0.0
 
 flutter:
-  uses-material-design: true
-  assets:
-    - assets/images/
-    - assets/images/background/
+    uses-material-design: true
+    assets:
+        - assets/images/
+        - assets/images/icon/
+        - assets/images/background/

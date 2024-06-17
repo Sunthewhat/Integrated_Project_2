@@ -28,8 +28,29 @@ class _CertificateState extends State<Certificate> {
             fit: BoxFit.cover,
           ),
         ),
-        child: CustomCard(title: "<amount> kgCO2eq", date: "MM/DD/YYYY", cert: "Cert. ID: <cert id>)",)
-        
+        child: Column(children: [
+          const SizedBox(height: 50),
+          const Text(
+            'Certificate',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            child: ListView(
+              children: const [
+                CustomCard(
+                  title: "<amount> kgCO2eq",
+                  date: "MM/DD/YYYY",
+                  cert: "Cert. ID: <cert id>)",
+                )
+              ],
+            ),
+          ),
+        ]),
       ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: _selectedIndex,
