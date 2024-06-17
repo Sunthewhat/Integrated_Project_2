@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavBar extends StatefulWidget {
   final Function(int) onTap;
@@ -24,12 +25,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
       backgroundColor: widget.backgroundColor,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.repeat, size: 41, color: Color(0xFF42855B)),
+          icon: SvgPicture.asset('assets/images/icon/tradeIcon.svg',
+              width: 41, height: 41, color: const Color(0xFF42855B)),
           label: 'repeat',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(
             Icons.house,
             size: 41,
@@ -38,12 +40,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
           label: 'Settings',
         ),
         BottomNavigationBarItem(
-          icon: Icon(
-            Icons.picture_as_pdf,
-            size: 41,
-            color: Color(0xFF42855B),
-          ),
-          label: 'Settings',
+          icon: SvgPicture.asset('assets/images/icon/certificateIcon.svg',
+              width: 41, height: 41, color: const Color(0xFF42855B)),
+          label: 'certificate',
         ),
       ],
     );
