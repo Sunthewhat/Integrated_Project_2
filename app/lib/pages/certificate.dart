@@ -30,7 +30,7 @@ class _CertificateState extends State<Certificate> {
           ),
         ),
         child: const SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: 20.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(children: [
             RearrangeBar(),
             TotalAmount(),
@@ -97,13 +97,12 @@ class TotalAmount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 0),
+      margin: const EdgeInsets.only(bottom: 10),
       child: const Text(
         "Total  <amount> Certificates with <amount> kgCO2eq ",
         style: TextStyle(
           color: Colors.white,
           fontSize: 14,
-          fontFamily: 'Lexend',
         ),
       ),
     );
