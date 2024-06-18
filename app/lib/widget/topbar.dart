@@ -15,6 +15,10 @@ class _TopBarState extends State<TopBar> {
     if (Navigator.of(context).canPop()) Navigator.of(context).pop();
   }
 
+  bool isCanPop() {
+    return Navigator.of(context).canPop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
@@ -27,17 +31,19 @@ class _TopBarState extends State<TopBar> {
           children: [
             Stack(
               children: [
-                Center(
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: handleBack,
-                        icon: const Icon(Icons.arrow_back_ios_new_rounded,
-                            color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
+                isCanPop()
+                    ? Center(
+                        child: Row(
+                          children: [
+                            IconButton(
+                              onPressed: handleBack,
+                              icon: const Icon(Icons.arrow_back_ios_new_rounded,
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      )
+                    : const SizedBox(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

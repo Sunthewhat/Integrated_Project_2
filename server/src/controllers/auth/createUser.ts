@@ -6,6 +6,7 @@ const CreateUserController = async (c: Context) => {
 	try {
 		const { username, password, nameTitle, firstname, lastname, email, expectedMonthly } = await c.req.json();
 		if (!username || !password || !nameTitle || !firstname || !lastname || !email || !expectedMonthly) {
+			console.log("username: ", username, "password: ", password, "nameTitle: ", nameTitle, "firstname: ", firstname, "lastname: ", lastname, "email: ", email, "expectedMonthly: ", expectedMonthly);
 			return c.json({
 				success: false,
 				message: "Missing required fields",

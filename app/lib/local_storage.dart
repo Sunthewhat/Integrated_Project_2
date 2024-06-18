@@ -6,6 +6,7 @@ class LocalStorage {
   static const _keyUserName = 'username';
   static const _keyIsLoggedIn = 'isLoggedIn';
   static const _keyPassword = 'password';
+  static const _keyProfilePath = 'profilePath';
 
   // Initialize the SharedPreferences instance
   static Future init() async {
@@ -40,5 +41,15 @@ class LocalStorage {
   // Get password
   static String? getPassword() {
     return _preferences?.getString(_keyPassword);
+  }
+
+  // Set profile path
+  static Future setProfilePath(String profilePath) async {
+    await _preferences?.setString(_keyProfilePath, profilePath);
+  }
+
+  // Get profile path
+  static String? getProfilePath() {
+    return _preferences?.getString(_keyProfilePath);
   }
 }
