@@ -1,5 +1,6 @@
 import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:c_trade/widget/card.dart';
+import 'package:c_trade/widget/topbar.dart';
 import 'package:flutter/material.dart';
 
 class Certificate extends StatefulWidget {
@@ -28,33 +29,82 @@ class _CertificateState extends State<Certificate> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(children: [
-          const SizedBox(height: 50),
-          const Text(
-            'Certificate',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+        child: const SingleChildScrollView(
+          padding: EdgeInsets.only(bottom: 20.0),
+          child: Column(children: [
+            RearrangeBar(),
+            TotalAmount(),
+            CustomCard(
+              title: "<amount> kgCO2eq",
+              date: "MM/DD/YYYY",
+              cert: "Cert. ID: <cert id>",
             ),
-          ),
-          const SizedBox(height: 20),
-          Expanded(
-            child: ListView(
-              children: const [
-                CustomCard(
-                  title: "<amount> kgCO2eq",
-                  date: "MM/DD/YYYY",
-                  cert: "Cert. ID: <cert id>)",
-                )
-              ],
+            CustomCard(
+              title: "<amount> kgCO2eq",
+              date: "MM/DD/YYYY",
+              cert: "Cert. ID: <cert id>",
             ),
-          ),
-        ]),
+            CustomCard(
+              title: "<amount> kgCO2eq",
+              date: "MM/DD/YYYY",
+              cert: "Cert. ID: <cert id>",
+            ),
+            CustomCard(
+              title: "<amount> kgCO2eq",
+              date: "MM/DD/YYYY",
+              cert: "Cert. ID: <cert id>",
+            ),
+            CustomCard(
+              title: "<amount> kgCO2eq",
+              date: "MM/DD/YYYY",
+              cert: "Cert. ID: <cert id>",
+            ),
+            CustomCard(
+              title: "<amount> kgCO2eq",
+              date: "MM/DD/YYYY",
+              cert: "Cert. ID: <cert id>",
+            ),
+          ]),
+        ),
       ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+class RearrangeBar extends StatelessWidget {
+  const RearrangeBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20, bottom: 10),
+      child: const TopBar(title: "Certificate"),
+    );
+  }
+}
+
+class TotalAmount extends StatelessWidget {
+  const TotalAmount({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 0),
+      child: const Text(
+        "Total  <amount> Certificates with <amount> kgCO2eq ",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 14,
+          fontFamily: 'Lexend',
+        ),
       ),
     );
   }
