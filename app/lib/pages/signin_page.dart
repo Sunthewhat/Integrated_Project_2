@@ -1,4 +1,5 @@
 import 'package:c_trade/api/auth/login.dart';
+import 'package:c_trade/local_storage.dart';
 import 'package:c_trade/pages/home_page.dart';
 import 'package:c_trade/pages/signup_page.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +34,12 @@ class _SignInPageState extends State<SignInPage> {
         (value) => {
           if (value.success)
             {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ))
+              LocalStorage.setLoggedIn(true),
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              ),
             }
           else
             {handleShowError(value.message)}

@@ -1,3 +1,5 @@
+import 'package:c_trade/local_storage.dart';
+import 'package:c_trade/pages/user_information_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,8 +11,60 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   bool _isPasswordVisible = false;
   bool _isTermsAgreed = false;
+
+  void handleContinue() {
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+    String confirmPassword = _confirmPasswordController.text;
+
+    if (username.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+      handleShowError('Please fill in all fields');
+    } else if (password != confirmPassword) {
+      handleShowError('Passwords do not match');
+    } else if (!_isTermsAgreed) {
+      handleShowError('Please agree to the terms and conditions');
+    } else {
+      LocalStorage.setUserName(username);
+      LocalStorage.setPassword(password);
+      handleInformationPage();
+    }
+  }
+
+  void handleInformationPage() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const InformationPage(
+          isRegister: true,
+        ),
+      ),
+    );
+  }
+
+  void handleShowError(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +106,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       thickness: 1,
                     ),
                     TextField(
+                      controller: _usernameController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFD2D79F),
@@ -64,6 +119,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     TextFormField(
+                      controller: _passwordController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFD2D79F),
@@ -93,6 +149,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       obscureText: !_isPasswordVisible,
                     ),
                     TextFormField(
+                      controller: _confirmPasswordController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFD2D79F),
@@ -134,7 +191,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: handleContinue,
                       child: Container(
                         width: double.infinity,
                         height: MediaQuery.of(context).size.width * 0.1,
@@ -143,7 +200,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         child: Center(
                           child: Text(
-                            'Confirm',
+                            'Continue',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lexendExa(
                               color: Colors.white,

@@ -7,7 +7,7 @@ class Register {
       String username,
       String password,
       String nameTitle,
-      String fitstname,
+      String firstname,
       String lastname,
       String email,
       String expectedMonthly) async {
@@ -17,7 +17,7 @@ class Register {
         'username': username,
         'password': password,
         'nameTitle': nameTitle,
-        'fitstname': fitstname,
+        'firstname': firstname,
         'lastname': lastname,
         'email': email,
         'expectedMonthly': expectedMonthly,
@@ -27,7 +27,7 @@ class Register {
     } catch (e) {
       return BaseResponse<Null>(
         success: false,
-        message: e.toString(),
+        message: "Backend Error: ${e.toString()}",
         data: null,
       );
     }
