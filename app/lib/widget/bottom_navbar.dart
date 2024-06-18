@@ -28,20 +28,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset('assets/images/icon/tradeIcon.svg',
-              width: 41, height: 41, color: const Color(0xFF42855B)),
+              width: 30, height: 30, color: const Color(0xFF42855B)),
           label: 'repeat',
         ),
         const BottomNavigationBarItem(
           icon: Icon(
             Icons.house,
-            size: 41,
+            size: 30,
             color: Color(0xFF42855B),
           ),
           label: 'Settings',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset('assets/images/icon/certificateIcon.svg',
-              width: 41, height: 41, color: const Color(0xFF42855B)),
+              width: 25, height: 30, color: const Color(0xFF42855B)),
           label: 'certificate',
         ),
       ],
