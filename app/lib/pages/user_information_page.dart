@@ -92,13 +92,6 @@ class _InformationPageState extends State<InformationPage> {
         lastName.isEmpty ||
         email.isEmpty ||
         expected.isEmpty) {
-      print(nameTitle);
-      print(username);
-      print(firstName);
-      print(lastName);
-      print(email);
-      print(expected);
-
       handleShowError('Please fill in all fields');
       return;
     }
