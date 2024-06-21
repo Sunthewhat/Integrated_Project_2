@@ -19,7 +19,7 @@ class BaseResponse<T> {
     );
   }
 
-  factory BaseResponse.formArrayJson(
+  factory BaseResponse.fromArrayJson(
       Map<String, dynamic> json, Function(List<dynamic>)? create) {
     return BaseResponse(
       success: json['success'],
