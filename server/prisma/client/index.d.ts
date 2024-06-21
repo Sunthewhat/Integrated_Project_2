@@ -254,8 +254,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.15.1
-   * Query Engine version: 5675a3182f972f1a8f31d16eee6abf4fd54910e3
+   * Prisma Client JS version: 5.15.0
+   * Query Engine version: 12e25d8d06f6ea5a0252864dd9a03b1bb51f3022
    */
   export type PrismaVersion = {
     client: string
@@ -3044,18 +3044,21 @@ export namespace Prisma {
     traderId: number | null
     companyName: string | null
     amount: number | null
+    available: boolean | null
   }
 
   export type TraderMaxAggregateOutputType = {
     traderId: number | null
     companyName: string | null
     amount: number | null
+    available: boolean | null
   }
 
   export type TraderCountAggregateOutputType = {
     traderId: number
     companyName: number
     amount: number
+    available: number
     _all: number
   }
 
@@ -3074,18 +3077,21 @@ export namespace Prisma {
     traderId?: true
     companyName?: true
     amount?: true
+    available?: true
   }
 
   export type TraderMaxAggregateInputType = {
     traderId?: true
     companyName?: true
     amount?: true
+    available?: true
   }
 
   export type TraderCountAggregateInputType = {
     traderId?: true
     companyName?: true
     amount?: true
+    available?: true
     _all?: true
   }
 
@@ -3179,6 +3185,7 @@ export namespace Prisma {
     traderId: number
     companyName: string
     amount: number
+    available: boolean
     _count: TraderCountAggregateOutputType | null
     _avg: TraderAvgAggregateOutputType | null
     _sum: TraderSumAggregateOutputType | null
@@ -3204,6 +3211,7 @@ export namespace Prisma {
     traderId?: boolean
     companyName?: boolean
     amount?: boolean
+    available?: boolean
   }, ExtArgs["result"]["trader"]>
 
 
@@ -3211,6 +3219,7 @@ export namespace Prisma {
     traderId?: boolean
     companyName?: boolean
     amount?: boolean
+    available?: boolean
   }
 
 
@@ -3221,6 +3230,7 @@ export namespace Prisma {
       traderId: number
       companyName: string
       amount: number
+      available: boolean
     }, ExtArgs["result"]["trader"]>
     composites: {}
   }
@@ -3617,6 +3627,7 @@ export namespace Prisma {
     readonly traderId: FieldRef<"trader", 'Int'>
     readonly companyName: FieldRef<"trader", 'String'>
     readonly amount: FieldRef<"trader", 'Int'>
+    readonly available: FieldRef<"trader", 'Boolean'>
   }
     
 
@@ -3932,7 +3943,8 @@ export namespace Prisma {
   export const TraderScalarFieldEnum: {
     traderId: 'traderId',
     companyName: 'companyName',
-    amount: 'amount'
+    amount: 'amount',
+    available: 'available'
   };
 
   export type TraderScalarFieldEnum = (typeof TraderScalarFieldEnum)[keyof typeof TraderScalarFieldEnum]
@@ -3984,6 +3996,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4133,12 +4152,14 @@ export namespace Prisma {
     traderId?: IntFilter<"trader"> | number
     companyName?: StringFilter<"trader"> | string
     amount?: IntFilter<"trader"> | number
+    available?: BoolFilter<"trader"> | boolean
   }
 
   export type traderOrderByWithRelationInput = {
     traderId?: SortOrder
     companyName?: SortOrder
     amount?: SortOrder
+    available?: SortOrder
   }
 
   export type traderWhereUniqueInput = Prisma.AtLeast<{
@@ -4148,12 +4169,14 @@ export namespace Prisma {
     NOT?: traderWhereInput | traderWhereInput[]
     companyName?: StringFilter<"trader"> | string
     amount?: IntFilter<"trader"> | number
+    available?: BoolFilter<"trader"> | boolean
   }, "traderId">
 
   export type traderOrderByWithAggregationInput = {
     traderId?: SortOrder
     companyName?: SortOrder
     amount?: SortOrder
+    available?: SortOrder
     _count?: traderCountOrderByAggregateInput
     _avg?: traderAvgOrderByAggregateInput
     _max?: traderMaxOrderByAggregateInput
@@ -4168,6 +4191,7 @@ export namespace Prisma {
     traderId?: IntWithAggregatesFilter<"trader"> | number
     companyName?: StringWithAggregatesFilter<"trader"> | string
     amount?: IntWithAggregatesFilter<"trader"> | number
+    available?: BoolWithAggregatesFilter<"trader"> | boolean
   }
 
   export type userCreateInput = {
@@ -4306,40 +4330,47 @@ export namespace Prisma {
   export type traderCreateInput = {
     companyName: string
     amount: number
+    available: boolean
   }
 
   export type traderUncheckedCreateInput = {
     traderId?: number
     companyName: string
     amount: number
+    available: boolean
   }
 
   export type traderUpdateInput = {
     companyName?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
+    available?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type traderUncheckedUpdateInput = {
     traderId?: IntFieldUpdateOperationsInput | number
     companyName?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
+    available?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type traderCreateManyInput = {
     traderId?: number
     companyName: string
     amount: number
+    available: boolean
   }
 
   export type traderUpdateManyMutationInput = {
     companyName?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
+    available?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type traderUncheckedUpdateManyInput = {
     traderId?: IntFieldUpdateOperationsInput | number
     companyName?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
+    available?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4568,10 +4599,16 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type traderCountOrderByAggregateInput = {
     traderId?: SortOrder
     companyName?: SortOrder
     amount?: SortOrder
+    available?: SortOrder
   }
 
   export type traderAvgOrderByAggregateInput = {
@@ -4583,17 +4620,27 @@ export namespace Prisma {
     traderId?: SortOrder
     companyName?: SortOrder
     amount?: SortOrder
+    available?: SortOrder
   }
 
   export type traderMinOrderByAggregateInput = {
     traderId?: SortOrder
     companyName?: SortOrder
     amount?: SortOrder
+    available?: SortOrder
   }
 
   export type traderSumOrderByAggregateInput = {
     traderId?: SortOrder
     amount?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type cabonOffsetCreateNestedManyWithoutUserCertificateInput = {
@@ -4674,6 +4721,10 @@ export namespace Prisma {
     upsert?: userUpsertWithoutCabonOffSetInput
     connect?: userWhereUniqueInput
     update?: XOR<XOR<userUpdateToOneWithWhereWithoutCabonOffSetInput, userUpdateWithoutCabonOffSetInput>, userUncheckedUpdateWithoutCabonOffSetInput>
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -4827,6 +4878,19 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type cabonOffsetCreateWithoutUserCertificateInput = {

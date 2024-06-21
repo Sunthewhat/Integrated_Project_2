@@ -39,4 +39,5 @@ model trader {
   traderId    Int    @id @default(autoincrement())
   companyName String
   amount      Int
+  available   Boolean
 }
