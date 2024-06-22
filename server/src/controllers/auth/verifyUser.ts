@@ -3,7 +3,13 @@ import { getUserByUsername } from "../../services/database/user/get";
 
 const VerifyUserController = async (c: Context) => {
 	try {
-		const { username, password } = await c.req.json();
+		const body = await c.req.json();
+
+		const username = body.username;
+		const password = body.password;
+
+		console.log("username: ", username, "password: ", password);
+
 		if (!username || !password) {
 			return c.json({
 				success: false,
@@ -19,6 +25,8 @@ const VerifyUserController = async (c: Context) => {
 				data: null,
 			});
 		}
+		console.log("user: ", user);
+
 		const passwordMatch = await Bun.password.verify(password, user.password);
 		if (!passwordMatch) {
 			return c.json({

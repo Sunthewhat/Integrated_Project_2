@@ -14,30 +14,33 @@ model user {
   username        String
   password        String
   nameTitle       String?
-  firstname       String?
   lastname        String?
   email           String?
   expectedMonthly String?
+  firstname       String?
+  profileImage    String?
   cabonOffSet     cabonOffset[]
 }
 
 model cabonOffset {
-  certificateId   String     @id @default(uuid())
   userId          Int
+  certificateId   String     @id @default(uuid())
   amount          Int
-  unit            retailUnit
   date            DateTime   @default(now())
+  unit            retailUnit
   userCertificate user       @relation(fields: [userId], references: [userId])
+
+  @@index([userId], map: "cabonOffset_userId_fkey")
+}
+
+model trader {
+  traderId    Int     @id @default(autoincrement())
+  companyName String
+  amount      Int
+  available   Boolean
 }
 
 enum retailUnit {
   cc
   kg
-}
-
-model trader {
-  traderId    Int    @id @default(autoincrement())
-  companyName String
-  amount      Int
-  available   Boolean
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:c_trade/api/auth/register.dart';
 import 'package:c_trade/api/image/image_api.dart';
+import 'package:c_trade/api/user/upload_image.dart';
 import 'package:c_trade/local_storage.dart';
 import 'package:c_trade/pages/home_page.dart';
 import 'package:c_trade/widget/topbar.dart';
@@ -27,6 +28,7 @@ class _InformationPageState extends State<InformationPage> {
   String email = 'john@doe.com';
   String expected = '200 kgCO2eq';
   File? image;
+  bool isUploadFailed = false;
 
   List<String> nameTitles = ['Mr.', 'Mrs.', 'Ms.', 'Dr.'];
   List<String> expecteds = [
@@ -73,7 +75,6 @@ class _InformationPageState extends State<InformationPage> {
     final String filePath = '$path/profile.png';
 
     final File newImage = await img.copy(filePath);
-    LocalStorage.setProfilePath(filePath);
     setState(() {
       image = newImage;
     });
@@ -99,7 +100,20 @@ class _InformationPageState extends State<InformationPage> {
     var response = await Register.register(
         username, password, nameTitle, firstName, lastName, email, expected);
     if (response.success) {
-      handleHomePage();
+      if (image == null) {
+        handleHomePage();
+        return;
+      }
+      await LocalStorage.setUserId(response.data!.userId!);
+      var imageResponse = await UploadImage.upload(image!);
+      if (imageResponse.success) {
+        handleHomePage();
+      } else {
+        setState(() {
+          isUploadFailed = true;
+        });
+        handleShowError("Failed to upload Image \n ${imageResponse.message}");
+      }
     } else {
       handleShowError(response.message);
     }
@@ -124,6 +138,9 @@ class _InformationPageState extends State<InformationPage> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
+                if (isUploadFailed) {
+                  handleHomePage();
+                }
               },
               child: const Text('OK'),
             ),
