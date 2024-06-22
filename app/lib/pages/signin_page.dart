@@ -1,8 +1,8 @@
-import 'package:c_trade/api/auth/login.dart';
+import 'package:flutter/material.dart';
 import 'package:c_trade/local_storage.dart';
+import 'package:c_trade/api/auth/login.dart';
 import 'package:c_trade/pages/home_page.dart';
 import 'package:c_trade/pages/signup_page.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignInPage extends StatefulWidget {
@@ -26,26 +26,40 @@ class _SignInPageState extends State<SignInPage> {
   void handleLogin() {
     String username = _usernameController.text;
     String password = _passwordController.text;
+    Future<void> setUserId;
+    Future<void> clearPassword;
+    Future<void> setLoggedInStatus;
 
     if (username.isEmpty || password.isEmpty) {
       handleShowError('Please fill in all fields');
     } else {
       Login.login(username, password).then(
-        (value) => {
+        (value) async => {
           if (value.success)
             {
-              LocalStorage.setLoggedIn(true),
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ),
-              ),
+              clearPassword = LocalStorage.clearPassword(),
+              setLoggedInStatus = LocalStorage.setLoggedIn(true),
+              setUserId = LocalStorage.setUserId('${value.data!.userId}'),
+              await setUserId,
+              await clearPassword,
+              await setLoggedInStatus,
+              handleHomePage(),
             }
           else
-            {handleShowError(value.message)}
+            {
+              handleShowError(value.message),
+            }
         },
       );
     }
+  }
+
+  void handleHomePage() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+    );
   }
 
   void handleShowError(String message) {

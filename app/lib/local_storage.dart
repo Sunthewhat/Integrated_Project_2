@@ -6,11 +6,15 @@ class LocalStorage {
   static const _keyUserName = 'username';
   static const _keyIsLoggedIn = 'isLoggedIn';
   static const _keyPassword = 'password';
-  static const _keyProfilePath = 'profilePath';
+  static const _keyUserId = 'userId';
 
   // Initialize the SharedPreferences instance
   static Future init() async {
     _preferences = await SharedPreferences.getInstance();
+  }
+
+  static Future clear() async {
+    await _preferences?.clear();
   }
 
   // Set username
@@ -21,6 +25,11 @@ class LocalStorage {
   // Get username
   static String? getUserName() {
     return _preferences?.getString(_keyUserName);
+  }
+
+  // Clear username
+  static Future clearUserName() async {
+    await _preferences?.remove(_keyUserName);
   }
 
   // Set login status
@@ -43,13 +52,23 @@ class LocalStorage {
     return _preferences?.getString(_keyPassword);
   }
 
-  // Set profile path
-  static Future setProfilePath(String profilePath) async {
-    await _preferences?.setString(_keyProfilePath, profilePath);
+  // Clear password
+  static Future clearPassword() async {
+    await _preferences?.remove(_keyPassword);
   }
 
-  // Get profile path
-  static String? getProfilePath() {
-    return _preferences?.getString(_keyProfilePath);
+  // Set user ID
+  static Future setUserId(String userId) async {
+    await _preferences?.setString(_keyUserId, userId);
+  }
+
+  // Get user ID
+  static String? getUserId() {
+    return _preferences?.getString(_keyUserId);
+  }
+
+  // Clear user ID
+  static Future clearUserId() async {
+    await _preferences?.remove(_keyUserId);
   }
 }

@@ -124,18 +124,19 @@ exports.Prisma.UserScalarFieldEnum = {
   username: 'username',
   password: 'password',
   nameTitle: 'nameTitle',
-  firstname: 'firstname',
   lastname: 'lastname',
   email: 'email',
-  expectedMonthly: 'expectedMonthly'
+  expectedMonthly: 'expectedMonthly',
+  firstname: 'firstname',
+  profileImage: 'profileImage'
 };
 
 exports.Prisma.CabonOffsetScalarFieldEnum = {
-  certificateId: 'certificateId',
   userId: 'userId',
+  certificateId: 'certificateId',
   amount: 'amount',
-  unit: 'unit',
-  date: 'date'
+  date: 'date',
+  unit: 'unit'
 };
 
 exports.Prisma.TraderScalarFieldEnum = {
