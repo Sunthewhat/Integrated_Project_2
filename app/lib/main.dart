@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalStorage.init();
+  // await LocalStorage.clear();
   runApp(const CTrade());
 }
 

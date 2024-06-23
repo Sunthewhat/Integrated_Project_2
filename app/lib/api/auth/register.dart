@@ -1,9 +1,10 @@
 import 'package:c_trade/constant.dart';
 import 'package:c_trade/model/base_response.dart';
+import 'package:c_trade/model/responses/register_response.dart';
 import 'package:dio/dio.dart';
 
 class Register {
-  static Future<BaseResponse<Null>> register(
+  static Future<BaseResponse<RegisterResponse?>> register(
       String username,
       String password,
       String nameTitle,
@@ -22,12 +23,13 @@ class Register {
         'email': email,
         'expectedMonthly': expectedMonthly,
       });
-      var response = BaseResponse<Null>.fromJson(res.data, null);
+      var response = BaseResponse<RegisterResponse?>.fromJson(
+          res.data, RegisterResponse.fromJson);
       return response;
     } catch (e) {
-      return BaseResponse<Null>(
+      return BaseResponse<RegisterResponse?>(
         success: false,
-        message: "Backend Error: ${e.toString()}",
+        message: "Register Error: ${e.toString()}",
         data: null,
       );
     }

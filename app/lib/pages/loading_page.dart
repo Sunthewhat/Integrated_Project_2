@@ -20,7 +20,6 @@ class _LoadingPageState extends State<LoadingPage> {
   void _checkIsLoggedIn() async {
     // await Future.delayed(const Duration(seconds: 1));
     final isLoggedIn = LocalStorage.getLoggedIn();
-    print(isLoggedIn);
 
     // Schedule the navigation to happen after the current frame
     WidgetsBinding.instance.addPostFrameCallback((_) {
