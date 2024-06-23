@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void handleProfilePage() {
-    Navigator.of(context).pushReplacement(
+    Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const InformationPage(
           isRegister: false,
