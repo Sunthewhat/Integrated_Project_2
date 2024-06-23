@@ -59,7 +59,6 @@ class _CertificateState extends State<Certificate> {
           widthFactor: 1,
           heightFactor: 1,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20.0),
             child: Column(children: [
               const RearrangeBar(),
               Column(
@@ -72,10 +71,21 @@ class _CertificateState extends State<Certificate> {
                         TotalAmount(
                           tradeInfo: tradeInfo,
                         ),
-                        CustomCard(
-                          title: "${certificates[0].amount} kgCO2eq",
-                          date: "MM/DD/YYYY",
-                          cert: "Cert. ID: <cert id>",
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.9,
+                          child: ListView.builder(
+                            itemCount: certificates.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              var certificate = certificates[index];
+                              return CustomCard(
+                                title: "${certificate.amount} kgCO2eq",
+                                date: certificate.date
+                                    .toString()
+                                    .substring(0, 10),
+                                cert: "Cert. ID: ${certificate.certificateId}",
+                              );
+                            },
+                          ),
                         ),
                       ],
               ),
