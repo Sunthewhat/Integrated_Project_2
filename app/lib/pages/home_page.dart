@@ -6,6 +6,7 @@ import 'package:c_trade/model/responses/trade_info_response.dart';
 import 'package:c_trade/model/responses/trade_stats_response.dart';
 import 'package:c_trade/pages/signin_page.dart';
 import 'package:c_trade/pages/user_information_page.dart';
+import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:c_trade/local_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -501,6 +502,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
         ),
+      ),
+      bottomNavigationBar: const BottomNavBar(
+        pageName: 'home',
       ),
     );
   }
