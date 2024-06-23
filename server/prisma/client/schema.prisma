@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model user {
+  userId          Int           @id @default(autoincrement())
+  username        String
+  password        String
+  nameTitle       String?
+  firstname       String?
+  lastname        String?
+  email           String?
+  expectedMonthly String?
+  cabonOffSet     cabonOffset[]
+}
+
+model cabonOffset {
+  certificateId   String     @id @default(uuid())
+  userId          Int
+  amount          Int
+  unit            retailUnit
+  date            DateTime   @default(now())
+  userCertificate user       @relation(fields: [userId], references: [userId])
+}
+
+enum retailUnit {
+  cc
+  kg
+}
+
+model trader {
+  traderId    Int     @id @default(autoincrement())
+  companyName String
+  amount      Int
+  available   Boolean
+}
