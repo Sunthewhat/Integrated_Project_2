@@ -22,16 +22,15 @@ model user {
 }
 
 model cabonOffset {
-  carbonId        Int          @id @default(autoincrement())
+  certificateId   String     @id @default(uuid())
   userId          Int
-  certificateId   Int          @unique
-  amount          String
-  method          retailMethod
-  date            DateTime     @default(now())
-  userCertificate user         @relation(fields: [userId], references: [userId])
+  amount          Int
+  unit            retailUnit
+  date            DateTime   @default(now())
+  userCertificate user       @relation(fields: [userId], references: [userId])
 }
 
-enum retailMethod {
+enum retailUnit {
   cc
   kg
 }
@@ -40,4 +39,5 @@ model trader {
   traderId    Int    @id @default(autoincrement())
   companyName String
   amount      Int
+  available   Boolean
 }
