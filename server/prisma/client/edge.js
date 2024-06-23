@@ -143,7 +143,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\vscode\\Integrated_2\\server\\prisma\\client",
+      "value": "/Users/jakesmac/Documents/code/INT2/server/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -152,7 +152,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin-arm64",
         "native": true
       }
     ],
@@ -160,8 +160,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "..",
   "clientVersion": "5.15.0",
@@ -170,7 +169,7 @@ const config = {
     "db"
   ],
   "activeProvider": "mysql",
-  "postinstall": false,
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
