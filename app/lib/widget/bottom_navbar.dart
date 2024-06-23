@@ -1,6 +1,8 @@
 import 'package:c_trade/pages/certificate.dart';
+import 'package:c_trade/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 class BottomNavBar extends StatefulWidget {
   final String pageName;
   final Color backgroundColor;
@@ -37,7 +39,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void handleHomePage() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const Certificate(),
+        builder: (context) => const HomePage(),
       ),
     );
   }

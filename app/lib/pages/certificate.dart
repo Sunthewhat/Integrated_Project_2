@@ -1,5 +1,7 @@
 import 'package:c_trade/api/certificate/certificate.dart';
+import 'package:c_trade/api/user/get_trade_info.dart';
 import 'package:c_trade/model/responses/certificate_response.dart';
+import 'package:c_trade/model/responses/trade_info_response.dart';
 import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:c_trade/widget/card.dart';
 import 'package:c_trade/widget/topbar.dart';
@@ -13,18 +15,33 @@ class Certificate extends StatefulWidget {
 }
 
 class _CertificateState extends State<Certificate> {
+  bool isFetching = true;
+  bool isFetchingStats = true;
   List<CertificateResponse> certificates = [];
+  TradeInfoResponse? tradeInfo;
 
   void getCertificates() async {
     var response = await CertificateAPI.certificate();
     setState(() {
       certificates = response.data!.certificates;
+      isFetching = false;
     });
+  }
+
+  void getStats() async {
+    var response = await GetTradeInfo.getTradeInfo();
+    if (response.success) {
+      setState(() {
+        tradeInfo = response.data;
+        isFetchingStats = false;
+      });
+    }
   }
 
   @override
   void initState() {
     getCertificates();
+    getStats();
     super.initState();
   }
 
@@ -45,11 +62,22 @@ class _CertificateState extends State<Certificate> {
             padding: const EdgeInsets.all(20.0),
             child: Column(children: [
               const RearrangeBar(),
-              const TotalAmount(),
-              CustomCard(
-                title: "${certificates[0].amount}<amount> kgCO2eq",
-                date: "MM/DD/YYYY",
-                cert: "Cert. ID: <cert id>",
+              Column(
+                children: isFetching || isFetchingStats
+                    ? const [
+                        CircularProgressIndicator(),
+                        Text("Fetching data..."),
+                      ]
+                    : [
+                        TotalAmount(
+                          tradeInfo: tradeInfo,
+                        ),
+                        CustomCard(
+                          title: "${certificates[0].amount} kgCO2eq",
+                          date: "MM/DD/YYYY",
+                          cert: "Cert. ID: <cert id>",
+                        ),
+                      ],
               ),
             ]),
           ),
@@ -76,18 +104,25 @@ class RearrangeBar extends StatelessWidget {
   }
 }
 
-class TotalAmount extends StatelessWidget {
+class TotalAmount extends StatefulWidget {
+  final TradeInfoResponse? tradeInfo;
   const TotalAmount({
     super.key,
+    this.tradeInfo,
   });
 
+  @override
+  State<TotalAmount> createState() => _TotalAmountState();
+}
+
+class _TotalAmountState extends State<TotalAmount> {
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
-      child: const Text(
-        "Total  <amount> Certificates with <amount> kgCO2eq ",
-        style: TextStyle(
+      child: Text(
+        "Total  ${widget.tradeInfo!.totalCertificates} Certificates with ${widget.tradeInfo!.totalCarbonOffset} kgCO2eq ",
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 14,
         ),
