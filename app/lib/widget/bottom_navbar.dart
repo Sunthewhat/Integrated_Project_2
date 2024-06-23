@@ -29,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   void handleTradePage() {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const Certificate(),
       ),
@@ -37,7 +37,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   void handleHomePage() {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const HomePage(),
       ),
@@ -45,7 +45,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   void handleCertificatePage() {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) => const Certificate(),
       ),
