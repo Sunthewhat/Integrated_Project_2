@@ -1110,10 +1110,11 @@ export namespace Prisma {
     username: string | null
     password: string | null
     nameTitle: string | null
-    firstname: string | null
     lastname: string | null
     email: string | null
     expectedMonthly: string | null
+    firstname: string | null
+    profileImage: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1121,10 +1122,11 @@ export namespace Prisma {
     username: string | null
     password: string | null
     nameTitle: string | null
-    firstname: string | null
     lastname: string | null
     email: string | null
     expectedMonthly: string | null
+    firstname: string | null
+    profileImage: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1132,10 +1134,11 @@ export namespace Prisma {
     username: number
     password: number
     nameTitle: number
-    firstname: number
     lastname: number
     email: number
     expectedMonthly: number
+    firstname: number
+    profileImage: number
     _all: number
   }
 
@@ -1153,10 +1156,11 @@ export namespace Prisma {
     username?: true
     password?: true
     nameTitle?: true
-    firstname?: true
     lastname?: true
     email?: true
     expectedMonthly?: true
+    firstname?: true
+    profileImage?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1164,10 +1168,11 @@ export namespace Prisma {
     username?: true
     password?: true
     nameTitle?: true
-    firstname?: true
     lastname?: true
     email?: true
     expectedMonthly?: true
+    firstname?: true
+    profileImage?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1175,10 +1180,11 @@ export namespace Prisma {
     username?: true
     password?: true
     nameTitle?: true
-    firstname?: true
     lastname?: true
     email?: true
     expectedMonthly?: true
+    firstname?: true
+    profileImage?: true
     _all?: true
   }
 
@@ -1273,10 +1279,11 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle: string | null
-    firstname: string | null
     lastname: string | null
     email: string | null
     expectedMonthly: string | null
+    firstname: string | null
+    profileImage: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1303,10 +1310,11 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     nameTitle?: boolean
-    firstname?: boolean
     lastname?: boolean
     email?: boolean
     expectedMonthly?: boolean
+    firstname?: boolean
+    profileImage?: boolean
     cabonOffSet?: boolean | user$cabonOffSetArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -1317,10 +1325,11 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     nameTitle?: boolean
-    firstname?: boolean
     lastname?: boolean
     email?: boolean
     expectedMonthly?: boolean
+    firstname?: boolean
+    profileImage?: boolean
   }
 
   export type userInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1338,10 +1347,11 @@ export namespace Prisma {
       username: string
       password: string
       nameTitle: string | null
-      firstname: string | null
       lastname: string | null
       email: string | null
       expectedMonthly: string | null
+      firstname: string | null
+      profileImage: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1740,10 +1750,11 @@ export namespace Prisma {
     readonly username: FieldRef<"user", 'String'>
     readonly password: FieldRef<"user", 'String'>
     readonly nameTitle: FieldRef<"user", 'String'>
-    readonly firstname: FieldRef<"user", 'String'>
     readonly lastname: FieldRef<"user", 'String'>
     readonly email: FieldRef<"user", 'String'>
     readonly expectedMonthly: FieldRef<"user", 'String'>
+    readonly firstname: FieldRef<"user", 'String'>
+    readonly profileImage: FieldRef<"user", 'String'>
   }
     
 
@@ -2100,27 +2111,27 @@ export namespace Prisma {
   }
 
   export type CabonOffsetMinAggregateOutputType = {
-    certificateId: string | null
     userId: number | null
+    certificateId: string | null
     amount: number | null
-    unit: $Enums.retailUnit | null
     date: Date | null
+    unit: $Enums.retailUnit | null
   }
 
   export type CabonOffsetMaxAggregateOutputType = {
-    certificateId: string | null
     userId: number | null
+    certificateId: string | null
     amount: number | null
-    unit: $Enums.retailUnit | null
     date: Date | null
+    unit: $Enums.retailUnit | null
   }
 
   export type CabonOffsetCountAggregateOutputType = {
-    certificateId: number
     userId: number
+    certificateId: number
     amount: number
-    unit: number
     date: number
+    unit: number
     _all: number
   }
 
@@ -2136,27 +2147,27 @@ export namespace Prisma {
   }
 
   export type CabonOffsetMinAggregateInputType = {
-    certificateId?: true
     userId?: true
+    certificateId?: true
     amount?: true
-    unit?: true
     date?: true
+    unit?: true
   }
 
   export type CabonOffsetMaxAggregateInputType = {
-    certificateId?: true
     userId?: true
+    certificateId?: true
     amount?: true
-    unit?: true
     date?: true
+    unit?: true
   }
 
   export type CabonOffsetCountAggregateInputType = {
-    certificateId?: true
     userId?: true
+    certificateId?: true
     amount?: true
-    unit?: true
     date?: true
+    unit?: true
     _all?: true
   }
 
@@ -2247,11 +2258,11 @@ export namespace Prisma {
   }
 
   export type CabonOffsetGroupByOutputType = {
-    certificateId: string
     userId: number
+    certificateId: string
     amount: number
-    unit: $Enums.retailUnit
     date: Date
+    unit: $Enums.retailUnit
     _count: CabonOffsetCountAggregateOutputType | null
     _avg: CabonOffsetAvgAggregateOutputType | null
     _sum: CabonOffsetSumAggregateOutputType | null
@@ -2274,21 +2285,21 @@ export namespace Prisma {
 
 
   export type cabonOffsetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    certificateId?: boolean
     userId?: boolean
+    certificateId?: boolean
     amount?: boolean
-    unit?: boolean
     date?: boolean
+    unit?: boolean
     userCertificate?: boolean | userDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["cabonOffset"]>
 
 
   export type cabonOffsetSelectScalar = {
-    certificateId?: boolean
     userId?: boolean
+    certificateId?: boolean
     amount?: boolean
-    unit?: boolean
     date?: boolean
+    unit?: boolean
   }
 
   export type cabonOffsetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2301,11 +2312,11 @@ export namespace Prisma {
       userCertificate: Prisma.$userPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      certificateId: string
       userId: number
+      certificateId: string
       amount: number
-      unit: $Enums.retailUnit
       date: Date
+      unit: $Enums.retailUnit
     }, ExtArgs["result"]["cabonOffset"]>
     composites: {}
   }
@@ -2397,8 +2408,8 @@ export namespace Prisma {
      * // Get first 10 CabonOffsets
      * const cabonOffsets = await prisma.cabonOffset.findMany({ take: 10 })
      * 
-     * // Only select the `certificateId`
-     * const cabonOffsetWithCertificateIdOnly = await prisma.cabonOffset.findMany({ select: { certificateId: true } })
+     * // Only select the `userId`
+     * const cabonOffsetWithUserIdOnly = await prisma.cabonOffset.findMany({ select: { userId: true } })
      * 
     **/
     findMany<T extends cabonOffsetFindManyArgs<ExtArgs>>(
@@ -2700,11 +2711,11 @@ export namespace Prisma {
    * Fields of the cabonOffset model
    */ 
   interface cabonOffsetFieldRefs {
-    readonly certificateId: FieldRef<"cabonOffset", 'String'>
     readonly userId: FieldRef<"cabonOffset", 'Int'>
+    readonly certificateId: FieldRef<"cabonOffset", 'String'>
     readonly amount: FieldRef<"cabonOffset", 'Int'>
-    readonly unit: FieldRef<"cabonOffset", 'retailUnit'>
     readonly date: FieldRef<"cabonOffset", 'DateTime'>
+    readonly unit: FieldRef<"cabonOffset", 'retailUnit'>
   }
     
 
@@ -3920,21 +3931,22 @@ export namespace Prisma {
     username: 'username',
     password: 'password',
     nameTitle: 'nameTitle',
-    firstname: 'firstname',
     lastname: 'lastname',
     email: 'email',
-    expectedMonthly: 'expectedMonthly'
+    expectedMonthly: 'expectedMonthly',
+    firstname: 'firstname',
+    profileImage: 'profileImage'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
   export const CabonOffsetScalarFieldEnum: {
-    certificateId: 'certificateId',
     userId: 'userId',
+    certificateId: 'certificateId',
     amount: 'amount',
-    unit: 'unit',
-    date: 'date'
+    date: 'date',
+    unit: 'unit'
   };
 
   export type CabonOffsetScalarFieldEnum = (typeof CabonOffsetScalarFieldEnum)[keyof typeof CabonOffsetScalarFieldEnum]
@@ -3986,16 +3998,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'retailUnit'
+   * Reference to a field of type 'DateTime'
    */
-  export type EnumretailUnitFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'retailUnit'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
   /**
-   * Reference to a field of type 'DateTime'
+   * Reference to a field of type 'retailUnit'
    */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+  export type EnumretailUnitFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'retailUnit'>
     
 
 
@@ -4024,10 +4036,11 @@ export namespace Prisma {
     username?: StringFilter<"user"> | string
     password?: StringFilter<"user"> | string
     nameTitle?: StringNullableFilter<"user"> | string | null
-    firstname?: StringNullableFilter<"user"> | string | null
     lastname?: StringNullableFilter<"user"> | string | null
     email?: StringNullableFilter<"user"> | string | null
     expectedMonthly?: StringNullableFilter<"user"> | string | null
+    firstname?: StringNullableFilter<"user"> | string | null
+    profileImage?: StringNullableFilter<"user"> | string | null
     cabonOffSet?: CabonOffsetListRelationFilter
   }
 
@@ -4036,10 +4049,11 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrderInput | SortOrder
-    firstname?: SortOrderInput | SortOrder
     lastname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     expectedMonthly?: SortOrderInput | SortOrder
+    firstname?: SortOrderInput | SortOrder
+    profileImage?: SortOrderInput | SortOrder
     cabonOffSet?: cabonOffsetOrderByRelationAggregateInput
   }
 
@@ -4051,10 +4065,11 @@ export namespace Prisma {
     username?: StringFilter<"user"> | string
     password?: StringFilter<"user"> | string
     nameTitle?: StringNullableFilter<"user"> | string | null
-    firstname?: StringNullableFilter<"user"> | string | null
     lastname?: StringNullableFilter<"user"> | string | null
     email?: StringNullableFilter<"user"> | string | null
     expectedMonthly?: StringNullableFilter<"user"> | string | null
+    firstname?: StringNullableFilter<"user"> | string | null
+    profileImage?: StringNullableFilter<"user"> | string | null
     cabonOffSet?: CabonOffsetListRelationFilter
   }, "userId">
 
@@ -4063,10 +4078,11 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrderInput | SortOrder
-    firstname?: SortOrderInput | SortOrder
     lastname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     expectedMonthly?: SortOrderInput | SortOrder
+    firstname?: SortOrderInput | SortOrder
+    profileImage?: SortOrderInput | SortOrder
     _count?: userCountOrderByAggregateInput
     _avg?: userAvgOrderByAggregateInput
     _max?: userMaxOrderByAggregateInput
@@ -4082,30 +4098,31 @@ export namespace Prisma {
     username?: StringWithAggregatesFilter<"user"> | string
     password?: StringWithAggregatesFilter<"user"> | string
     nameTitle?: StringNullableWithAggregatesFilter<"user"> | string | null
-    firstname?: StringNullableWithAggregatesFilter<"user"> | string | null
     lastname?: StringNullableWithAggregatesFilter<"user"> | string | null
     email?: StringNullableWithAggregatesFilter<"user"> | string | null
     expectedMonthly?: StringNullableWithAggregatesFilter<"user"> | string | null
+    firstname?: StringNullableWithAggregatesFilter<"user"> | string | null
+    profileImage?: StringNullableWithAggregatesFilter<"user"> | string | null
   }
 
   export type cabonOffsetWhereInput = {
     AND?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
     OR?: cabonOffsetWhereInput[]
     NOT?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
-    certificateId?: StringFilter<"cabonOffset"> | string
     userId?: IntFilter<"cabonOffset"> | number
+    certificateId?: StringFilter<"cabonOffset"> | string
     amount?: IntFilter<"cabonOffset"> | number
-    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
     date?: DateTimeFilter<"cabonOffset"> | Date | string
+    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
     userCertificate?: XOR<UserRelationFilter, userWhereInput>
   }
 
   export type cabonOffsetOrderByWithRelationInput = {
-    certificateId?: SortOrder
     userId?: SortOrder
+    certificateId?: SortOrder
     amount?: SortOrder
-    unit?: SortOrder
     date?: SortOrder
+    unit?: SortOrder
     userCertificate?: userOrderByWithRelationInput
   }
 
@@ -4116,17 +4133,17 @@ export namespace Prisma {
     NOT?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
     userId?: IntFilter<"cabonOffset"> | number
     amount?: IntFilter<"cabonOffset"> | number
-    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
     date?: DateTimeFilter<"cabonOffset"> | Date | string
+    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
     userCertificate?: XOR<UserRelationFilter, userWhereInput>
   }, "certificateId">
 
   export type cabonOffsetOrderByWithAggregationInput = {
-    certificateId?: SortOrder
     userId?: SortOrder
+    certificateId?: SortOrder
     amount?: SortOrder
-    unit?: SortOrder
     date?: SortOrder
+    unit?: SortOrder
     _count?: cabonOffsetCountOrderByAggregateInput
     _avg?: cabonOffsetAvgOrderByAggregateInput
     _max?: cabonOffsetMaxOrderByAggregateInput
@@ -4138,11 +4155,11 @@ export namespace Prisma {
     AND?: cabonOffsetScalarWhereWithAggregatesInput | cabonOffsetScalarWhereWithAggregatesInput[]
     OR?: cabonOffsetScalarWhereWithAggregatesInput[]
     NOT?: cabonOffsetScalarWhereWithAggregatesInput | cabonOffsetScalarWhereWithAggregatesInput[]
-    certificateId?: StringWithAggregatesFilter<"cabonOffset"> | string
     userId?: IntWithAggregatesFilter<"cabonOffset"> | number
+    certificateId?: StringWithAggregatesFilter<"cabonOffset"> | string
     amount?: IntWithAggregatesFilter<"cabonOffset"> | number
-    unit?: EnumretailUnitWithAggregatesFilter<"cabonOffset"> | $Enums.retailUnit
     date?: DateTimeWithAggregatesFilter<"cabonOffset"> | Date | string
+    unit?: EnumretailUnitWithAggregatesFilter<"cabonOffset"> | $Enums.retailUnit
   }
 
   export type traderWhereInput = {
@@ -4198,10 +4215,11 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
-    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
+    firstname?: string | null
+    profileImage?: string | null
     cabonOffSet?: cabonOffsetCreateNestedManyWithoutUserCertificateInput
   }
 
@@ -4210,10 +4228,11 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
-    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
+    firstname?: string | null
+    profileImage?: string | null
     cabonOffSet?: cabonOffsetUncheckedCreateNestedManyWithoutUserCertificateInput
   }
 
@@ -4221,10 +4240,11 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     cabonOffSet?: cabonOffsetUpdateManyWithoutUserCertificateNestedInput
   }
 
@@ -4233,10 +4253,11 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     cabonOffSet?: cabonOffsetUncheckedUpdateManyWithoutUserCertificateNestedInput
   }
 
@@ -4245,20 +4266,22 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
-    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
+    firstname?: string | null
+    profileImage?: string | null
   }
 
   export type userUpdateManyMutationInput = {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type userUncheckedUpdateManyInput = {
@@ -4266,65 +4289,66 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type cabonOffsetCreateInput = {
     certificateId?: string
     amount: number
-    unit: $Enums.retailUnit
     date?: Date | string
+    unit: $Enums.retailUnit
     userCertificate: userCreateNestedOneWithoutCabonOffSetInput
   }
 
   export type cabonOffsetUncheckedCreateInput = {
-    certificateId?: string
     userId: number
+    certificateId?: string
     amount: number
-    unit: $Enums.retailUnit
     date?: Date | string
+    unit: $Enums.retailUnit
   }
 
   export type cabonOffsetUpdateInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     userCertificate?: userUpdateOneRequiredWithoutCabonOffSetNestedInput
   }
 
   export type cabonOffsetUncheckedUpdateInput = {
-    certificateId?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
   export type cabonOffsetCreateManyInput = {
-    certificateId?: string
     userId: number
+    certificateId?: string
     amount: number
-    unit: $Enums.retailUnit
     date?: Date | string
+    unit: $Enums.retailUnit
   }
 
   export type cabonOffsetUpdateManyMutationInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
   export type cabonOffsetUncheckedUpdateManyInput = {
-    certificateId?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
   export type traderCreateInput = {
@@ -4432,10 +4456,11 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrder
-    firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
     expectedMonthly?: SortOrder
+    firstname?: SortOrder
+    profileImage?: SortOrder
   }
 
   export type userAvgOrderByAggregateInput = {
@@ -4447,10 +4472,11 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrder
-    firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
     expectedMonthly?: SortOrder
+    firstname?: SortOrder
+    profileImage?: SortOrder
   }
 
   export type userMinOrderByAggregateInput = {
@@ -4458,10 +4484,11 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrder
-    firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
     expectedMonthly?: SortOrder
+    firstname?: SortOrder
+    profileImage?: SortOrder
   }
 
   export type userSumOrderByAggregateInput = {
@@ -4518,13 +4545,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumretailUnitFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitFilter<$PrismaModel> | $Enums.retailUnit
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -4536,17 +4556,24 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type EnumretailUnitFilter<$PrismaModel = never> = {
+    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
+    in?: $Enums.retailUnit[]
+    notIn?: $Enums.retailUnit[]
+    not?: NestedEnumretailUnitFilter<$PrismaModel> | $Enums.retailUnit
+  }
+
   export type UserRelationFilter = {
     is?: userWhereInput
     isNot?: userWhereInput
   }
 
   export type cabonOffsetCountOrderByAggregateInput = {
-    certificateId?: SortOrder
     userId?: SortOrder
+    certificateId?: SortOrder
     amount?: SortOrder
-    unit?: SortOrder
     date?: SortOrder
+    unit?: SortOrder
   }
 
   export type cabonOffsetAvgOrderByAggregateInput = {
@@ -4555,34 +4582,24 @@ export namespace Prisma {
   }
 
   export type cabonOffsetMaxOrderByAggregateInput = {
-    certificateId?: SortOrder
     userId?: SortOrder
+    certificateId?: SortOrder
     amount?: SortOrder
-    unit?: SortOrder
     date?: SortOrder
+    unit?: SortOrder
   }
 
   export type cabonOffsetMinOrderByAggregateInput = {
-    certificateId?: SortOrder
     userId?: SortOrder
+    certificateId?: SortOrder
     amount?: SortOrder
-    unit?: SortOrder
     date?: SortOrder
+    unit?: SortOrder
   }
 
   export type cabonOffsetSumOrderByAggregateInput = {
     userId?: SortOrder
     amount?: SortOrder
-  }
-
-  export type EnumretailUnitWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitWithAggregatesFilter<$PrismaModel> | $Enums.retailUnit
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumretailUnitFilter<$PrismaModel>
-    _max?: NestedEnumretailUnitFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -4597,6 +4614,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type EnumretailUnitWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
+    in?: $Enums.retailUnit[]
+    notIn?: $Enums.retailUnit[]
+    not?: NestedEnumretailUnitWithAggregatesFilter<$PrismaModel> | $Enums.retailUnit
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumretailUnitFilter<$PrismaModel>
+    _max?: NestedEnumretailUnitFilter<$PrismaModel>
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -4707,12 +4734,12 @@ export namespace Prisma {
     connect?: userWhereUniqueInput
   }
 
-  export type EnumretailUnitFieldUpdateOperationsInput = {
-    set?: $Enums.retailUnit
-  }
-
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type EnumretailUnitFieldUpdateOperationsInput = {
+    set?: $Enums.retailUnit
   }
 
   export type userUpdateOneRequiredWithoutCabonOffSetNestedInput = {
@@ -4838,13 +4865,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumretailUnitFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitFilter<$PrismaModel> | $Enums.retailUnit
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -4856,14 +4876,11 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedEnumretailUnitWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedEnumretailUnitFilter<$PrismaModel = never> = {
     equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
     in?: $Enums.retailUnit[]
     notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitWithAggregatesFilter<$PrismaModel> | $Enums.retailUnit
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumretailUnitFilter<$PrismaModel>
-    _max?: NestedEnumretailUnitFilter<$PrismaModel>
+    not?: NestedEnumretailUnitFilter<$PrismaModel> | $Enums.retailUnit
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -4878,6 +4895,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumretailUnitWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
+    in?: $Enums.retailUnit[]
+    notIn?: $Enums.retailUnit[]
+    not?: NestedEnumretailUnitWithAggregatesFilter<$PrismaModel> | $Enums.retailUnit
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumretailUnitFilter<$PrismaModel>
+    _max?: NestedEnumretailUnitFilter<$PrismaModel>
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -4896,15 +4923,15 @@ export namespace Prisma {
   export type cabonOffsetCreateWithoutUserCertificateInput = {
     certificateId?: string
     amount: number
-    unit: $Enums.retailUnit
     date?: Date | string
+    unit: $Enums.retailUnit
   }
 
   export type cabonOffsetUncheckedCreateWithoutUserCertificateInput = {
     certificateId?: string
     amount: number
-    unit: $Enums.retailUnit
     date?: Date | string
+    unit: $Enums.retailUnit
   }
 
   export type cabonOffsetCreateOrConnectWithoutUserCertificateInput = {
@@ -4937,21 +4964,22 @@ export namespace Prisma {
     AND?: cabonOffsetScalarWhereInput | cabonOffsetScalarWhereInput[]
     OR?: cabonOffsetScalarWhereInput[]
     NOT?: cabonOffsetScalarWhereInput | cabonOffsetScalarWhereInput[]
-    certificateId?: StringFilter<"cabonOffset"> | string
     userId?: IntFilter<"cabonOffset"> | number
+    certificateId?: StringFilter<"cabonOffset"> | string
     amount?: IntFilter<"cabonOffset"> | number
-    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
     date?: DateTimeFilter<"cabonOffset"> | Date | string
+    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
   }
 
   export type userCreateWithoutCabonOffSetInput = {
     username: string
     password: string
     nameTitle?: string | null
-    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
+    firstname?: string | null
+    profileImage?: string | null
   }
 
   export type userUncheckedCreateWithoutCabonOffSetInput = {
@@ -4959,10 +4987,11 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
-    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
+    firstname?: string | null
+    profileImage?: string | null
   }
 
   export type userCreateOrConnectWithoutCabonOffSetInput = {
@@ -4985,10 +5014,11 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type userUncheckedUpdateWithoutCabonOffSetInput = {
@@ -4996,38 +5026,39 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
+    profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type cabonOffsetCreateManyUserCertificateInput = {
     certificateId?: string
     amount: number
-    unit: $Enums.retailUnit
     date?: Date | string
+    unit: $Enums.retailUnit
   }
 
   export type cabonOffsetUpdateWithoutUserCertificateInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
   export type cabonOffsetUncheckedUpdateWithoutUserCertificateInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
   export type cabonOffsetUncheckedUpdateManyWithoutUserCertificateInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
 

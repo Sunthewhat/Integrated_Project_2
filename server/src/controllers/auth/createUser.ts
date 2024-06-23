@@ -22,7 +22,7 @@ const CreateUserController = async (c: Context) => {
 			});
 		}
 		const hashedPassword = await Bun.password.hash(password);
-		await createUser({
+		const newUser = await createUser({
 			username,
 			password: hashedPassword,
 			nameTitle,
@@ -34,9 +34,13 @@ const CreateUserController = async (c: Context) => {
 		return c.json({
 			success: true,
 			message: "User created",
-			data: null,
+			data: {
+				userId: newUser.userId + "",
+			},
 		});
 	} catch (e) {
+		console.log(e);
+
 		return c.json({
 			success: false,
 			message: e,

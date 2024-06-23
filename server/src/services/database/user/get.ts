@@ -9,11 +9,12 @@ const getUserByUsername = async (username: string) => {
 };
 
 const getUserById = async (id: number) => {
-	return await prisma.user.findFirst({
+	const data = await prisma.user.findFirst({
 		where: {
 			userId: id,
 		},
 	});
+	return data;
 };
 
 export { getUserByUsername, getUserById };
