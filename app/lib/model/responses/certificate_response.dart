@@ -26,3 +26,20 @@ class CertificateResponse {
     );
   }
 }
+
+class CertificatesResponse {
+  final List<CertificateResponse> certificates;
+  CertificatesResponse({
+    required this.certificates,
+  });
+
+  factory CertificatesResponse.fromJson(List<dynamic>? json) {
+    if (json == null) {
+      return CertificatesResponse(certificates: []);
+    }
+    List<CertificateResponse> certificates = json
+        .map((certificateJson) => CertificateResponse.fromJson(certificateJson))
+        .toList();
+    return CertificatesResponse(certificates: certificates);
+  }
+}

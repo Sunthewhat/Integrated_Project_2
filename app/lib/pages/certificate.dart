@@ -1,3 +1,5 @@
+import 'package:c_trade/api/certificate/certificate.dart';
+import 'package:c_trade/model/responses/certificate_response.dart';
 import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:c_trade/widget/card.dart';
 import 'package:c_trade/widget/topbar.dart';
@@ -11,12 +13,19 @@ class Certificate extends StatefulWidget {
 }
 
 class _CertificateState extends State<Certificate> {
-  int _selectedIndex = 0;
+  List<CertificateResponse> certificates = [];
 
-  void _onItemTapped(int index) {
+  void getCertificates() async {
+    var response = await CertificateAPI.certificate();
     setState(() {
-      _selectedIndex = index;
+      certificates = response.data!.certificates;
     });
+  }
+
+  @override
+  void initState() {
+    getCertificates();
+    super.initState();
   }
 
   @override
@@ -29,47 +38,25 @@ class _CertificateState extends State<Certificate> {
             fit: BoxFit.cover,
           ),
         ),
-        child: const SingleChildScrollView(
-          padding: EdgeInsets.all(20.0),
-          child: Column(children: [
-            RearrangeBar(),
-            TotalAmount(),
-            CustomCard(
-              title: "<amount> kgCO2eq",
-              date: "MM/DD/YYYY",
-              cert: "Cert. ID: <cert id>",
-            ),
-            CustomCard(
-              title: "<amount> kgCO2eq",
-              date: "MM/DD/YYYY",
-              cert: "Cert. ID: <cert id>",
-            ),
-            CustomCard(
-              title: "<amount> kgCO2eq",
-              date: "MM/DD/YYYY",
-              cert: "Cert. ID: <cert id>",
-            ),
-            CustomCard(
-              title: "<amount> kgCO2eq",
-              date: "MM/DD/YYYY",
-              cert: "Cert. ID: <cert id>",
-            ),
-            CustomCard(
-              title: "<amount> kgCO2eq",
-              date: "MM/DD/YYYY",
-              cert: "Cert. ID: <cert id>",
-            ),
-            CustomCard(
-              title: "<amount> kgCO2eq",
-              date: "MM/DD/YYYY",
-              cert: "Cert. ID: <cert id>",
-            ),
-          ]),
+        child: FractionallySizedBox(
+          widthFactor: 1,
+          heightFactor: 1,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(children: [
+              const RearrangeBar(),
+              const TotalAmount(),
+              CustomCard(
+                title: "${certificates[0].amount}<amount> kgCO2eq",
+                date: "MM/DD/YYYY",
+                cert: "Cert. ID: <cert id>",
+              ),
+            ]),
+          ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: const BottomNavBar(
+        pageName: "certificate",
       ),
     );
   }
