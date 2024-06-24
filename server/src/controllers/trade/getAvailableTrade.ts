@@ -25,11 +25,11 @@ const GetAvailableTradeController = async (c: Context) => {
 		const availableTradeWithPercentage = (await availableTrade).map((e) => {
 			return {
 				...e,
-				percentage: parseFloat(((e.amount / expectedMonthly) * 100).toFixed(2)),
+				percentage: parseFloat(((e.amount / expectedMonthly) * 100 - 100).toFixed(2)),
 			};
 		});
 
-		const sorted = availableTradeWithPercentage.sort((a, b) => Math.abs(a.percentage - 100) - Math.abs(b.percentage - 100));
+		const sorted = availableTradeWithPercentage.sort((a, b) => Math.abs(a.percentage) - Math.abs(b.percentage));
 
 		return c.json({
 			success: true,
