@@ -8,7 +8,7 @@ const tradeRouter = new Hono();
 
 tradeRouter.get("/history/stats/:id", GetTradeHistoryStat);
 tradeRouter.get("/history/:userId", GetTradeHistoryController);
-tradeRouter.get("/available/:id", GetAvailableTradeController);
+tradeRouter.get("/available/:id/:prefer", GetAvailableTradeController);
 tradeRouter.post("/book", BookTradeController);
 
 export { tradeRouter };

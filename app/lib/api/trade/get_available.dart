@@ -5,7 +5,7 @@ import 'package:c_trade/model/responses/trader_response.dart';
 import 'package:dio/dio.dart';
 
 class GetAvailableTrade {
-  static Future<BaseResponse<TradersResponse>> getAvailable() async {
+  static Future<BaseResponse<TradersResponse>> getAvailable(int prefer) async {
     try {
       String userId = LocalStorage.getUserId() ?? '';
       if (userId.isEmpty) {
@@ -15,8 +15,8 @@ class GetAvailableTrade {
           data: null,
         );
       }
-      Response res = await Dio()
-          .get('${EnvironmentConstant.baseUrl}/trade/avaliable/$userId');
+      Response res = await Dio().get(
+          '${EnvironmentConstant.baseUrl}/trade/avaliable/$userId/$prefer');
       var response = BaseResponse<TradersResponse>.fromArrayJson(
         res.data,
         TradersResponse.fromJson,
