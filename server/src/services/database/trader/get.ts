@@ -13,4 +13,16 @@ const GetAvailableTraders = async () => {
 	});
 	return data;
 };
-export { GetAvailableTraders };
+
+const GetTraderStatus = async (id: number) => {
+	return (
+		(
+			await prisma.trader.findUnique({
+				where: {
+					traderId: id,
+				},
+			})
+		)?.available ?? false
+	);
+};
+export { GetAvailableTraders, GetTraderStatus };

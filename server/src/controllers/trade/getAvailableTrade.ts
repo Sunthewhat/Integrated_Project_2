@@ -5,7 +5,8 @@ import { GetAvailableTraders } from "../../services/database/trader/get";
 const GetAvailableTradeController = async (c: Context) => {
 	try {
 		const userId = c.req.param("id");
-		if (!userId) {
+		const prefer = c.req.param("prefer");
+		if (!userId || !prefer) {
 			return c.json({
 				success: false,
 				message: "Missing required fields",
@@ -20,16 +21,15 @@ const GetAvailableTradeController = async (c: Context) => {
 				data: null,
 			});
 		}
-		const expectedMonthly = userData.expectedMonthly ? parseInt(userData.expectedMonthly.replaceAll("kgCO2eq", "").replaceAll(",", "").trim()) : 0;
 		const availableTrade = GetAvailableTraders();
 		const availableTradeWithPercentage = (await availableTrade).map((e) => {
 			return {
 				...e,
-				percentage: parseFloat(((e.amount / expectedMonthly) * 100).toFixed(2)),
+				percentage: parseFloat(((e.amount / parseInt(prefer)) * 100 - 100).toFixed(2)),
 			};
 		});
 
-		const sorted = availableTradeWithPercentage.sort((a, b) => Math.abs(a.percentage - 100) - Math.abs(b.percentage - 100));
+		const sorted = availableTradeWithPercentage.sort((a, b) => Math.abs(a.percentage) - Math.abs(b.percentage));
 
 		return c.json({
 			success: true,
