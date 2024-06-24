@@ -42,9 +42,8 @@ class _TradeSuccessState extends State<TradeSuccess> {
               ],
             )),
           )),
-      bottomNavigationBar: BottomNavBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: const BottomNavBar(
+        pageName: "trade",
       ),
     );
   }
