@@ -1,26 +1,31 @@
 import 'package:c_trade/constant.dart';
+import 'package:c_trade/local_storage.dart';
 import 'package:c_trade/model/base_response.dart';
 import 'package:c_trade/model/responses/certificate_response.dart';
 import 'package:dio/dio.dart';
 
-class Login {
-  static Future<BaseResponse<CertificateResponse?>> certificate(
-    int userId
-  ) async {
+class CertificateAPI {
+  static Future<BaseResponse<CertificatesResponse?>> certificate() async {
     try {
-      Response res =
-          await Dio().post('${EnvironmentConstant.baseUrl}/certificate', data: {
-        'userId': userId,
-      });
-      var response = BaseResponse<CertificateResponse?>.fromArrayJson(
-          res.data, (payload)=>CertificateResponse.fromJson(payload as Map<String, dynamic>?)
-          );
+      String userId = LocalStorage.getUserId() ?? '';
+      if (userId.isEmpty) {
+        return BaseResponse<CertificatesResponse?>(
+          success: false,
+          message: 'User not found',
+          data: CertificatesResponse(certificates: []),
+        );
+      }
+      Response res = await Dio()
+          .get('${EnvironmentConstant.baseUrl}/trade/history/$userId');
+      var response = BaseResponse<CertificatesResponse?>.fromArrayJson(
+          res.data, (payload) => CertificatesResponse.fromJson(payload));
+      print(response.data!.certificates);
       return response;
     } catch (e) {
-      return BaseResponse<CertificateResponse?>(
+      return BaseResponse<CertificatesResponse?>(
         success: false,
         message: e.toString(),
-        data: null,
+        data: CertificatesResponse(certificates: []),
       );
     }
   }

@@ -6,6 +6,7 @@ import 'package:c_trade/model/responses/trade_info_response.dart';
 import 'package:c_trade/model/responses/trade_stats_response.dart';
 import 'package:c_trade/pages/signin_page.dart';
 import 'package:c_trade/pages/user_information_page.dart';
+import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:c_trade/local_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void handleProfilePage() {
-    Navigator.of(context).pushReplacement(
+    Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const InformationPage(
           isRegister: false,
@@ -117,18 +118,19 @@ class _HomePageState extends State<HomePage> {
   double getPercentage() {
     if (stats == null || tradeInfo == null) return 0;
     return stats!.getValueForMonth(currentMonthIndex) /
-        tradeInfo!.getExpected();
+        tradeInfo!.getExpected() *
+        100;
   }
 
   void setProgressImage() {
     if (stats == null || tradeInfo == null) return;
     double percentage = getPercentage();
     setState(() {
-      if (percentage > 0.75) {
+      if (percentage > 75) {
         progressImage = progressImages[4];
-      } else if (percentage > 0.5) {
+      } else if (percentage > 50) {
         progressImage = progressImages[3];
-      } else if (percentage > 0.25) {
+      } else if (percentage > 25) {
         progressImage = progressImages[2];
       } else if (percentage > 0) {
         progressImage = progressImages[1];
@@ -267,7 +269,6 @@ class _HomePageState extends State<HomePage> {
                             height: 20,
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height * 0.08,
                             width: MediaQuery.of(context).size.width * 0.9,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
@@ -398,7 +399,7 @@ class _HomePageState extends State<HomePage> {
                             height: 20,
                           ),
                           Text(
-                            '${stats?.getValueForMonth(currentMonthIndex)}/${tradeInfo?.expectedMonthlyCarbonOffset}',
+                            '${stats?.getValueForMonth(currentMonthIndex).toInt()}/${tradeInfo?.expectedMonthlyCarbonOffset}',
                             style: GoogleFonts.lexendExa(
                               fontSize: 16,
                               color: const Color(0xFFD2D79F),
@@ -406,7 +407,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Text(
-                            'You reached ${getPercentage().toStringAsFixed(1)}% of your goal',
+                            'You reached ${getPercentage().toStringAsFixed(2)}% of your goal',
                             style: GoogleFonts.lexendExa(
                               fontSize: 16,
                               color: const Color(0xFFD2D79F),
@@ -501,6 +502,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
         ),
+      ),
+      bottomNavigationBar: const BottomNavBar(
+        pageName: 'home',
       ),
     );
   }

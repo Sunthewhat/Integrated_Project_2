@@ -124,19 +124,18 @@ exports.Prisma.UserScalarFieldEnum = {
   username: 'username',
   password: 'password',
   nameTitle: 'nameTitle',
+  firstname: 'firstname',
   lastname: 'lastname',
   email: 'email',
   expectedMonthly: 'expectedMonthly',
-  firstname: 'firstname',
   profileImage: 'profileImage'
 };
 
-exports.Prisma.CabonOffsetScalarFieldEnum = {
-  userId: 'userId',
+exports.Prisma.CertificateScalarFieldEnum = {
   certificateId: 'certificateId',
-  amount: 'amount',
-  date: 'date',
-  unit: 'unit'
+  userId: 'userId',
+  traderId: 'traderId',
+  date: 'date'
 };
 
 exports.Prisma.TraderScalarFieldEnum = {
@@ -155,14 +154,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.retailUnit = exports.$Enums.retailUnit = {
-  cc: 'cc',
-  kg: 'kg'
-};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
-  cabonOffset: 'cabonOffset',
+  certificate: 'certificate',
   trader: 'trader'
 };
 

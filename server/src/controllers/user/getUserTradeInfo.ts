@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { GetTradeHistoryByUserIdService } from "../../services/database/trade/history/get";
+import { GetTradeHistoryByUserIdService } from "../../services/database/certificate/history/get";
 import { getUserById } from "../../services/database/user/get";
 
 const GetUserTradeInfo = async (c: Context) => {

@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { GetTradeHistoryByUserIdService } from "../../services/database/trade/history/get";
+import { GetTradeHistoryByUserIdService } from "../../services/database/certificate/history/get";
 
 type MonthlySum = {
 	January: number;
@@ -15,22 +15,6 @@ type MonthlySum = {
 	November: number;
 	December: number;
 	undefined: number;
-};
-
-const blankMonthlySum: MonthlySum = {
-	January: 0,
-	February: 0,
-	March: 0,
-	April: 0,
-	May: 0,
-	June: 0,
-	July: 0,
-	August: 0,
-	September: 0,
-	October: 0,
-	November: 0,
-	December: 0,
-	undefined: 0,
 };
 
 const getMonthString = (month: number) => {
@@ -65,6 +49,21 @@ const getMonthString = (month: number) => {
 };
 
 const GetTradeHistoryStat = async (c: Context) => {
+	const blankMonthlySum: MonthlySum = {
+		January: 0,
+		February: 0,
+		March: 0,
+		April: 0,
+		May: 0,
+		June: 0,
+		July: 0,
+		August: 0,
+		September: 0,
+		October: 0,
+		November: 0,
+		December: 0,
+		undefined: 0,
+	};
 	try {
 		const userId = c.req.param("id");
 		if (!userId) {
@@ -88,7 +87,7 @@ const GetTradeHistoryStat = async (c: Context) => {
 
 		filteredHistory.forEach((entry) => {
 			const month = getMonth(entry.date);
-			monthlySum[getMonthString(month)] += entry.amount;
+			monthlySum[getMonthString(month + 1)] += entry.amount;
 		});
 
 		return c.json({
