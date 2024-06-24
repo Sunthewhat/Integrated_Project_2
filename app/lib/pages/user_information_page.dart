@@ -396,6 +396,7 @@ class _InformationPageState extends State<InformationPage> {
                                   style: GoogleFonts.roboto(
                                     color: const Color(0x9FD2D79F),
                                   ),
+                                  dropdownColor: const Color(0xFF121915),
                                   value: nameTitle,
                                   items: nameTitles.map((String v) {
                                     return DropdownMenuItem<String>(
@@ -648,6 +649,7 @@ class _InformationPageState extends State<InformationPage> {
                               color: const Color(0x9FD2D79F),
                             ),
                             value: expected,
+                            dropdownColor: const Color(0xFF121915),
                             items: expecteds.map((String v) {
                               return DropdownMenuItem<String>(
                                 value: v,
