@@ -1,8 +1,10 @@
 import 'package:c_trade/local_storage.dart';
+import 'package:c_trade/pages/trade_page.dart';
 // import 'package:c_trade/pages/loading_page.dart';
-import 'package:c_trade/pages/trade_success.dart';
+// import 'package:c_trade/pages/trade_success.dart';
 import 'package:flutter/material.dart';
 // import 'package:c_trade/pages/trade_page.dart';
+import 'package:c_trade/pages/trade_confirmation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,7 @@ class CTrade extends StatelessWidget {
       },
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: TradeSuccess(),
+        home: TradePage(),
       ),
     );
   }
