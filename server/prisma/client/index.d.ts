@@ -19,32 +19,15 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type user = $Result.DefaultSelection<Prisma.$userPayload>
 /**
- * Model cabonOffset
+ * Model certificate
  * 
  */
-export type cabonOffset = $Result.DefaultSelection<Prisma.$cabonOffsetPayload>
+export type certificate = $Result.DefaultSelection<Prisma.$certificatePayload>
 /**
  * Model trader
  * 
  */
 export type trader = $Result.DefaultSelection<Prisma.$traderPayload>
-
-/**
- * Enums
- */
-export namespace $Enums {
-  export const retailUnit: {
-  cc: 'cc',
-  kg: 'kg'
-};
-
-export type retailUnit = (typeof retailUnit)[keyof typeof retailUnit]
-
-}
-
-export type retailUnit = $Enums.retailUnit
-
-export const retailUnit: typeof $Enums.retailUnit
 
 /**
  * ##  Prisma Client ʲˢ
@@ -179,14 +162,14 @@ export class PrismaClient<
   get user(): Prisma.userDelegate<ExtArgs>;
 
   /**
-   * `prisma.cabonOffset`: Exposes CRUD operations for the **cabonOffset** model.
+   * `prisma.certificate`: Exposes CRUD operations for the **certificate** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more CabonOffsets
-    * const cabonOffsets = await prisma.cabonOffset.findMany()
+    * // Fetch zero or more Certificates
+    * const certificates = await prisma.certificate.findMany()
     * ```
     */
-  get cabonOffset(): Prisma.cabonOffsetDelegate<ExtArgs>;
+  get certificate(): Prisma.certificateDelegate<ExtArgs>;
 
   /**
    * `prisma.trader`: Exposes CRUD operations for the **trader** model.
@@ -254,8 +237,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.15.1
-   * Query Engine version: 5675a3182f972f1a8f31d16eee6abf4fd54910e3
+   * Prisma Client JS version: 5.15.0
+   * Query Engine version: 12e25d8d06f6ea5a0252864dd9a03b1bb51f3022
    */
   export type PrismaVersion = {
     client: string
@@ -675,7 +658,7 @@ export namespace Prisma {
 
   export const ModelName: {
     user: 'user',
-    cabonOffset: 'cabonOffset',
+    certificate: 'certificate',
     trader: 'trader'
   };
 
@@ -693,7 +676,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'cabonOffset' | 'trader'
+      modelProps: 'user' | 'certificate' | 'trader'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -763,69 +746,69 @@ export namespace Prisma {
           }
         }
       }
-      cabonOffset: {
-        payload: Prisma.$cabonOffsetPayload<ExtArgs>
-        fields: Prisma.cabonOffsetFieldRefs
+      certificate: {
+        payload: Prisma.$certificatePayload<ExtArgs>
+        fields: Prisma.certificateFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.cabonOffsetFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload> | null
+            args: Prisma.certificateFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.cabonOffsetFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>
+            args: Prisma.certificateFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>
           }
           findFirst: {
-            args: Prisma.cabonOffsetFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload> | null
+            args: Prisma.certificateFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.cabonOffsetFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>
+            args: Prisma.certificateFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>
           }
           findMany: {
-            args: Prisma.cabonOffsetFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>[]
+            args: Prisma.certificateFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>[]
           }
           create: {
-            args: Prisma.cabonOffsetCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>
+            args: Prisma.certificateCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>
           }
           createMany: {
-            args: Prisma.cabonOffsetCreateManyArgs<ExtArgs>,
+            args: Prisma.certificateCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.cabonOffsetDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>
+            args: Prisma.certificateDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>
           }
           update: {
-            args: Prisma.cabonOffsetUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>
+            args: Prisma.certificateUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>
           }
           deleteMany: {
-            args: Prisma.cabonOffsetDeleteManyArgs<ExtArgs>,
+            args: Prisma.certificateDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.cabonOffsetUpdateManyArgs<ExtArgs>,
+            args: Prisma.certificateUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.cabonOffsetUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$cabonOffsetPayload>
+            args: Prisma.certificateUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$certificatePayload>
           }
           aggregate: {
-            args: Prisma.CabonOffsetAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateCabonOffset>
+            args: Prisma.CertificateAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateCertificate>
           }
           groupBy: {
-            args: Prisma.cabonOffsetGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<CabonOffsetGroupByOutputType>[]
+            args: Prisma.certificateGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<CertificateGroupByOutputType>[]
           }
           count: {
-            args: Prisma.cabonOffsetCountArgs<ExtArgs>,
-            result: $Utils.Optional<CabonOffsetCountAggregateOutputType> | number
+            args: Prisma.certificateCountArgs<ExtArgs>,
+            result: $Utils.Optional<CertificateCountAggregateOutputType> | number
           }
         }
       }
@@ -1055,11 +1038,11 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    cabonOffSet: number
+    certificate: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cabonOffSet?: boolean | UserCountOutputTypeCountCabonOffSetArgs
+    certificate?: boolean | UserCountOutputTypeCountCertificateArgs
   }
 
   // Custom InputTypes
@@ -1076,8 +1059,39 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountCabonOffSetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: cabonOffsetWhereInput
+  export type UserCountOutputTypeCountCertificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: certificateWhereInput
+  }
+
+
+  /**
+   * Count Type TraderCountOutputType
+   */
+
+  export type TraderCountOutputType = {
+    certificate: number
+  }
+
+  export type TraderCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    certificate?: boolean | TraderCountOutputTypeCountCertificateArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TraderCountOutputType without action
+   */
+  export type TraderCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TraderCountOutputType
+     */
+    select?: TraderCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TraderCountOutputType without action
+   */
+  export type TraderCountOutputTypeCountCertificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: certificateWhereInput
   }
 
 
@@ -1110,10 +1124,10 @@ export namespace Prisma {
     username: string | null
     password: string | null
     nameTitle: string | null
+    firstname: string | null
     lastname: string | null
     email: string | null
     expectedMonthly: string | null
-    firstname: string | null
     profileImage: string | null
   }
 
@@ -1122,10 +1136,10 @@ export namespace Prisma {
     username: string | null
     password: string | null
     nameTitle: string | null
+    firstname: string | null
     lastname: string | null
     email: string | null
     expectedMonthly: string | null
-    firstname: string | null
     profileImage: string | null
   }
 
@@ -1134,10 +1148,10 @@ export namespace Prisma {
     username: number
     password: number
     nameTitle: number
+    firstname: number
     lastname: number
     email: number
     expectedMonthly: number
-    firstname: number
     profileImage: number
     _all: number
   }
@@ -1156,10 +1170,10 @@ export namespace Prisma {
     username?: true
     password?: true
     nameTitle?: true
+    firstname?: true
     lastname?: true
     email?: true
     expectedMonthly?: true
-    firstname?: true
     profileImage?: true
   }
 
@@ -1168,10 +1182,10 @@ export namespace Prisma {
     username?: true
     password?: true
     nameTitle?: true
+    firstname?: true
     lastname?: true
     email?: true
     expectedMonthly?: true
-    firstname?: true
     profileImage?: true
   }
 
@@ -1180,10 +1194,10 @@ export namespace Prisma {
     username?: true
     password?: true
     nameTitle?: true
+    firstname?: true
     lastname?: true
     email?: true
     expectedMonthly?: true
-    firstname?: true
     profileImage?: true
     _all?: true
   }
@@ -1279,10 +1293,10 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle: string | null
+    firstname: string | null
     lastname: string | null
     email: string | null
     expectedMonthly: string | null
-    firstname: string | null
     profileImage: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
@@ -1310,12 +1324,12 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     nameTitle?: boolean
+    firstname?: boolean
     lastname?: boolean
     email?: boolean
     expectedMonthly?: boolean
-    firstname?: boolean
     profileImage?: boolean
-    cabonOffSet?: boolean | user$cabonOffSetArgs<ExtArgs>
+    certificate?: boolean | user$certificateArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1325,32 +1339,32 @@ export namespace Prisma {
     username?: boolean
     password?: boolean
     nameTitle?: boolean
+    firstname?: boolean
     lastname?: boolean
     email?: boolean
     expectedMonthly?: boolean
-    firstname?: boolean
     profileImage?: boolean
   }
 
   export type userInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cabonOffSet?: boolean | user$cabonOffSetArgs<ExtArgs>
+    certificate?: boolean | user$certificateArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $userPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "user"
     objects: {
-      cabonOffSet: Prisma.$cabonOffsetPayload<ExtArgs>[]
+      certificate: Prisma.$certificatePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: number
       username: string
       password: string
       nameTitle: string | null
+      firstname: string | null
       lastname: string | null
       email: string | null
       expectedMonthly: string | null
-      firstname: string | null
       profileImage: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -1716,7 +1730,7 @@ export namespace Prisma {
   export interface Prisma__userClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    cabonOffSet<T extends user$cabonOffSetArgs<ExtArgs> = {}>(args?: Subset<T, user$cabonOffSetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'findMany'> | Null>;
+    certificate<T extends user$certificateArgs<ExtArgs> = {}>(args?: Subset<T, user$certificateArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1750,10 +1764,10 @@ export namespace Prisma {
     readonly username: FieldRef<"user", 'String'>
     readonly password: FieldRef<"user", 'String'>
     readonly nameTitle: FieldRef<"user", 'String'>
+    readonly firstname: FieldRef<"user", 'String'>
     readonly lastname: FieldRef<"user", 'String'>
     readonly email: FieldRef<"user", 'String'>
     readonly expectedMonthly: FieldRef<"user", 'String'>
-    readonly firstname: FieldRef<"user", 'String'>
     readonly profileImage: FieldRef<"user", 'String'>
   }
     
@@ -2054,23 +2068,23 @@ export namespace Prisma {
   }
 
   /**
-   * user.cabonOffSet
+   * user.certificate
    */
-  export type user$cabonOffSetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type user$certificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
-    where?: cabonOffsetWhereInput
-    orderBy?: cabonOffsetOrderByWithRelationInput | cabonOffsetOrderByWithRelationInput[]
-    cursor?: cabonOffsetWhereUniqueInput
+    include?: certificateInclude<ExtArgs> | null
+    where?: certificateWhereInput
+    orderBy?: certificateOrderByWithRelationInput | certificateOrderByWithRelationInput[]
+    cursor?: certificateWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CabonOffsetScalarFieldEnum | CabonOffsetScalarFieldEnum[]
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
   }
 
   /**
@@ -2089,387 +2103,380 @@ export namespace Prisma {
 
 
   /**
-   * Model cabonOffset
+   * Model certificate
    */
 
-  export type AggregateCabonOffset = {
-    _count: CabonOffsetCountAggregateOutputType | null
-    _avg: CabonOffsetAvgAggregateOutputType | null
-    _sum: CabonOffsetSumAggregateOutputType | null
-    _min: CabonOffsetMinAggregateOutputType | null
-    _max: CabonOffsetMaxAggregateOutputType | null
+  export type AggregateCertificate = {
+    _count: CertificateCountAggregateOutputType | null
+    _avg: CertificateAvgAggregateOutputType | null
+    _sum: CertificateSumAggregateOutputType | null
+    _min: CertificateMinAggregateOutputType | null
+    _max: CertificateMaxAggregateOutputType | null
   }
 
-  export type CabonOffsetAvgAggregateOutputType = {
+  export type CertificateAvgAggregateOutputType = {
     userId: number | null
-    amount: number | null
+    traderId: number | null
   }
 
-  export type CabonOffsetSumAggregateOutputType = {
+  export type CertificateSumAggregateOutputType = {
     userId: number | null
-    amount: number | null
+    traderId: number | null
   }
 
-  export type CabonOffsetMinAggregateOutputType = {
-    userId: number | null
+  export type CertificateMinAggregateOutputType = {
     certificateId: string | null
-    amount: number | null
-    date: Date | null
-    unit: $Enums.retailUnit | null
-  }
-
-  export type CabonOffsetMaxAggregateOutputType = {
     userId: number | null
-    certificateId: string | null
-    amount: number | null
+    traderId: number | null
     date: Date | null
-    unit: $Enums.retailUnit | null
   }
 
-  export type CabonOffsetCountAggregateOutputType = {
-    userId: number
+  export type CertificateMaxAggregateOutputType = {
+    certificateId: string | null
+    userId: number | null
+    traderId: number | null
+    date: Date | null
+  }
+
+  export type CertificateCountAggregateOutputType = {
     certificateId: number
-    amount: number
+    userId: number
+    traderId: number
     date: number
-    unit: number
     _all: number
   }
 
 
-  export type CabonOffsetAvgAggregateInputType = {
+  export type CertificateAvgAggregateInputType = {
     userId?: true
-    amount?: true
+    traderId?: true
   }
 
-  export type CabonOffsetSumAggregateInputType = {
+  export type CertificateSumAggregateInputType = {
     userId?: true
-    amount?: true
+    traderId?: true
   }
 
-  export type CabonOffsetMinAggregateInputType = {
-    userId?: true
+  export type CertificateMinAggregateInputType = {
     certificateId?: true
-    amount?: true
+    userId?: true
+    traderId?: true
     date?: true
-    unit?: true
   }
 
-  export type CabonOffsetMaxAggregateInputType = {
-    userId?: true
+  export type CertificateMaxAggregateInputType = {
     certificateId?: true
-    amount?: true
+    userId?: true
+    traderId?: true
     date?: true
-    unit?: true
   }
 
-  export type CabonOffsetCountAggregateInputType = {
-    userId?: true
+  export type CertificateCountAggregateInputType = {
     certificateId?: true
-    amount?: true
+    userId?: true
+    traderId?: true
     date?: true
-    unit?: true
     _all?: true
   }
 
-  export type CabonOffsetAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CertificateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which cabonOffset to aggregate.
+     * Filter which certificate to aggregate.
      */
-    where?: cabonOffsetWhereInput
+    where?: certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of cabonOffsets to fetch.
+     * Determine the order of certificates to fetch.
      */
-    orderBy?: cabonOffsetOrderByWithRelationInput | cabonOffsetOrderByWithRelationInput[]
+    orderBy?: certificateOrderByWithRelationInput | certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: cabonOffsetWhereUniqueInput
+    cursor?: certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` cabonOffsets from the position of the cursor.
+     * Take `±n` certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` cabonOffsets.
+     * Skip the first `n` certificates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned cabonOffsets
+     * Count returned certificates
     **/
-    _count?: true | CabonOffsetCountAggregateInputType
+    _count?: true | CertificateCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CabonOffsetAvgAggregateInputType
+    _avg?: CertificateAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CabonOffsetSumAggregateInputType
+    _sum?: CertificateSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CabonOffsetMinAggregateInputType
+    _min?: CertificateMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CabonOffsetMaxAggregateInputType
+    _max?: CertificateMaxAggregateInputType
   }
 
-  export type GetCabonOffsetAggregateType<T extends CabonOffsetAggregateArgs> = {
-        [P in keyof T & keyof AggregateCabonOffset]: P extends '_count' | 'count'
+  export type GetCertificateAggregateType<T extends CertificateAggregateArgs> = {
+        [P in keyof T & keyof AggregateCertificate]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCabonOffset[P]>
-      : GetScalarType<T[P], AggregateCabonOffset[P]>
+        : GetScalarType<T[P], AggregateCertificate[P]>
+      : GetScalarType<T[P], AggregateCertificate[P]>
   }
 
 
 
 
-  export type cabonOffsetGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: cabonOffsetWhereInput
-    orderBy?: cabonOffsetOrderByWithAggregationInput | cabonOffsetOrderByWithAggregationInput[]
-    by: CabonOffsetScalarFieldEnum[] | CabonOffsetScalarFieldEnum
-    having?: cabonOffsetScalarWhereWithAggregatesInput
+  export type certificateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: certificateWhereInput
+    orderBy?: certificateOrderByWithAggregationInput | certificateOrderByWithAggregationInput[]
+    by: CertificateScalarFieldEnum[] | CertificateScalarFieldEnum
+    having?: certificateScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CabonOffsetCountAggregateInputType | true
-    _avg?: CabonOffsetAvgAggregateInputType
-    _sum?: CabonOffsetSumAggregateInputType
-    _min?: CabonOffsetMinAggregateInputType
-    _max?: CabonOffsetMaxAggregateInputType
+    _count?: CertificateCountAggregateInputType | true
+    _avg?: CertificateAvgAggregateInputType
+    _sum?: CertificateSumAggregateInputType
+    _min?: CertificateMinAggregateInputType
+    _max?: CertificateMaxAggregateInputType
   }
 
-  export type CabonOffsetGroupByOutputType = {
-    userId: number
+  export type CertificateGroupByOutputType = {
     certificateId: string
-    amount: number
+    userId: number
+    traderId: number
     date: Date
-    unit: $Enums.retailUnit
-    _count: CabonOffsetCountAggregateOutputType | null
-    _avg: CabonOffsetAvgAggregateOutputType | null
-    _sum: CabonOffsetSumAggregateOutputType | null
-    _min: CabonOffsetMinAggregateOutputType | null
-    _max: CabonOffsetMaxAggregateOutputType | null
+    _count: CertificateCountAggregateOutputType | null
+    _avg: CertificateAvgAggregateOutputType | null
+    _sum: CertificateSumAggregateOutputType | null
+    _min: CertificateMinAggregateOutputType | null
+    _max: CertificateMaxAggregateOutputType | null
   }
 
-  type GetCabonOffsetGroupByPayload<T extends cabonOffsetGroupByArgs> = Prisma.PrismaPromise<
+  type GetCertificateGroupByPayload<T extends certificateGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CabonOffsetGroupByOutputType, T['by']> &
+      PickEnumerable<CertificateGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CabonOffsetGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CertificateGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CabonOffsetGroupByOutputType[P]>
-            : GetScalarType<T[P], CabonOffsetGroupByOutputType[P]>
+              : GetScalarType<T[P], CertificateGroupByOutputType[P]>
+            : GetScalarType<T[P], CertificateGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type cabonOffsetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    userId?: boolean
+  export type certificateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     certificateId?: boolean
-    amount?: boolean
+    userId?: boolean
+    traderId?: boolean
     date?: boolean
-    unit?: boolean
     userCertificate?: boolean | userDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["cabonOffset"]>
+    traderCertificate?: boolean | traderDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["certificate"]>
 
 
-  export type cabonOffsetSelectScalar = {
-    userId?: boolean
+  export type certificateSelectScalar = {
     certificateId?: boolean
-    amount?: boolean
+    userId?: boolean
+    traderId?: boolean
     date?: boolean
-    unit?: boolean
   }
 
-  export type cabonOffsetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     userCertificate?: boolean | userDefaultArgs<ExtArgs>
+    traderCertificate?: boolean | traderDefaultArgs<ExtArgs>
   }
 
-  export type $cabonOffsetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "cabonOffset"
+  export type $certificatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "certificate"
     objects: {
       userCertificate: Prisma.$userPayload<ExtArgs>
+      traderCertificate: Prisma.$traderPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      userId: number
       certificateId: string
-      amount: number
+      userId: number
+      traderId: number
       date: Date
-      unit: $Enums.retailUnit
-    }, ExtArgs["result"]["cabonOffset"]>
+    }, ExtArgs["result"]["certificate"]>
     composites: {}
   }
 
-  type cabonOffsetGetPayload<S extends boolean | null | undefined | cabonOffsetDefaultArgs> = $Result.GetResult<Prisma.$cabonOffsetPayload, S>
+  type certificateGetPayload<S extends boolean | null | undefined | certificateDefaultArgs> = $Result.GetResult<Prisma.$certificatePayload, S>
 
-  type cabonOffsetCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<cabonOffsetFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: CabonOffsetCountAggregateInputType | true
+  type certificateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<certificateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: CertificateCountAggregateInputType | true
     }
 
-  export interface cabonOffsetDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['cabonOffset'], meta: { name: 'cabonOffset' } }
+  export interface certificateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['certificate'], meta: { name: 'certificate' } }
     /**
-     * Find zero or one CabonOffset that matches the filter.
-     * @param {cabonOffsetFindUniqueArgs} args - Arguments to find a CabonOffset
+     * Find zero or one Certificate that matches the filter.
+     * @param {certificateFindUniqueArgs} args - Arguments to find a Certificate
      * @example
-     * // Get one CabonOffset
-     * const cabonOffset = await prisma.cabonOffset.findUnique({
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends cabonOffsetFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, cabonOffsetFindUniqueArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends certificateFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, certificateFindUniqueArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one CabonOffset that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one Certificate that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {cabonOffsetFindUniqueOrThrowArgs} args - Arguments to find a CabonOffset
+     * @param {certificateFindUniqueOrThrowArgs} args - Arguments to find a Certificate
      * @example
-     * // Get one CabonOffset
-     * const cabonOffset = await prisma.cabonOffset.findUniqueOrThrow({
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends cabonOffsetFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, cabonOffsetFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends certificateFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, certificateFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first CabonOffset that matches the filter.
+     * Find the first Certificate that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {cabonOffsetFindFirstArgs} args - Arguments to find a CabonOffset
+     * @param {certificateFindFirstArgs} args - Arguments to find a Certificate
      * @example
-     * // Get one CabonOffset
-     * const cabonOffset = await prisma.cabonOffset.findFirst({
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends cabonOffsetFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, cabonOffsetFindFirstArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends certificateFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, certificateFindFirstArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first CabonOffset that matches the filter or
+     * Find the first Certificate that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {cabonOffsetFindFirstOrThrowArgs} args - Arguments to find a CabonOffset
+     * @param {certificateFindFirstOrThrowArgs} args - Arguments to find a Certificate
      * @example
-     * // Get one CabonOffset
-     * const cabonOffset = await prisma.cabonOffset.findFirstOrThrow({
+     * // Get one Certificate
+     * const certificate = await prisma.certificate.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends cabonOffsetFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, cabonOffsetFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends certificateFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, certificateFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more CabonOffsets that matches the filter.
+     * Find zero or more Certificates that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {cabonOffsetFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {certificateFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all CabonOffsets
-     * const cabonOffsets = await prisma.cabonOffset.findMany()
+     * // Get all Certificates
+     * const certificates = await prisma.certificate.findMany()
      * 
-     * // Get first 10 CabonOffsets
-     * const cabonOffsets = await prisma.cabonOffset.findMany({ take: 10 })
+     * // Get first 10 Certificates
+     * const certificates = await prisma.certificate.findMany({ take: 10 })
      * 
-     * // Only select the `userId`
-     * const cabonOffsetWithUserIdOnly = await prisma.cabonOffset.findMany({ select: { userId: true } })
+     * // Only select the `certificateId`
+     * const certificateWithCertificateIdOnly = await prisma.certificate.findMany({ select: { certificateId: true } })
      * 
     **/
-    findMany<T extends cabonOffsetFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, cabonOffsetFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends certificateFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, certificateFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a CabonOffset.
-     * @param {cabonOffsetCreateArgs} args - Arguments to create a CabonOffset.
+     * Create a Certificate.
+     * @param {certificateCreateArgs} args - Arguments to create a Certificate.
      * @example
-     * // Create one CabonOffset
-     * const CabonOffset = await prisma.cabonOffset.create({
+     * // Create one Certificate
+     * const Certificate = await prisma.certificate.create({
      *   data: {
-     *     // ... data to create a CabonOffset
+     *     // ... data to create a Certificate
      *   }
      * })
      * 
     **/
-    create<T extends cabonOffsetCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, cabonOffsetCreateArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends certificateCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, certificateCreateArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many CabonOffsets.
-     * @param {cabonOffsetCreateManyArgs} args - Arguments to create many CabonOffsets.
+     * Create many Certificates.
+     * @param {certificateCreateManyArgs} args - Arguments to create many Certificates.
      * @example
-     * // Create many CabonOffsets
-     * const cabonOffset = await prisma.cabonOffset.createMany({
+     * // Create many Certificates
+     * const certificate = await prisma.certificate.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
     **/
-    createMany<T extends cabonOffsetCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, cabonOffsetCreateManyArgs<ExtArgs>>
+    createMany<T extends certificateCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, certificateCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a CabonOffset.
-     * @param {cabonOffsetDeleteArgs} args - Arguments to delete one CabonOffset.
+     * Delete a Certificate.
+     * @param {certificateDeleteArgs} args - Arguments to delete one Certificate.
      * @example
-     * // Delete one CabonOffset
-     * const CabonOffset = await prisma.cabonOffset.delete({
+     * // Delete one Certificate
+     * const Certificate = await prisma.certificate.delete({
      *   where: {
-     *     // ... filter to delete one CabonOffset
+     *     // ... filter to delete one Certificate
      *   }
      * })
      * 
     **/
-    delete<T extends cabonOffsetDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, cabonOffsetDeleteArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends certificateDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, certificateDeleteArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one CabonOffset.
-     * @param {cabonOffsetUpdateArgs} args - Arguments to update one CabonOffset.
+     * Update one Certificate.
+     * @param {certificateUpdateArgs} args - Arguments to update one Certificate.
      * @example
-     * // Update one CabonOffset
-     * const cabonOffset = await prisma.cabonOffset.update({
+     * // Update one Certificate
+     * const certificate = await prisma.certificate.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2479,34 +2486,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends cabonOffsetUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, cabonOffsetUpdateArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends certificateUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, certificateUpdateArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more CabonOffsets.
-     * @param {cabonOffsetDeleteManyArgs} args - Arguments to filter CabonOffsets to delete.
+     * Delete zero or more Certificates.
+     * @param {certificateDeleteManyArgs} args - Arguments to filter Certificates to delete.
      * @example
-     * // Delete a few CabonOffsets
-     * const { count } = await prisma.cabonOffset.deleteMany({
+     * // Delete a few Certificates
+     * const { count } = await prisma.certificate.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends cabonOffsetDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, cabonOffsetDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends certificateDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, certificateDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more CabonOffsets.
+     * Update zero or more Certificates.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {cabonOffsetUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {certificateUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many CabonOffsets
-     * const cabonOffset = await prisma.cabonOffset.updateMany({
+     * // Update many Certificates
+     * const certificate = await prisma.certificate.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2516,59 +2523,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends cabonOffsetUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, cabonOffsetUpdateManyArgs<ExtArgs>>
+    updateMany<T extends certificateUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, certificateUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one CabonOffset.
-     * @param {cabonOffsetUpsertArgs} args - Arguments to update or create a CabonOffset.
+     * Create or update one Certificate.
+     * @param {certificateUpsertArgs} args - Arguments to update or create a Certificate.
      * @example
-     * // Update or create a CabonOffset
-     * const cabonOffset = await prisma.cabonOffset.upsert({
+     * // Update or create a Certificate
+     * const certificate = await prisma.certificate.upsert({
      *   create: {
-     *     // ... data to create a CabonOffset
+     *     // ... data to create a Certificate
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the CabonOffset we want to update
+     *     // ... the filter for the Certificate we want to update
      *   }
      * })
     **/
-    upsert<T extends cabonOffsetUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, cabonOffsetUpsertArgs<ExtArgs>>
-    ): Prisma__cabonOffsetClient<$Result.GetResult<Prisma.$cabonOffsetPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends certificateUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, certificateUpsertArgs<ExtArgs>>
+    ): Prisma__certificateClient<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of CabonOffsets.
+     * Count the number of Certificates.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {cabonOffsetCountArgs} args - Arguments to filter CabonOffsets to count.
+     * @param {certificateCountArgs} args - Arguments to filter Certificates to count.
      * @example
-     * // Count the number of CabonOffsets
-     * const count = await prisma.cabonOffset.count({
+     * // Count the number of Certificates
+     * const count = await prisma.certificate.count({
      *   where: {
-     *     // ... the filter for the CabonOffsets we want to count
+     *     // ... the filter for the Certificates we want to count
      *   }
      * })
     **/
-    count<T extends cabonOffsetCountArgs>(
-      args?: Subset<T, cabonOffsetCountArgs>,
+    count<T extends certificateCountArgs>(
+      args?: Subset<T, certificateCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CabonOffsetCountAggregateOutputType>
+          : GetScalarType<T['select'], CertificateCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a CabonOffset.
+     * Allows you to perform aggregations operations on a Certificate.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CabonOffsetAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CertificateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2588,13 +2595,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CabonOffsetAggregateArgs>(args: Subset<T, CabonOffsetAggregateArgs>): Prisma.PrismaPromise<GetCabonOffsetAggregateType<T>>
+    aggregate<T extends CertificateAggregateArgs>(args: Subset<T, CertificateAggregateArgs>): Prisma.PrismaPromise<GetCertificateAggregateType<T>>
 
     /**
-     * Group by CabonOffset.
+     * Group by Certificate.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {cabonOffsetGroupByArgs} args - Group by arguments.
+     * @param {certificateGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2609,14 +2616,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends cabonOffsetGroupByArgs,
+      T extends certificateGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: cabonOffsetGroupByArgs['orderBy'] }
-        : { orderBy?: cabonOffsetGroupByArgs['orderBy'] },
+        ? { orderBy: certificateGroupByArgs['orderBy'] }
+        : { orderBy?: certificateGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2665,23 +2672,25 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, cabonOffsetGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCabonOffsetGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, certificateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCertificateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the cabonOffset model
+   * Fields of the certificate model
    */
-  readonly fields: cabonOffsetFieldRefs;
+  readonly fields: certificateFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for cabonOffset.
+   * The delegate class that acts as a "Promise-like" for certificate.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__cabonOffsetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__certificateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
     userCertificate<T extends userDefaultArgs<ExtArgs> = {}>(args?: Subset<T, userDefaultArgs<ExtArgs>>): Prisma__userClient<$Result.GetResult<Prisma.$userPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    traderCertificate<T extends traderDefaultArgs<ExtArgs> = {}>(args?: Subset<T, traderDefaultArgs<ExtArgs>>): Prisma__traderClient<$Result.GetResult<Prisma.$traderPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2708,324 +2717,323 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the cabonOffset model
+   * Fields of the certificate model
    */ 
-  interface cabonOffsetFieldRefs {
-    readonly userId: FieldRef<"cabonOffset", 'Int'>
-    readonly certificateId: FieldRef<"cabonOffset", 'String'>
-    readonly amount: FieldRef<"cabonOffset", 'Int'>
-    readonly date: FieldRef<"cabonOffset", 'DateTime'>
-    readonly unit: FieldRef<"cabonOffset", 'retailUnit'>
+  interface certificateFieldRefs {
+    readonly certificateId: FieldRef<"certificate", 'String'>
+    readonly userId: FieldRef<"certificate", 'Int'>
+    readonly traderId: FieldRef<"certificate", 'Int'>
+    readonly date: FieldRef<"certificate", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * cabonOffset findUnique
+   * certificate findUnique
    */
-  export type cabonOffsetFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * Filter, which cabonOffset to fetch.
+     * Filter, which certificate to fetch.
      */
-    where: cabonOffsetWhereUniqueInput
+    where: certificateWhereUniqueInput
   }
 
   /**
-   * cabonOffset findUniqueOrThrow
+   * certificate findUniqueOrThrow
    */
-  export type cabonOffsetFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * Filter, which cabonOffset to fetch.
+     * Filter, which certificate to fetch.
      */
-    where: cabonOffsetWhereUniqueInput
+    where: certificateWhereUniqueInput
   }
 
   /**
-   * cabonOffset findFirst
+   * certificate findFirst
    */
-  export type cabonOffsetFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * Filter, which cabonOffset to fetch.
+     * Filter, which certificate to fetch.
      */
-    where?: cabonOffsetWhereInput
+    where?: certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of cabonOffsets to fetch.
+     * Determine the order of certificates to fetch.
      */
-    orderBy?: cabonOffsetOrderByWithRelationInput | cabonOffsetOrderByWithRelationInput[]
+    orderBy?: certificateOrderByWithRelationInput | certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for cabonOffsets.
+     * Sets the position for searching for certificates.
      */
-    cursor?: cabonOffsetWhereUniqueInput
+    cursor?: certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` cabonOffsets from the position of the cursor.
+     * Take `±n` certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` cabonOffsets.
+     * Skip the first `n` certificates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of cabonOffsets.
+     * Filter by unique combinations of certificates.
      */
-    distinct?: CabonOffsetScalarFieldEnum | CabonOffsetScalarFieldEnum[]
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
   }
 
   /**
-   * cabonOffset findFirstOrThrow
+   * certificate findFirstOrThrow
    */
-  export type cabonOffsetFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * Filter, which cabonOffset to fetch.
+     * Filter, which certificate to fetch.
      */
-    where?: cabonOffsetWhereInput
+    where?: certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of cabonOffsets to fetch.
+     * Determine the order of certificates to fetch.
      */
-    orderBy?: cabonOffsetOrderByWithRelationInput | cabonOffsetOrderByWithRelationInput[]
+    orderBy?: certificateOrderByWithRelationInput | certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for cabonOffsets.
+     * Sets the position for searching for certificates.
      */
-    cursor?: cabonOffsetWhereUniqueInput
+    cursor?: certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` cabonOffsets from the position of the cursor.
+     * Take `±n` certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` cabonOffsets.
+     * Skip the first `n` certificates.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of cabonOffsets.
+     * Filter by unique combinations of certificates.
      */
-    distinct?: CabonOffsetScalarFieldEnum | CabonOffsetScalarFieldEnum[]
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
   }
 
   /**
-   * cabonOffset findMany
+   * certificate findMany
    */
-  export type cabonOffsetFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * Filter, which cabonOffsets to fetch.
+     * Filter, which certificates to fetch.
      */
-    where?: cabonOffsetWhereInput
+    where?: certificateWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of cabonOffsets to fetch.
+     * Determine the order of certificates to fetch.
      */
-    orderBy?: cabonOffsetOrderByWithRelationInput | cabonOffsetOrderByWithRelationInput[]
+    orderBy?: certificateOrderByWithRelationInput | certificateOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing cabonOffsets.
+     * Sets the position for listing certificates.
      */
-    cursor?: cabonOffsetWhereUniqueInput
+    cursor?: certificateWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` cabonOffsets from the position of the cursor.
+     * Take `±n` certificates from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` cabonOffsets.
+     * Skip the first `n` certificates.
      */
     skip?: number
-    distinct?: CabonOffsetScalarFieldEnum | CabonOffsetScalarFieldEnum[]
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
   }
 
   /**
-   * cabonOffset create
+   * certificate create
    */
-  export type cabonOffsetCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * The data needed to create a cabonOffset.
+     * The data needed to create a certificate.
      */
-    data: XOR<cabonOffsetCreateInput, cabonOffsetUncheckedCreateInput>
+    data: XOR<certificateCreateInput, certificateUncheckedCreateInput>
   }
 
   /**
-   * cabonOffset createMany
+   * certificate createMany
    */
-  export type cabonOffsetCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many cabonOffsets.
+     * The data used to create many certificates.
      */
-    data: cabonOffsetCreateManyInput | cabonOffsetCreateManyInput[]
+    data: certificateCreateManyInput | certificateCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * cabonOffset update
+   * certificate update
    */
-  export type cabonOffsetUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * The data needed to update a cabonOffset.
+     * The data needed to update a certificate.
      */
-    data: XOR<cabonOffsetUpdateInput, cabonOffsetUncheckedUpdateInput>
+    data: XOR<certificateUpdateInput, certificateUncheckedUpdateInput>
     /**
-     * Choose, which cabonOffset to update.
+     * Choose, which certificate to update.
      */
-    where: cabonOffsetWhereUniqueInput
+    where: certificateWhereUniqueInput
   }
 
   /**
-   * cabonOffset updateMany
+   * certificate updateMany
    */
-  export type cabonOffsetUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update cabonOffsets.
+     * The data used to update certificates.
      */
-    data: XOR<cabonOffsetUpdateManyMutationInput, cabonOffsetUncheckedUpdateManyInput>
+    data: XOR<certificateUpdateManyMutationInput, certificateUncheckedUpdateManyInput>
     /**
-     * Filter which cabonOffsets to update
+     * Filter which certificates to update
      */
-    where?: cabonOffsetWhereInput
+    where?: certificateWhereInput
   }
 
   /**
-   * cabonOffset upsert
+   * certificate upsert
    */
-  export type cabonOffsetUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * The filter to search for the cabonOffset to update in case it exists.
+     * The filter to search for the certificate to update in case it exists.
      */
-    where: cabonOffsetWhereUniqueInput
+    where: certificateWhereUniqueInput
     /**
-     * In case the cabonOffset found by the `where` argument doesn't exist, create a new cabonOffset with this data.
+     * In case the certificate found by the `where` argument doesn't exist, create a new certificate with this data.
      */
-    create: XOR<cabonOffsetCreateInput, cabonOffsetUncheckedCreateInput>
+    create: XOR<certificateCreateInput, certificateUncheckedCreateInput>
     /**
-     * In case the cabonOffset was found with the provided `where` argument, update it with this data.
+     * In case the certificate was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<cabonOffsetUpdateInput, cabonOffsetUncheckedUpdateInput>
+    update: XOR<certificateUpdateInput, certificateUncheckedUpdateInput>
   }
 
   /**
-   * cabonOffset delete
+   * certificate delete
    */
-  export type cabonOffsetDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
     /**
-     * Filter which cabonOffset to delete.
+     * Filter which certificate to delete.
      */
-    where: cabonOffsetWhereUniqueInput
+    where: certificateWhereUniqueInput
   }
 
   /**
-   * cabonOffset deleteMany
+   * certificate deleteMany
    */
-  export type cabonOffsetDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which cabonOffsets to delete
+     * Filter which certificates to delete
      */
-    where?: cabonOffsetWhereInput
+    where?: certificateWhereInput
   }
 
   /**
-   * cabonOffset without action
+   * certificate without action
    */
-  export type cabonOffsetDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type certificateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the cabonOffset
+     * Select specific fields to fetch from the certificate
      */
-    select?: cabonOffsetSelect<ExtArgs> | null
+    select?: certificateSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: cabonOffsetInclude<ExtArgs> | null
+    include?: certificateInclude<ExtArgs> | null
   }
 
 
@@ -3223,6 +3231,8 @@ export namespace Prisma {
     companyName?: boolean
     amount?: boolean
     available?: boolean
+    certificate?: boolean | trader$certificateArgs<ExtArgs>
+    _count?: boolean | TraderCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trader"]>
 
 
@@ -3233,10 +3243,16 @@ export namespace Prisma {
     available?: boolean
   }
 
+  export type traderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    certificate?: boolean | trader$certificateArgs<ExtArgs>
+    _count?: boolean | TraderCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $traderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "trader"
-    objects: {}
+    objects: {
+      certificate: Prisma.$certificatePayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       traderId: number
       companyName: string
@@ -3606,6 +3622,7 @@ export namespace Prisma {
   export interface Prisma__traderClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    certificate<T extends trader$certificateArgs<ExtArgs> = {}>(args?: Subset<T, trader$certificateArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$certificatePayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3652,6 +3669,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * Filter, which trader to fetch.
      */
     where: traderWhereUniqueInput
@@ -3666,6 +3687,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * Filter, which trader to fetch.
      */
     where: traderWhereUniqueInput
@@ -3679,6 +3704,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the trader
      */
     select?: traderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
     /**
      * Filter, which trader to fetch.
      */
@@ -3724,6 +3753,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * Filter, which trader to fetch.
      */
     where?: traderWhereInput
@@ -3768,6 +3801,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * Filter, which traders to fetch.
      */
     where?: traderWhereInput
@@ -3807,6 +3844,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * The data needed to create a trader.
      */
     data: XOR<traderCreateInput, traderUncheckedCreateInput>
@@ -3831,6 +3872,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the trader
      */
     select?: traderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
     /**
      * The data needed to update a trader.
      */
@@ -3864,6 +3909,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * The filter to search for the trader to update in case it exists.
      */
     where: traderWhereUniqueInput
@@ -3886,6 +3935,10 @@ export namespace Prisma {
      */
     select?: traderSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
+    /**
      * Filter which trader to delete.
      */
     where: traderWhereUniqueInput
@@ -3902,6 +3955,26 @@ export namespace Prisma {
   }
 
   /**
+   * trader.certificate
+   */
+  export type trader$certificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the certificate
+     */
+    select?: certificateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: certificateInclude<ExtArgs> | null
+    where?: certificateWhereInput
+    orderBy?: certificateOrderByWithRelationInput | certificateOrderByWithRelationInput[]
+    cursor?: certificateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CertificateScalarFieldEnum | CertificateScalarFieldEnum[]
+  }
+
+  /**
    * trader without action
    */
   export type traderDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3909,6 +3982,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the trader
      */
     select?: traderSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: traderInclude<ExtArgs> | null
   }
 
 
@@ -3931,25 +4008,24 @@ export namespace Prisma {
     username: 'username',
     password: 'password',
     nameTitle: 'nameTitle',
+    firstname: 'firstname',
     lastname: 'lastname',
     email: 'email',
     expectedMonthly: 'expectedMonthly',
-    firstname: 'firstname',
     profileImage: 'profileImage'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const CabonOffsetScalarFieldEnum: {
-    userId: 'userId',
+  export const CertificateScalarFieldEnum: {
     certificateId: 'certificateId',
-    amount: 'amount',
-    date: 'date',
-    unit: 'unit'
+    userId: 'userId',
+    traderId: 'traderId',
+    date: 'date'
   };
 
-  export type CabonOffsetScalarFieldEnum = (typeof CabonOffsetScalarFieldEnum)[keyof typeof CabonOffsetScalarFieldEnum]
+  export type CertificateScalarFieldEnum = (typeof CertificateScalarFieldEnum)[keyof typeof CertificateScalarFieldEnum]
 
 
   export const TraderScalarFieldEnum: {
@@ -4005,13 +4081,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'retailUnit'
-   */
-  export type EnumretailUnitFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'retailUnit'>
-    
-
-
-  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -4036,12 +4105,12 @@ export namespace Prisma {
     username?: StringFilter<"user"> | string
     password?: StringFilter<"user"> | string
     nameTitle?: StringNullableFilter<"user"> | string | null
+    firstname?: StringNullableFilter<"user"> | string | null
     lastname?: StringNullableFilter<"user"> | string | null
     email?: StringNullableFilter<"user"> | string | null
     expectedMonthly?: StringNullableFilter<"user"> | string | null
-    firstname?: StringNullableFilter<"user"> | string | null
     profileImage?: StringNullableFilter<"user"> | string | null
-    cabonOffSet?: CabonOffsetListRelationFilter
+    certificate?: CertificateListRelationFilter
   }
 
   export type userOrderByWithRelationInput = {
@@ -4049,12 +4118,12 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrderInput | SortOrder
+    firstname?: SortOrderInput | SortOrder
     lastname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     expectedMonthly?: SortOrderInput | SortOrder
-    firstname?: SortOrderInput | SortOrder
     profileImage?: SortOrderInput | SortOrder
-    cabonOffSet?: cabonOffsetOrderByRelationAggregateInput
+    certificate?: certificateOrderByRelationAggregateInput
   }
 
   export type userWhereUniqueInput = Prisma.AtLeast<{
@@ -4065,12 +4134,12 @@ export namespace Prisma {
     username?: StringFilter<"user"> | string
     password?: StringFilter<"user"> | string
     nameTitle?: StringNullableFilter<"user"> | string | null
+    firstname?: StringNullableFilter<"user"> | string | null
     lastname?: StringNullableFilter<"user"> | string | null
     email?: StringNullableFilter<"user"> | string | null
     expectedMonthly?: StringNullableFilter<"user"> | string | null
-    firstname?: StringNullableFilter<"user"> | string | null
     profileImage?: StringNullableFilter<"user"> | string | null
-    cabonOffSet?: CabonOffsetListRelationFilter
+    certificate?: CertificateListRelationFilter
   }, "userId">
 
   export type userOrderByWithAggregationInput = {
@@ -4078,10 +4147,10 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrderInput | SortOrder
+    firstname?: SortOrderInput | SortOrder
     lastname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     expectedMonthly?: SortOrderInput | SortOrder
-    firstname?: SortOrderInput | SortOrder
     profileImage?: SortOrderInput | SortOrder
     _count?: userCountOrderByAggregateInput
     _avg?: userAvgOrderByAggregateInput
@@ -4098,68 +4167,66 @@ export namespace Prisma {
     username?: StringWithAggregatesFilter<"user"> | string
     password?: StringWithAggregatesFilter<"user"> | string
     nameTitle?: StringNullableWithAggregatesFilter<"user"> | string | null
+    firstname?: StringNullableWithAggregatesFilter<"user"> | string | null
     lastname?: StringNullableWithAggregatesFilter<"user"> | string | null
     email?: StringNullableWithAggregatesFilter<"user"> | string | null
     expectedMonthly?: StringNullableWithAggregatesFilter<"user"> | string | null
-    firstname?: StringNullableWithAggregatesFilter<"user"> | string | null
     profileImage?: StringNullableWithAggregatesFilter<"user"> | string | null
   }
 
-  export type cabonOffsetWhereInput = {
-    AND?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
-    OR?: cabonOffsetWhereInput[]
-    NOT?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
-    userId?: IntFilter<"cabonOffset"> | number
-    certificateId?: StringFilter<"cabonOffset"> | string
-    amount?: IntFilter<"cabonOffset"> | number
-    date?: DateTimeFilter<"cabonOffset"> | Date | string
-    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
+  export type certificateWhereInput = {
+    AND?: certificateWhereInput | certificateWhereInput[]
+    OR?: certificateWhereInput[]
+    NOT?: certificateWhereInput | certificateWhereInput[]
+    certificateId?: StringFilter<"certificate"> | string
+    userId?: IntFilter<"certificate"> | number
+    traderId?: IntFilter<"certificate"> | number
+    date?: DateTimeFilter<"certificate"> | Date | string
     userCertificate?: XOR<UserRelationFilter, userWhereInput>
+    traderCertificate?: XOR<TraderRelationFilter, traderWhereInput>
   }
 
-  export type cabonOffsetOrderByWithRelationInput = {
-    userId?: SortOrder
+  export type certificateOrderByWithRelationInput = {
     certificateId?: SortOrder
-    amount?: SortOrder
+    userId?: SortOrder
+    traderId?: SortOrder
     date?: SortOrder
-    unit?: SortOrder
     userCertificate?: userOrderByWithRelationInput
+    traderCertificate?: traderOrderByWithRelationInput
   }
 
-  export type cabonOffsetWhereUniqueInput = Prisma.AtLeast<{
+  export type certificateWhereUniqueInput = Prisma.AtLeast<{
     certificateId?: string
-    AND?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
-    OR?: cabonOffsetWhereInput[]
-    NOT?: cabonOffsetWhereInput | cabonOffsetWhereInput[]
-    userId?: IntFilter<"cabonOffset"> | number
-    amount?: IntFilter<"cabonOffset"> | number
-    date?: DateTimeFilter<"cabonOffset"> | Date | string
-    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
+    AND?: certificateWhereInput | certificateWhereInput[]
+    OR?: certificateWhereInput[]
+    NOT?: certificateWhereInput | certificateWhereInput[]
+    userId?: IntFilter<"certificate"> | number
+    traderId?: IntFilter<"certificate"> | number
+    date?: DateTimeFilter<"certificate"> | Date | string
     userCertificate?: XOR<UserRelationFilter, userWhereInput>
+    traderCertificate?: XOR<TraderRelationFilter, traderWhereInput>
   }, "certificateId">
 
-  export type cabonOffsetOrderByWithAggregationInput = {
-    userId?: SortOrder
+  export type certificateOrderByWithAggregationInput = {
     certificateId?: SortOrder
-    amount?: SortOrder
+    userId?: SortOrder
+    traderId?: SortOrder
     date?: SortOrder
-    unit?: SortOrder
-    _count?: cabonOffsetCountOrderByAggregateInput
-    _avg?: cabonOffsetAvgOrderByAggregateInput
-    _max?: cabonOffsetMaxOrderByAggregateInput
-    _min?: cabonOffsetMinOrderByAggregateInput
-    _sum?: cabonOffsetSumOrderByAggregateInput
+    _count?: certificateCountOrderByAggregateInput
+    _avg?: certificateAvgOrderByAggregateInput
+    _max?: certificateMaxOrderByAggregateInput
+    _min?: certificateMinOrderByAggregateInput
+    _sum?: certificateSumOrderByAggregateInput
   }
 
-  export type cabonOffsetScalarWhereWithAggregatesInput = {
-    AND?: cabonOffsetScalarWhereWithAggregatesInput | cabonOffsetScalarWhereWithAggregatesInput[]
-    OR?: cabonOffsetScalarWhereWithAggregatesInput[]
-    NOT?: cabonOffsetScalarWhereWithAggregatesInput | cabonOffsetScalarWhereWithAggregatesInput[]
-    userId?: IntWithAggregatesFilter<"cabonOffset"> | number
-    certificateId?: StringWithAggregatesFilter<"cabonOffset"> | string
-    amount?: IntWithAggregatesFilter<"cabonOffset"> | number
-    date?: DateTimeWithAggregatesFilter<"cabonOffset"> | Date | string
-    unit?: EnumretailUnitWithAggregatesFilter<"cabonOffset"> | $Enums.retailUnit
+  export type certificateScalarWhereWithAggregatesInput = {
+    AND?: certificateScalarWhereWithAggregatesInput | certificateScalarWhereWithAggregatesInput[]
+    OR?: certificateScalarWhereWithAggregatesInput[]
+    NOT?: certificateScalarWhereWithAggregatesInput | certificateScalarWhereWithAggregatesInput[]
+    certificateId?: StringWithAggregatesFilter<"certificate"> | string
+    userId?: IntWithAggregatesFilter<"certificate"> | number
+    traderId?: IntWithAggregatesFilter<"certificate"> | number
+    date?: DateTimeWithAggregatesFilter<"certificate"> | Date | string
   }
 
   export type traderWhereInput = {
@@ -4170,6 +4237,7 @@ export namespace Prisma {
     companyName?: StringFilter<"trader"> | string
     amount?: IntFilter<"trader"> | number
     available?: BoolFilter<"trader"> | boolean
+    certificate?: CertificateListRelationFilter
   }
 
   export type traderOrderByWithRelationInput = {
@@ -4177,6 +4245,7 @@ export namespace Prisma {
     companyName?: SortOrder
     amount?: SortOrder
     available?: SortOrder
+    certificate?: certificateOrderByRelationAggregateInput
   }
 
   export type traderWhereUniqueInput = Prisma.AtLeast<{
@@ -4187,6 +4256,7 @@ export namespace Prisma {
     companyName?: StringFilter<"trader"> | string
     amount?: IntFilter<"trader"> | number
     available?: BoolFilter<"trader"> | boolean
+    certificate?: CertificateListRelationFilter
   }, "traderId">
 
   export type traderOrderByWithAggregationInput = {
@@ -4215,12 +4285,12 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
+    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
-    firstname?: string | null
     profileImage?: string | null
-    cabonOffSet?: cabonOffsetCreateNestedManyWithoutUserCertificateInput
+    certificate?: certificateCreateNestedManyWithoutUserCertificateInput
   }
 
   export type userUncheckedCreateInput = {
@@ -4228,24 +4298,24 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
+    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
-    firstname?: string | null
     profileImage?: string | null
-    cabonOffSet?: cabonOffsetUncheckedCreateNestedManyWithoutUserCertificateInput
+    certificate?: certificateUncheckedCreateNestedManyWithoutUserCertificateInput
   }
 
   export type userUpdateInput = {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    cabonOffSet?: cabonOffsetUpdateManyWithoutUserCertificateNestedInput
+    certificate?: certificateUpdateManyWithoutUserCertificateNestedInput
   }
 
   export type userUncheckedUpdateInput = {
@@ -4253,12 +4323,12 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    cabonOffSet?: cabonOffsetUncheckedUpdateManyWithoutUserCertificateNestedInput
+    certificate?: certificateUncheckedUpdateManyWithoutUserCertificateNestedInput
   }
 
   export type userCreateManyInput = {
@@ -4266,10 +4336,10 @@ export namespace Prisma {
     username: string
     password: string
     nameTitle?: string | null
+    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
-    firstname?: string | null
     profileImage?: string | null
   }
 
@@ -4277,10 +4347,10 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -4289,72 +4359,65 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type cabonOffsetCreateInput = {
+  export type certificateCreateInput = {
     certificateId?: string
-    amount: number
     date?: Date | string
-    unit: $Enums.retailUnit
-    userCertificate: userCreateNestedOneWithoutCabonOffSetInput
+    userCertificate: userCreateNestedOneWithoutCertificateInput
+    traderCertificate: traderCreateNestedOneWithoutCertificateInput
   }
 
-  export type cabonOffsetUncheckedCreateInput = {
+  export type certificateUncheckedCreateInput = {
+    certificateId?: string
     userId: number
-    certificateId?: string
-    amount: number
+    traderId: number
     date?: Date | string
-    unit: $Enums.retailUnit
   }
 
-  export type cabonOffsetUpdateInput = {
+  export type certificateUpdateInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
-    userCertificate?: userUpdateOneRequiredWithoutCabonOffSetNestedInput
+    userCertificate?: userUpdateOneRequiredWithoutCertificateNestedInput
+    traderCertificate?: traderUpdateOneRequiredWithoutCertificateNestedInput
   }
 
-  export type cabonOffsetUncheckedUpdateInput = {
+  export type certificateUncheckedUpdateInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
-    certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
+    traderId?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
-  export type cabonOffsetCreateManyInput = {
+  export type certificateCreateManyInput = {
+    certificateId?: string
     userId: number
-    certificateId?: string
-    amount: number
+    traderId: number
     date?: Date | string
-    unit: $Enums.retailUnit
   }
 
-  export type cabonOffsetUpdateManyMutationInput = {
+  export type certificateUpdateManyMutationInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
-  export type cabonOffsetUncheckedUpdateManyInput = {
+  export type certificateUncheckedUpdateManyInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
-    certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
+    traderId?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
   }
 
   export type traderCreateInput = {
     companyName: string
     amount: number
     available: boolean
+    certificate?: certificateCreateNestedManyWithoutTraderCertificateInput
   }
 
   export type traderUncheckedCreateInput = {
@@ -4362,12 +4425,14 @@ export namespace Prisma {
     companyName: string
     amount: number
     available: boolean
+    certificate?: certificateUncheckedCreateNestedManyWithoutTraderCertificateInput
   }
 
   export type traderUpdateInput = {
     companyName?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     available?: BoolFieldUpdateOperationsInput | boolean
+    certificate?: certificateUpdateManyWithoutTraderCertificateNestedInput
   }
 
   export type traderUncheckedUpdateInput = {
@@ -4375,6 +4440,7 @@ export namespace Prisma {
     companyName?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     available?: BoolFieldUpdateOperationsInput | boolean
+    certificate?: certificateUncheckedUpdateManyWithoutTraderCertificateNestedInput
   }
 
   export type traderCreateManyInput = {
@@ -4436,10 +4502,10 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type CabonOffsetListRelationFilter = {
-    every?: cabonOffsetWhereInput
-    some?: cabonOffsetWhereInput
-    none?: cabonOffsetWhereInput
+  export type CertificateListRelationFilter = {
+    every?: certificateWhereInput
+    some?: certificateWhereInput
+    none?: certificateWhereInput
   }
 
   export type SortOrderInput = {
@@ -4447,7 +4513,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type cabonOffsetOrderByRelationAggregateInput = {
+  export type certificateOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -4456,10 +4522,10 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrder
+    firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
     expectedMonthly?: SortOrder
-    firstname?: SortOrder
     profileImage?: SortOrder
   }
 
@@ -4472,10 +4538,10 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrder
+    firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
     expectedMonthly?: SortOrder
-    firstname?: SortOrder
     profileImage?: SortOrder
   }
 
@@ -4484,10 +4550,10 @@ export namespace Prisma {
     username?: SortOrder
     password?: SortOrder
     nameTitle?: SortOrder
+    firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
     expectedMonthly?: SortOrder
-    firstname?: SortOrder
     profileImage?: SortOrder
   }
 
@@ -4556,50 +4622,45 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type EnumretailUnitFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitFilter<$PrismaModel> | $Enums.retailUnit
-  }
-
   export type UserRelationFilter = {
     is?: userWhereInput
     isNot?: userWhereInput
   }
 
-  export type cabonOffsetCountOrderByAggregateInput = {
-    userId?: SortOrder
+  export type TraderRelationFilter = {
+    is?: traderWhereInput
+    isNot?: traderWhereInput
+  }
+
+  export type certificateCountOrderByAggregateInput = {
     certificateId?: SortOrder
-    amount?: SortOrder
+    userId?: SortOrder
+    traderId?: SortOrder
     date?: SortOrder
-    unit?: SortOrder
   }
 
-  export type cabonOffsetAvgOrderByAggregateInput = {
+  export type certificateAvgOrderByAggregateInput = {
     userId?: SortOrder
-    amount?: SortOrder
+    traderId?: SortOrder
   }
 
-  export type cabonOffsetMaxOrderByAggregateInput = {
-    userId?: SortOrder
+  export type certificateMaxOrderByAggregateInput = {
     certificateId?: SortOrder
-    amount?: SortOrder
+    userId?: SortOrder
+    traderId?: SortOrder
     date?: SortOrder
-    unit?: SortOrder
   }
 
-  export type cabonOffsetMinOrderByAggregateInput = {
-    userId?: SortOrder
+  export type certificateMinOrderByAggregateInput = {
     certificateId?: SortOrder
-    amount?: SortOrder
+    userId?: SortOrder
+    traderId?: SortOrder
     date?: SortOrder
-    unit?: SortOrder
   }
 
-  export type cabonOffsetSumOrderByAggregateInput = {
+  export type certificateSumOrderByAggregateInput = {
     userId?: SortOrder
-    amount?: SortOrder
+    traderId?: SortOrder
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -4614,16 +4675,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type EnumretailUnitWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitWithAggregatesFilter<$PrismaModel> | $Enums.retailUnit
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumretailUnitFilter<$PrismaModel>
-    _max?: NestedEnumretailUnitFilter<$PrismaModel>
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -4670,18 +4721,18 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type cabonOffsetCreateNestedManyWithoutUserCertificateInput = {
-    create?: XOR<cabonOffsetCreateWithoutUserCertificateInput, cabonOffsetUncheckedCreateWithoutUserCertificateInput> | cabonOffsetCreateWithoutUserCertificateInput[] | cabonOffsetUncheckedCreateWithoutUserCertificateInput[]
-    connectOrCreate?: cabonOffsetCreateOrConnectWithoutUserCertificateInput | cabonOffsetCreateOrConnectWithoutUserCertificateInput[]
-    createMany?: cabonOffsetCreateManyUserCertificateInputEnvelope
-    connect?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
+  export type certificateCreateNestedManyWithoutUserCertificateInput = {
+    create?: XOR<certificateCreateWithoutUserCertificateInput, certificateUncheckedCreateWithoutUserCertificateInput> | certificateCreateWithoutUserCertificateInput[] | certificateUncheckedCreateWithoutUserCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutUserCertificateInput | certificateCreateOrConnectWithoutUserCertificateInput[]
+    createMany?: certificateCreateManyUserCertificateInputEnvelope
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
   }
 
-  export type cabonOffsetUncheckedCreateNestedManyWithoutUserCertificateInput = {
-    create?: XOR<cabonOffsetCreateWithoutUserCertificateInput, cabonOffsetUncheckedCreateWithoutUserCertificateInput> | cabonOffsetCreateWithoutUserCertificateInput[] | cabonOffsetUncheckedCreateWithoutUserCertificateInput[]
-    connectOrCreate?: cabonOffsetCreateOrConnectWithoutUserCertificateInput | cabonOffsetCreateOrConnectWithoutUserCertificateInput[]
-    createMany?: cabonOffsetCreateManyUserCertificateInputEnvelope
-    connect?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
+  export type certificateUncheckedCreateNestedManyWithoutUserCertificateInput = {
+    create?: XOR<certificateCreateWithoutUserCertificateInput, certificateUncheckedCreateWithoutUserCertificateInput> | certificateCreateWithoutUserCertificateInput[] | certificateUncheckedCreateWithoutUserCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutUserCertificateInput | certificateCreateOrConnectWithoutUserCertificateInput[]
+    createMany?: certificateCreateManyUserCertificateInputEnvelope
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4692,18 +4743,18 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type cabonOffsetUpdateManyWithoutUserCertificateNestedInput = {
-    create?: XOR<cabonOffsetCreateWithoutUserCertificateInput, cabonOffsetUncheckedCreateWithoutUserCertificateInput> | cabonOffsetCreateWithoutUserCertificateInput[] | cabonOffsetUncheckedCreateWithoutUserCertificateInput[]
-    connectOrCreate?: cabonOffsetCreateOrConnectWithoutUserCertificateInput | cabonOffsetCreateOrConnectWithoutUserCertificateInput[]
-    upsert?: cabonOffsetUpsertWithWhereUniqueWithoutUserCertificateInput | cabonOffsetUpsertWithWhereUniqueWithoutUserCertificateInput[]
-    createMany?: cabonOffsetCreateManyUserCertificateInputEnvelope
-    set?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    disconnect?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    delete?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    connect?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    update?: cabonOffsetUpdateWithWhereUniqueWithoutUserCertificateInput | cabonOffsetUpdateWithWhereUniqueWithoutUserCertificateInput[]
-    updateMany?: cabonOffsetUpdateManyWithWhereWithoutUserCertificateInput | cabonOffsetUpdateManyWithWhereWithoutUserCertificateInput[]
-    deleteMany?: cabonOffsetScalarWhereInput | cabonOffsetScalarWhereInput[]
+  export type certificateUpdateManyWithoutUserCertificateNestedInput = {
+    create?: XOR<certificateCreateWithoutUserCertificateInput, certificateUncheckedCreateWithoutUserCertificateInput> | certificateCreateWithoutUserCertificateInput[] | certificateUncheckedCreateWithoutUserCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutUserCertificateInput | certificateCreateOrConnectWithoutUserCertificateInput[]
+    upsert?: certificateUpsertWithWhereUniqueWithoutUserCertificateInput | certificateUpsertWithWhereUniqueWithoutUserCertificateInput[]
+    createMany?: certificateCreateManyUserCertificateInputEnvelope
+    set?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    disconnect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    delete?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    update?: certificateUpdateWithWhereUniqueWithoutUserCertificateInput | certificateUpdateWithWhereUniqueWithoutUserCertificateInput[]
+    updateMany?: certificateUpdateManyWithWhereWithoutUserCertificateInput | certificateUpdateManyWithWhereWithoutUserCertificateInput[]
+    deleteMany?: certificateScalarWhereInput | certificateScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -4714,44 +4765,96 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type cabonOffsetUncheckedUpdateManyWithoutUserCertificateNestedInput = {
-    create?: XOR<cabonOffsetCreateWithoutUserCertificateInput, cabonOffsetUncheckedCreateWithoutUserCertificateInput> | cabonOffsetCreateWithoutUserCertificateInput[] | cabonOffsetUncheckedCreateWithoutUserCertificateInput[]
-    connectOrCreate?: cabonOffsetCreateOrConnectWithoutUserCertificateInput | cabonOffsetCreateOrConnectWithoutUserCertificateInput[]
-    upsert?: cabonOffsetUpsertWithWhereUniqueWithoutUserCertificateInput | cabonOffsetUpsertWithWhereUniqueWithoutUserCertificateInput[]
-    createMany?: cabonOffsetCreateManyUserCertificateInputEnvelope
-    set?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    disconnect?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    delete?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    connect?: cabonOffsetWhereUniqueInput | cabonOffsetWhereUniqueInput[]
-    update?: cabonOffsetUpdateWithWhereUniqueWithoutUserCertificateInput | cabonOffsetUpdateWithWhereUniqueWithoutUserCertificateInput[]
-    updateMany?: cabonOffsetUpdateManyWithWhereWithoutUserCertificateInput | cabonOffsetUpdateManyWithWhereWithoutUserCertificateInput[]
-    deleteMany?: cabonOffsetScalarWhereInput | cabonOffsetScalarWhereInput[]
+  export type certificateUncheckedUpdateManyWithoutUserCertificateNestedInput = {
+    create?: XOR<certificateCreateWithoutUserCertificateInput, certificateUncheckedCreateWithoutUserCertificateInput> | certificateCreateWithoutUserCertificateInput[] | certificateUncheckedCreateWithoutUserCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutUserCertificateInput | certificateCreateOrConnectWithoutUserCertificateInput[]
+    upsert?: certificateUpsertWithWhereUniqueWithoutUserCertificateInput | certificateUpsertWithWhereUniqueWithoutUserCertificateInput[]
+    createMany?: certificateCreateManyUserCertificateInputEnvelope
+    set?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    disconnect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    delete?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    update?: certificateUpdateWithWhereUniqueWithoutUserCertificateInput | certificateUpdateWithWhereUniqueWithoutUserCertificateInput[]
+    updateMany?: certificateUpdateManyWithWhereWithoutUserCertificateInput | certificateUpdateManyWithWhereWithoutUserCertificateInput[]
+    deleteMany?: certificateScalarWhereInput | certificateScalarWhereInput[]
   }
 
-  export type userCreateNestedOneWithoutCabonOffSetInput = {
-    create?: XOR<userCreateWithoutCabonOffSetInput, userUncheckedCreateWithoutCabonOffSetInput>
-    connectOrCreate?: userCreateOrConnectWithoutCabonOffSetInput
+  export type userCreateNestedOneWithoutCertificateInput = {
+    create?: XOR<userCreateWithoutCertificateInput, userUncheckedCreateWithoutCertificateInput>
+    connectOrCreate?: userCreateOrConnectWithoutCertificateInput
     connect?: userWhereUniqueInput
+  }
+
+  export type traderCreateNestedOneWithoutCertificateInput = {
+    create?: XOR<traderCreateWithoutCertificateInput, traderUncheckedCreateWithoutCertificateInput>
+    connectOrCreate?: traderCreateOrConnectWithoutCertificateInput
+    connect?: traderWhereUniqueInput
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-  export type EnumretailUnitFieldUpdateOperationsInput = {
-    set?: $Enums.retailUnit
+  export type userUpdateOneRequiredWithoutCertificateNestedInput = {
+    create?: XOR<userCreateWithoutCertificateInput, userUncheckedCreateWithoutCertificateInput>
+    connectOrCreate?: userCreateOrConnectWithoutCertificateInput
+    upsert?: userUpsertWithoutCertificateInput
+    connect?: userWhereUniqueInput
+    update?: XOR<XOR<userUpdateToOneWithWhereWithoutCertificateInput, userUpdateWithoutCertificateInput>, userUncheckedUpdateWithoutCertificateInput>
   }
 
-  export type userUpdateOneRequiredWithoutCabonOffSetNestedInput = {
-    create?: XOR<userCreateWithoutCabonOffSetInput, userUncheckedCreateWithoutCabonOffSetInput>
-    connectOrCreate?: userCreateOrConnectWithoutCabonOffSetInput
-    upsert?: userUpsertWithoutCabonOffSetInput
-    connect?: userWhereUniqueInput
-    update?: XOR<XOR<userUpdateToOneWithWhereWithoutCabonOffSetInput, userUpdateWithoutCabonOffSetInput>, userUncheckedUpdateWithoutCabonOffSetInput>
+  export type traderUpdateOneRequiredWithoutCertificateNestedInput = {
+    create?: XOR<traderCreateWithoutCertificateInput, traderUncheckedCreateWithoutCertificateInput>
+    connectOrCreate?: traderCreateOrConnectWithoutCertificateInput
+    upsert?: traderUpsertWithoutCertificateInput
+    connect?: traderWhereUniqueInput
+    update?: XOR<XOR<traderUpdateToOneWithWhereWithoutCertificateInput, traderUpdateWithoutCertificateInput>, traderUncheckedUpdateWithoutCertificateInput>
+  }
+
+  export type certificateCreateNestedManyWithoutTraderCertificateInput = {
+    create?: XOR<certificateCreateWithoutTraderCertificateInput, certificateUncheckedCreateWithoutTraderCertificateInput> | certificateCreateWithoutTraderCertificateInput[] | certificateUncheckedCreateWithoutTraderCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutTraderCertificateInput | certificateCreateOrConnectWithoutTraderCertificateInput[]
+    createMany?: certificateCreateManyTraderCertificateInputEnvelope
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+  }
+
+  export type certificateUncheckedCreateNestedManyWithoutTraderCertificateInput = {
+    create?: XOR<certificateCreateWithoutTraderCertificateInput, certificateUncheckedCreateWithoutTraderCertificateInput> | certificateCreateWithoutTraderCertificateInput[] | certificateUncheckedCreateWithoutTraderCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutTraderCertificateInput | certificateCreateOrConnectWithoutTraderCertificateInput[]
+    createMany?: certificateCreateManyTraderCertificateInputEnvelope
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type certificateUpdateManyWithoutTraderCertificateNestedInput = {
+    create?: XOR<certificateCreateWithoutTraderCertificateInput, certificateUncheckedCreateWithoutTraderCertificateInput> | certificateCreateWithoutTraderCertificateInput[] | certificateUncheckedCreateWithoutTraderCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutTraderCertificateInput | certificateCreateOrConnectWithoutTraderCertificateInput[]
+    upsert?: certificateUpsertWithWhereUniqueWithoutTraderCertificateInput | certificateUpsertWithWhereUniqueWithoutTraderCertificateInput[]
+    createMany?: certificateCreateManyTraderCertificateInputEnvelope
+    set?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    disconnect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    delete?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    update?: certificateUpdateWithWhereUniqueWithoutTraderCertificateInput | certificateUpdateWithWhereUniqueWithoutTraderCertificateInput[]
+    updateMany?: certificateUpdateManyWithWhereWithoutTraderCertificateInput | certificateUpdateManyWithWhereWithoutTraderCertificateInput[]
+    deleteMany?: certificateScalarWhereInput | certificateScalarWhereInput[]
+  }
+
+  export type certificateUncheckedUpdateManyWithoutTraderCertificateNestedInput = {
+    create?: XOR<certificateCreateWithoutTraderCertificateInput, certificateUncheckedCreateWithoutTraderCertificateInput> | certificateCreateWithoutTraderCertificateInput[] | certificateUncheckedCreateWithoutTraderCertificateInput[]
+    connectOrCreate?: certificateCreateOrConnectWithoutTraderCertificateInput | certificateCreateOrConnectWithoutTraderCertificateInput[]
+    upsert?: certificateUpsertWithWhereUniqueWithoutTraderCertificateInput | certificateUpsertWithWhereUniqueWithoutTraderCertificateInput[]
+    createMany?: certificateCreateManyTraderCertificateInputEnvelope
+    set?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    disconnect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    delete?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    connect?: certificateWhereUniqueInput | certificateWhereUniqueInput[]
+    update?: certificateUpdateWithWhereUniqueWithoutTraderCertificateInput | certificateUpdateWithWhereUniqueWithoutTraderCertificateInput[]
+    updateMany?: certificateUpdateManyWithWhereWithoutTraderCertificateInput | certificateUpdateManyWithWhereWithoutTraderCertificateInput[]
+    deleteMany?: certificateScalarWhereInput | certificateScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -4876,13 +4979,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedEnumretailUnitFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitFilter<$PrismaModel> | $Enums.retailUnit
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -4895,16 +4991,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedEnumretailUnitWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.retailUnit | EnumretailUnitFieldRefInput<$PrismaModel>
-    in?: $Enums.retailUnit[]
-    notIn?: $Enums.retailUnit[]
-    not?: NestedEnumretailUnitWithAggregatesFilter<$PrismaModel> | $Enums.retailUnit
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumretailUnitFilter<$PrismaModel>
-    _max?: NestedEnumretailUnitFilter<$PrismaModel>
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -4920,145 +5006,242 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type cabonOffsetCreateWithoutUserCertificateInput = {
+  export type certificateCreateWithoutUserCertificateInput = {
     certificateId?: string
-    amount: number
     date?: Date | string
-    unit: $Enums.retailUnit
+    traderCertificate: traderCreateNestedOneWithoutCertificateInput
   }
 
-  export type cabonOffsetUncheckedCreateWithoutUserCertificateInput = {
+  export type certificateUncheckedCreateWithoutUserCertificateInput = {
     certificateId?: string
-    amount: number
+    traderId: number
     date?: Date | string
-    unit: $Enums.retailUnit
   }
 
-  export type cabonOffsetCreateOrConnectWithoutUserCertificateInput = {
-    where: cabonOffsetWhereUniqueInput
-    create: XOR<cabonOffsetCreateWithoutUserCertificateInput, cabonOffsetUncheckedCreateWithoutUserCertificateInput>
+  export type certificateCreateOrConnectWithoutUserCertificateInput = {
+    where: certificateWhereUniqueInput
+    create: XOR<certificateCreateWithoutUserCertificateInput, certificateUncheckedCreateWithoutUserCertificateInput>
   }
 
-  export type cabonOffsetCreateManyUserCertificateInputEnvelope = {
-    data: cabonOffsetCreateManyUserCertificateInput | cabonOffsetCreateManyUserCertificateInput[]
+  export type certificateCreateManyUserCertificateInputEnvelope = {
+    data: certificateCreateManyUserCertificateInput | certificateCreateManyUserCertificateInput[]
     skipDuplicates?: boolean
   }
 
-  export type cabonOffsetUpsertWithWhereUniqueWithoutUserCertificateInput = {
-    where: cabonOffsetWhereUniqueInput
-    update: XOR<cabonOffsetUpdateWithoutUserCertificateInput, cabonOffsetUncheckedUpdateWithoutUserCertificateInput>
-    create: XOR<cabonOffsetCreateWithoutUserCertificateInput, cabonOffsetUncheckedCreateWithoutUserCertificateInput>
+  export type certificateUpsertWithWhereUniqueWithoutUserCertificateInput = {
+    where: certificateWhereUniqueInput
+    update: XOR<certificateUpdateWithoutUserCertificateInput, certificateUncheckedUpdateWithoutUserCertificateInput>
+    create: XOR<certificateCreateWithoutUserCertificateInput, certificateUncheckedCreateWithoutUserCertificateInput>
   }
 
-  export type cabonOffsetUpdateWithWhereUniqueWithoutUserCertificateInput = {
-    where: cabonOffsetWhereUniqueInput
-    data: XOR<cabonOffsetUpdateWithoutUserCertificateInput, cabonOffsetUncheckedUpdateWithoutUserCertificateInput>
+  export type certificateUpdateWithWhereUniqueWithoutUserCertificateInput = {
+    where: certificateWhereUniqueInput
+    data: XOR<certificateUpdateWithoutUserCertificateInput, certificateUncheckedUpdateWithoutUserCertificateInput>
   }
 
-  export type cabonOffsetUpdateManyWithWhereWithoutUserCertificateInput = {
-    where: cabonOffsetScalarWhereInput
-    data: XOR<cabonOffsetUpdateManyMutationInput, cabonOffsetUncheckedUpdateManyWithoutUserCertificateInput>
+  export type certificateUpdateManyWithWhereWithoutUserCertificateInput = {
+    where: certificateScalarWhereInput
+    data: XOR<certificateUpdateManyMutationInput, certificateUncheckedUpdateManyWithoutUserCertificateInput>
   }
 
-  export type cabonOffsetScalarWhereInput = {
-    AND?: cabonOffsetScalarWhereInput | cabonOffsetScalarWhereInput[]
-    OR?: cabonOffsetScalarWhereInput[]
-    NOT?: cabonOffsetScalarWhereInput | cabonOffsetScalarWhereInput[]
-    userId?: IntFilter<"cabonOffset"> | number
-    certificateId?: StringFilter<"cabonOffset"> | string
-    amount?: IntFilter<"cabonOffset"> | number
-    date?: DateTimeFilter<"cabonOffset"> | Date | string
-    unit?: EnumretailUnitFilter<"cabonOffset"> | $Enums.retailUnit
+  export type certificateScalarWhereInput = {
+    AND?: certificateScalarWhereInput | certificateScalarWhereInput[]
+    OR?: certificateScalarWhereInput[]
+    NOT?: certificateScalarWhereInput | certificateScalarWhereInput[]
+    certificateId?: StringFilter<"certificate"> | string
+    userId?: IntFilter<"certificate"> | number
+    traderId?: IntFilter<"certificate"> | number
+    date?: DateTimeFilter<"certificate"> | Date | string
   }
 
-  export type userCreateWithoutCabonOffSetInput = {
+  export type userCreateWithoutCertificateInput = {
     username: string
     password: string
     nameTitle?: string | null
+    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
-    firstname?: string | null
     profileImage?: string | null
   }
 
-  export type userUncheckedCreateWithoutCabonOffSetInput = {
+  export type userUncheckedCreateWithoutCertificateInput = {
     userId?: number
     username: string
     password: string
     nameTitle?: string | null
+    firstname?: string | null
     lastname?: string | null
     email?: string | null
     expectedMonthly?: string | null
-    firstname?: string | null
     profileImage?: string | null
   }
 
-  export type userCreateOrConnectWithoutCabonOffSetInput = {
+  export type userCreateOrConnectWithoutCertificateInput = {
     where: userWhereUniqueInput
-    create: XOR<userCreateWithoutCabonOffSetInput, userUncheckedCreateWithoutCabonOffSetInput>
+    create: XOR<userCreateWithoutCertificateInput, userUncheckedCreateWithoutCertificateInput>
   }
 
-  export type userUpsertWithoutCabonOffSetInput = {
-    update: XOR<userUpdateWithoutCabonOffSetInput, userUncheckedUpdateWithoutCabonOffSetInput>
-    create: XOR<userCreateWithoutCabonOffSetInput, userUncheckedCreateWithoutCabonOffSetInput>
+  export type traderCreateWithoutCertificateInput = {
+    companyName: string
+    amount: number
+    available: boolean
+  }
+
+  export type traderUncheckedCreateWithoutCertificateInput = {
+    traderId?: number
+    companyName: string
+    amount: number
+    available: boolean
+  }
+
+  export type traderCreateOrConnectWithoutCertificateInput = {
+    where: traderWhereUniqueInput
+    create: XOR<traderCreateWithoutCertificateInput, traderUncheckedCreateWithoutCertificateInput>
+  }
+
+  export type userUpsertWithoutCertificateInput = {
+    update: XOR<userUpdateWithoutCertificateInput, userUncheckedUpdateWithoutCertificateInput>
+    create: XOR<userCreateWithoutCertificateInput, userUncheckedCreateWithoutCertificateInput>
     where?: userWhereInput
   }
 
-  export type userUpdateToOneWithWhereWithoutCabonOffSetInput = {
+  export type userUpdateToOneWithWhereWithoutCertificateInput = {
     where?: userWhereInput
-    data: XOR<userUpdateWithoutCabonOffSetInput, userUncheckedUpdateWithoutCabonOffSetInput>
+    data: XOR<userUpdateWithoutCertificateInput, userUncheckedUpdateWithoutCertificateInput>
   }
 
-  export type userUpdateWithoutCabonOffSetInput = {
+  export type userUpdateWithoutCertificateInput = {
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type userUncheckedUpdateWithoutCabonOffSetInput = {
+  export type userUncheckedUpdateWithoutCertificateInput = {
     userId?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nameTitle?: NullableStringFieldUpdateOperationsInput | string | null
+    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
-    firstname?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type cabonOffsetCreateManyUserCertificateInput = {
+  export type traderUpsertWithoutCertificateInput = {
+    update: XOR<traderUpdateWithoutCertificateInput, traderUncheckedUpdateWithoutCertificateInput>
+    create: XOR<traderCreateWithoutCertificateInput, traderUncheckedCreateWithoutCertificateInput>
+    where?: traderWhereInput
+  }
+
+  export type traderUpdateToOneWithWhereWithoutCertificateInput = {
+    where?: traderWhereInput
+    data: XOR<traderUpdateWithoutCertificateInput, traderUncheckedUpdateWithoutCertificateInput>
+  }
+
+  export type traderUpdateWithoutCertificateInput = {
+    companyName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    available?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type traderUncheckedUpdateWithoutCertificateInput = {
+    traderId?: IntFieldUpdateOperationsInput | number
+    companyName?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    available?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type certificateCreateWithoutTraderCertificateInput = {
     certificateId?: string
-    amount: number
     date?: Date | string
-    unit: $Enums.retailUnit
+    userCertificate: userCreateNestedOneWithoutCertificateInput
   }
 
-  export type cabonOffsetUpdateWithoutUserCertificateInput = {
-    certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
+  export type certificateUncheckedCreateWithoutTraderCertificateInput = {
+    certificateId?: string
+    userId: number
+    date?: Date | string
   }
 
-  export type cabonOffsetUncheckedUpdateWithoutUserCertificateInput = {
-    certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
+  export type certificateCreateOrConnectWithoutTraderCertificateInput = {
+    where: certificateWhereUniqueInput
+    create: XOR<certificateCreateWithoutTraderCertificateInput, certificateUncheckedCreateWithoutTraderCertificateInput>
   }
 
-  export type cabonOffsetUncheckedUpdateManyWithoutUserCertificateInput = {
+  export type certificateCreateManyTraderCertificateInputEnvelope = {
+    data: certificateCreateManyTraderCertificateInput | certificateCreateManyTraderCertificateInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type certificateUpsertWithWhereUniqueWithoutTraderCertificateInput = {
+    where: certificateWhereUniqueInput
+    update: XOR<certificateUpdateWithoutTraderCertificateInput, certificateUncheckedUpdateWithoutTraderCertificateInput>
+    create: XOR<certificateCreateWithoutTraderCertificateInput, certificateUncheckedCreateWithoutTraderCertificateInput>
+  }
+
+  export type certificateUpdateWithWhereUniqueWithoutTraderCertificateInput = {
+    where: certificateWhereUniqueInput
+    data: XOR<certificateUpdateWithoutTraderCertificateInput, certificateUncheckedUpdateWithoutTraderCertificateInput>
+  }
+
+  export type certificateUpdateManyWithWhereWithoutTraderCertificateInput = {
+    where: certificateScalarWhereInput
+    data: XOR<certificateUpdateManyMutationInput, certificateUncheckedUpdateManyWithoutTraderCertificateInput>
+  }
+
+  export type certificateCreateManyUserCertificateInput = {
+    certificateId?: string
+    traderId: number
+    date?: Date | string
+  }
+
+  export type certificateUpdateWithoutUserCertificateInput = {
     certificateId?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
     date?: DateTimeFieldUpdateOperationsInput | Date | string
-    unit?: EnumretailUnitFieldUpdateOperationsInput | $Enums.retailUnit
+    traderCertificate?: traderUpdateOneRequiredWithoutCertificateNestedInput
+  }
+
+  export type certificateUncheckedUpdateWithoutUserCertificateInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
+    traderId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type certificateUncheckedUpdateManyWithoutUserCertificateInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
+    traderId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type certificateCreateManyTraderCertificateInput = {
+    certificateId?: string
+    userId: number
+    date?: Date | string
+  }
+
+  export type certificateUpdateWithoutTraderCertificateInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    userCertificate?: userUpdateOneRequiredWithoutCertificateNestedInput
+  }
+
+  export type certificateUncheckedUpdateWithoutTraderCertificateInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type certificateUncheckedUpdateManyWithoutTraderCertificateInput = {
+    certificateId?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
@@ -5071,13 +5254,17 @@ export namespace Prisma {
      */
     export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use TraderCountOutputTypeDefaultArgs instead
+     */
+    export type TraderCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TraderCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use userDefaultArgs instead
      */
     export type userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = userDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use cabonOffsetDefaultArgs instead
+     * @deprecated Use certificateDefaultArgs instead
      */
-    export type cabonOffsetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = cabonOffsetDefaultArgs<ExtArgs>
+    export type certificateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = certificateDefaultArgs<ExtArgs>
     /**
      * @deprecated Use traderDefaultArgs instead
      */

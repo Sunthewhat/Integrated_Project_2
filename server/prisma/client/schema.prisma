@@ -14,33 +14,30 @@ model user {
   username        String
   password        String
   nameTitle       String?
+  firstname       String?
   lastname        String?
   email           String?
   expectedMonthly String?
-  firstname       String?
   profileImage    String?
-  cabonOffSet     cabonOffset[]
+  certificate     certificate[]
 }
 
-model cabonOffset {
-  userId          Int
-  certificateId   String     @id @default(uuid())
-  amount          Int
-  date            DateTime   @default(now())
-  unit            retailUnit
-  userCertificate user       @relation(fields: [userId], references: [userId])
+model certificate {
+  certificateId     String   @id @default(uuid())
+  userId            Int
+  traderId          Int
+  date              DateTime @default(now())
+  userCertificate   user     @relation(fields: [userId], references: [userId])
+  traderCertificate trader   @relation(fields: [traderId], references: [traderId])
 
-  @@index([userId], map: "cabonOffset_userId_fkey")
+  @@index([userId], map: "certificate_userId_fkey")
+  @@index([traderId], map: "certificate_traderId_fkey")
 }
 
 model trader {
-  traderId    Int     @id @default(autoincrement())
+  traderId    Int           @id @default(autoincrement())
   companyName String
   amount      Int
   available   Boolean
-}
-
-enum retailUnit {
-  cc
-  kg
+  certificate certificate[]
 }

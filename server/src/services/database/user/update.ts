@@ -1,5 +1,4 @@
 import { prisma } from "../../..";
-import { user } from "../../../../prisma/client";
 
 const UpdateUserImage = async (id: string, image: string) => {
 	const data = await prisma.user.update({

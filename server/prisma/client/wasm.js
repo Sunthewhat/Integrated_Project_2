@@ -16,12 +16,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.15.1
- * Query Engine version: 5675a3182f972f1a8f31d16eee6abf4fd54910e3
+ * Prisma Client JS version: 5.15.0
+ * Query Engine version: 12e25d8d06f6ea5a0252864dd9a03b1bb51f3022
  */
 Prisma.prismaVersion = {
-  client: "5.15.1",
-  engine: "5675a3182f972f1a8f31d16eee6abf4fd54910e3"
+  client: "5.15.0",
+  engine: "12e25d8d06f6ea5a0252864dd9a03b1bb51f3022"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -124,19 +124,18 @@ exports.Prisma.UserScalarFieldEnum = {
   username: 'username',
   password: 'password',
   nameTitle: 'nameTitle',
+  firstname: 'firstname',
   lastname: 'lastname',
   email: 'email',
   expectedMonthly: 'expectedMonthly',
-  firstname: 'firstname',
   profileImage: 'profileImage'
 };
 
-exports.Prisma.CabonOffsetScalarFieldEnum = {
-  userId: 'userId',
+exports.Prisma.CertificateScalarFieldEnum = {
   certificateId: 'certificateId',
-  amount: 'amount',
-  date: 'date',
-  unit: 'unit'
+  userId: 'userId',
+  traderId: 'traderId',
+  date: 'date'
 };
 
 exports.Prisma.TraderScalarFieldEnum = {
@@ -155,14 +154,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.retailUnit = exports.$Enums.retailUnit = {
-  cc: 'cc',
-  kg: 'kg'
-};
+
 
 exports.Prisma.ModelName = {
   user: 'user',
-  cabonOffset: 'cabonOffset',
+  certificate: 'certificate',
   trader: 'trader'
 };
 
