@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { GetTradeHistoryByUserIdService } from "../../services/database/trade/history/get";
+import { GetTradeHistoryByUserIdService } from "../../services/database/certificate/history/get";
 
 type MonthlySum = {
 	January: number;

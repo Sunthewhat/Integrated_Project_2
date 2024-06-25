@@ -1,5 +1,6 @@
 import 'package:c_trade/pages/certificate.dart';
 import 'package:c_trade/pages/home_page.dart';
+import 'package:c_trade/pages/trade_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -31,7 +32,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   void handleTradePage() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => const Certificate(),
+        builder: (context) => const TradePage(),
       ),
     );
   }
