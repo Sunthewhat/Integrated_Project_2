@@ -39,12 +39,11 @@ class _TradeConfirmState extends State<TradeConfirm> {
             child: SingleChildScrollView(
                 child: Column(
               children: [
+                SizedBox(height: 50, width: 30),
                 RearrangeBar(),
                 InformWow(),
                 BoxConfirm(),
-                CheckboxExample(),
-                CancleButt(),
-                TradeButt(),
+                CancelButt(),
               ],
             )),
           )),
@@ -133,7 +132,7 @@ class BoxConfirm extends StatelessWidget {
           Icon(
             Icons.repeat_outlined,
             color: Colors.red,
-            size: 43,
+            size: 40,
           ),
           Text(
             '<Tarder Company Name>',
@@ -150,6 +149,10 @@ class BoxConfirm extends StatelessWidget {
             style: GoogleFonts.lexendExa(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           ),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [CheckboxExample(), TermandCondition()]),
+
           // Checkbox(value: value, onChanged: onChanged)
         ]));
   }
@@ -164,12 +167,13 @@ class TermandCondition extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'By clicking here, I state that I have read and understood the terms and conditions.',
+          'I Do understand Terms and Conditions.',
           style: GoogleFonts.lexendPeta(
             color: const Color(0xFFD2D79F),
-            fontSize: 16,
+            fontSize: 10,
             fontWeight: FontWeight.w400,
           ),
         )
@@ -230,64 +234,65 @@ class _CheckboxExampleState extends State<CheckboxExample> {
   }
 }
 
-class CancleButt extends StatelessWidget {
-  const CancleButt({super.key});
+class CancelButt extends StatelessWidget {
+  const CancelButt({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        // height: MediaQuery.of(context).size.height * 0.3,
-        // width: MediaQuery.of(context).size.width * 0.9,
-        margin: const EdgeInsets.only(top: 25.0),
-        child: TextButton(
+      margin: const EdgeInsets.only(top: 25.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextButton(
             style: TextButton.styleFrom(
-                // margin: const EdgeInsets.only(top: 40.0),
-                // margin: const EdgeInsets.only(top: 40.0),
-                // padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                foregroundColor: Colors.brown,
-                backgroundColor: const Color(0xFFD2D79F)),
+              foregroundColor: Colors.brown,
+              // backgroundColor: const Color(0xFFD2D79F),
+              side: BorderSide(color: const Color(0xFFD2D79F)),
+            ),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const TradePage()),
               );
             },
-            child: Text('Cancle',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.lexendExa(
-                  color: const Color(0xFF483838),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ))));
-  }
-}
-
-class TradeButt extends StatelessWidget {
-  const TradeButt({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        // height: MediaQuery.of(context).size.height * 0.3,
-        // width: MediaQuery.of(context).size.width * 0.9,
-        margin: const EdgeInsets.only(top: 25.0),
-        child: TextButton(
+            child: Text(
+              'Cancel',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.lexendExa(
+                color: const Color(0xFFD2D79F),
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+            width: 30,
+          ),
+          TextButton(
             style: TextButton.styleFrom(
-                // margin: const EdgeInsets.only(top: 40.0),
-                // margin: const EdgeInsets.only(top: 40.0),
-                // padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                foregroundColor: Colors.brown,
-                backgroundColor: const Color(0xFFD2D79F)),
+              foregroundColor: Colors.brown,
+              backgroundColor: const Color(0xFFD2D79F),
+            ),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const TradeSuccess()),
               );
             },
-            child: Text('Trade',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.lexendExa(
-                  color: const Color(0xFF483838),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ))));
+            child: Text(
+              'Trade',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.lexendExa(
+                color: const Color(0xFF483838),
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
