@@ -16,7 +16,7 @@ class GetAvailableTrade {
         );
       }
       Response res = await Dio().get(
-          '${EnvironmentConstant.baseUrl}/trade/avaliable/$userId/$prefer');
+          '${EnvironmentConstant.baseUrl}/trade/available/$userId/$prefer');
       var response = BaseResponse<TradersResponse>.fromArrayJson(
         res.data,
         TradersResponse.fromJson,

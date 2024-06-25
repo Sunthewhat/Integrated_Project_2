@@ -22,7 +22,9 @@ class TraderResponse {
     }
     return TraderResponse(
       traderId: json['traderId'],
-      percentage: json['percentage'],
+      percentage: (json['percentage'] is int)
+          ? (json['percentage'] as int).toDouble()
+          : json['percentage'],
       amount: json['amount'],
       companyName: json['companyName'],
     );

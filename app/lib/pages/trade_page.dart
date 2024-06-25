@@ -20,7 +20,29 @@ class _TradePageState extends State<TradePage> {
       setState(() {
         traders = res.data;
       });
-    } else {}
+    } else {
+      handleShowError(res.message);
+    }
+  }
+
+  void handleShowError(String msg) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: Text(msg),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -48,6 +70,9 @@ class _TradePageState extends State<TradePage> {
                     const FillAmount(),
                     TradeBoxInform(handleSearch: handleFetchTrader),
                     const ChooseTrader(),
+                    if (traders != null)
+                      for (var trader in traders!.traders)
+                        TraderCard(trader: trader),
                   ],
                 ),
               ),
@@ -240,131 +265,96 @@ class _TradeBoxInformState extends State<TradeBoxInform> {
   }
 }
 
-class InformationToTrade extends StatelessWidget {
-  List<String> preferTrade = ['+-100', '+-200', '+-500', '+-1,000'];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      Container(
-        width: MediaQuery.of(context).size.height * 0.48,
-        height: MediaQuery.of(context).size.height * 0.4,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: const Color(0xFFD2D79F),
-          ),
-        ),
-        child: const DecoratedBox(
-          decoration: BoxDecoration(
-            color: Color(0xFFD2D79F),
-          ),
-        ),
-      ),
-      TextButton(
-          style: TextButton.styleFrom(
-              // margin: const EdgeInsets.only(top: 40.0),
-              // margin: const EdgeInsets.only(top: 40.0),
-              // padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-              foregroundColor: Colors.brown,
-              backgroundColor: const Color(0xFFD2D79F)),
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const TradePage()),
-            );
-          }, //To Do: Change to pop up the information
-          child: Text('Enter',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.lexendExa(
-                color: const Color(0xFF483838),
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              )))
-    ]);
-  }
-}
-
-//To Do: Edit Information to be my Card
 class TraderCard extends StatelessWidget {
-  final String title;
-  final String date;
-  final String cert;
+  final TraderResponse trader;
 
   const TraderCard({
     super.key,
-    required this.title,
-    required this.date,
-    required this.cert,
+    required this.trader,
   });
+
+  void handleTrade(int id) {
+    print('Trade with $id');
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 15.0,
-        left: 20.0,
-        right: 20.0,
-        bottom: 0.0,
-      ),
-      child: Card(
-        color: const Color(0xFFD2D79F),
-        elevation: 10, // Shadow depth
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+    return Container(
+      margin: const EdgeInsets.only(top: 10, bottom: 10),
+      width: MediaQuery.of(context).size.width * 0.9,
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: const Color(0xFFD2D79F),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Row(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            trader.companyName,
+            style: GoogleFonts.lexendExa(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Text(
+            '${trader.amount} kgCO2eq',
+            style: GoogleFonts.lexendExa(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.spa,
-                color: Color(0xFF42855B),
-                size: 35,
+              Text(
+                '${trader.percentage > 0 ? '+' : ''}${trader.percentage}%',
+                style: GoogleFonts.lexendExa(
+                    color: trader.percentage > 0 ? Colors.green : Colors.red,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold),
               ),
-              const SizedBox(width: 15),
-              InfoText(title: title, date: date, cert: cert),
-              const Spacer(),
-              IconButton(
-                onPressed: () {}, // empty callback function
-                icon: const Icon(
-                  Icons.save_alt,
-                  color: Color(0xFF483838),
-                  size: 25,
+              InkWell(
+                onTap: () {
+                  handleTrade(trader.traderId);
+                },
+                child: Container(
+                  padding: const EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    top: 5,
+                    bottom: 5,
+                  ),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFD2D79F),
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF483838),
+                        blurRadius: 0,
+                        spreadRadius: 0,
+                        offset: Offset(3.0, 3.0),
+                      )
+                    ],
+                  ),
+                  child: Text(
+                    'Trade',
+                    style: GoogleFonts.lexendExa(
+                      color: const Color(0xFF483838),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               )
             ],
-          ),
-        ),
+          )
+        ],
       ),
-    );
-  }
-}
-
-//To Do: Change the Information
-class InfoText extends StatelessWidget {
-  const InfoText({
-    super.key,
-    required this.title,
-    required this.date,
-    required this.cert,
-  });
-  final String title;
-  final String date;
-  final String cert;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-        ),
-        Text(date),
-        Text(cert)
-      ],
     );
   }
 }
