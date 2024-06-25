@@ -28,7 +28,7 @@ class CTrade extends StatelessWidget {
       },
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoadingPage(),
+        home: TradeConfirm(),
       ),
     );
   }
