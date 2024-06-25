@@ -102,59 +102,75 @@ class BoxConfirm extends StatelessWidget {
   const BoxConfirm({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height * 0.5,
-        width: MediaQuery.of(context).size.width * 0.9,
-        margin: const EdgeInsets.only(top: 40.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: const Color(0xFFD2D79F),
-          ),
+      height: MediaQuery.of(context).size.height * 0.5,
+      width: MediaQuery.of(context).size.width * 0.9,
+      margin: const EdgeInsets.only(top: 40.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: const Color(0xFFD2D79F),
         ),
-        child: Column(children: [
-          Text(
-            '<surname> <lastname>',
-            style: GoogleFonts.lexendExa(fontSize: 20, color: Colors.white),
-          ),
-          Text(
-            '<Company Name>',
-            style: GoogleFonts.lexendExa(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            '<amount of cc> kgCO2eq',
-            style: GoogleFonts.lexendExa(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          Icon(
-            Icons.repeat_outlined,
-            color: Colors.red,
-            size: 40,
-          ),
-          Text(
-            '<Tarder Company Name>',
-            style: GoogleFonts.lexendExa(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            '<Amount of CC> kgCO2eq',
-            style: GoogleFonts.lexendExa(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            '<Total Diff> %',
-            style: GoogleFonts.lexendExa(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          Row(
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0), // Add padding around the content
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment:
+              CrossAxisAlignment.center, // Center align horizontally
+          children: [
+            Text(
+              '<surname> <lastname>',
+              style: GoogleFonts.lexendExa(fontSize: 14, color: Colors.white),
+            ),
+            Text(
+              '<Company Name>',
+              style: GoogleFonts.lexendExa(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              '<amount of cc> kgCO2eq',
+              style: GoogleFonts.lexendExa(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Icon(
+              Icons.repeat_outlined,
+              color: Colors.red,
+              size: 40,
+            ),
+            Text(
+              '<Trader Company Name>',
+              style: GoogleFonts.lexendExa(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              '<Amount of CC> kgCO2eq',
+              style: GoogleFonts.lexendExa(fontSize: 15, color: Colors.white),
+            ),
+            Text(
+              '<Total Diff> %',
+              style: GoogleFonts.lexendExa(fontSize: 15, color: Colors.white),
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [CheckboxExample(), TermandCondition()]),
-
-          // Checkbox(value: value, onChanged: onChanged)
-        ]));
+              children: [CheckboxExample(), TermandCondition()],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
