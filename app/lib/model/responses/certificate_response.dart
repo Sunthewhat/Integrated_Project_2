@@ -1,28 +1,36 @@
 class CertificateResponse {
   String certificateId;
   int amount;
-  String unit;
   DateTime date;
+  String companyName;
+  String firstname;
+  String lastname;
   CertificateResponse({
     required this.certificateId,
     required this.amount,
-    required this.unit,
     required this.date,
+    required this.companyName,
+    required this.firstname,
+    required this.lastname,
   });
   factory CertificateResponse.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return CertificateResponse(
         certificateId: '',
         amount: 0,
-        unit: '',
         date: DateTime.now(),
+        companyName: '',
+        firstname: '',
+        lastname: '',
       );
     }
     return CertificateResponse(
       certificateId: json['certificateId'],
       amount: json['amount'],
-      unit: json['unit'],
       date: DateTime.parse(json['date']),
+      companyName: json['companyName'],
+      firstname: json['firstname'],
+      lastname: json['lastname'],
     );
   }
 }

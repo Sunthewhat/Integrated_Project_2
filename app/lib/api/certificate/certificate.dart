@@ -9,6 +9,7 @@ class CertificateAPI {
     try {
       String userId = LocalStorage.getUserId() ?? '';
       if (userId.isEmpty) {
+        print('User not found');
         return BaseResponse<CertificatesResponse?>(
           success: false,
           message: 'User not found',
@@ -22,6 +23,7 @@ class CertificateAPI {
       print(response.data!.certificates);
       return response;
     } catch (e) {
+      print(e);
       return BaseResponse<CertificatesResponse?>(
         success: false,
         message: e.toString(),

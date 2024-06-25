@@ -6,6 +6,7 @@ import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:c_trade/widget/card.dart';
 import 'package:c_trade/widget/topbar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Certificate extends StatefulWidget {
   const Certificate({super.key});
@@ -55,9 +56,9 @@ class _CertificateState extends State<Certificate> {
             fit: BoxFit.cover,
           ),
         ),
-        child: FractionallySizedBox(
-          widthFactor: 1,
-          heightFactor: 1,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(
             child: Column(children: [
               const RearrangeBar(),
@@ -71,22 +72,20 @@ class _CertificateState extends State<Certificate> {
                         TotalAmount(
                           tradeInfo: tradeInfo,
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.9,
-                          child: ListView.builder(
-                            itemCount: certificates.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              var certificate = certificates[index];
-                              return CustomCard(
-                                title: "${certificate.amount} kgCO2eq",
-                                date: certificate.date
-                                    .toString()
-                                    .substring(0, 10),
-                                cert: "Cert. ID: ${certificate.certificateId}",
-                              );
-                            },
-                          ),
-                        ),
+                        // Column(
+                        //   children: [
+                        //     ListView.builder(
+                        //       itemCount: certificates.length,
+                        //       itemBuilder: (BuildContext context, int index) {
+                        //         var certificate = certificates[index];
+                        //         return CustomCard(
+                        //           cert: certificate,
+                        //         );
+                        //       },
+                        //     ),
+                        //   ],
+                        // ),
+                        for (var c in certificates) CustomCard(cert: c),
                       ],
               ),
             ]),
@@ -131,10 +130,11 @@ class _TotalAmountState extends State<TotalAmount> {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       child: Text(
-        "Total  ${widget.tradeInfo!.totalCertificates} Certificates with ${widget.tradeInfo!.totalCarbonOffset} kgCO2eq ",
-        style: const TextStyle(
-          color: Colors.white,
+        "Total : ${widget.tradeInfo!.totalCertificates} Certificates with ${widget.tradeInfo!.totalCarbonOffset} kgCO2eq ",
+        style: GoogleFonts.lexendExa(
           fontSize: 14,
+          color: Colors.white,
+          fontWeight: FontWeight.w200,
         ),
       ),
     );
