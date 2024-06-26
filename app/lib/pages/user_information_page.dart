@@ -51,15 +51,18 @@ class _InformationPageState extends State<InformationPage> {
   late TextEditingController firstNameController;
   late TextEditingController lastNameController;
   late TextEditingController emailController;
+  late TextEditingController companyController;
 
   @override
   void initState() {
+    print(widget.isRegister);
     if (widget.isRegister) {
       isEditing = true;
       usernameController = TextEditingController(text: username);
       firstNameController = TextEditingController();
       lastNameController = TextEditingController();
       emailController = TextEditingController();
+      companyController = TextEditingController();
     } else {
       initNormalState();
     }
@@ -74,6 +77,7 @@ class _InformationPageState extends State<InformationPage> {
       firstNameController = TextEditingController(text: user!.firstname);
       lastNameController = TextEditingController(text: user!.lastname);
       emailController = TextEditingController(text: user!.email);
+      companyController = TextEditingController(text: user!.company);
       expected = user!.expectedMonthly;
       nameTitle = user!.nameTitle;
       isFetching = false;
@@ -109,20 +113,22 @@ class _InformationPageState extends State<InformationPage> {
     String firstName = firstNameController.text;
     String lastName = lastNameController.text;
     String email = emailController.text;
+    String company = companyController.text;
     String password = LocalStorage.getPassword() ?? '';
 
     if (nameTitle.isEmpty ||
         username.isEmpty ||
         firstName.isEmpty ||
         lastName.isEmpty ||
+        company.isEmpty ||
         email.isEmpty ||
         expected.isEmpty) {
       handleShowError('Please fill in all fields', null);
       return;
     }
 
-    var response = await Register.register(
-        username, password, nameTitle, firstName, lastName, email, expected);
+    var response = await Register.register(username, password, nameTitle,
+        firstName, lastName, email, expected, company);
     if (response.success) {
       if (image == null) {
         handleHomePage();
@@ -156,6 +162,7 @@ class _InformationPageState extends State<InformationPage> {
     String firstName = firstNameController.text;
     String lastName = lastNameController.text;
     String email = emailController.text;
+    String company = companyController.text;
 
     if (nameTitle.isEmpty ||
         username.isEmpty ||
@@ -168,12 +175,14 @@ class _InformationPageState extends State<InformationPage> {
     }
 
     var response = await UpdateUser.update(
-        username: username,
-        firstname: firstName,
-        lastname: lastName,
-        email: email,
-        nameTitle: nameTitle,
-        expectedMonthly: expected);
+      username: username,
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      nameTitle: nameTitle,
+      expectedMonthly: expected,
+      company: company,
+    );
     if (response.success) {
       if (image == null) {
         setState(() {
@@ -264,7 +273,7 @@ class _InformationPageState extends State<InformationPage> {
         child: FractionallySizedBox(
           widthFactor: 1,
           heightFactor: 1,
-          child: isFetching
+          child: !widget.isRegister && isFetching
               ? const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -394,7 +403,9 @@ class _InformationPageState extends State<InformationPage> {
                                     hintStyle: GoogleFonts.lexendDeca(),
                                   ),
                                   style: GoogleFonts.roboto(
-                                    color: const Color(0x9FD2D79F),
+                                    color: isEditing
+                                        ? const Color(0xFFD2D79F)
+                                        : const Color(0x9FD2D79F),
                                   ),
                                   dropdownColor: const Color(0xFF121915),
                                   value: nameTitle,
@@ -461,7 +472,9 @@ class _InformationPageState extends State<InformationPage> {
                               child: TextField(
                                 controller: firstNameController,
                                 style: GoogleFonts.roboto(
-                                  color: const Color(0x9FD2D79F),
+                                  color: isEditing
+                                      ? const Color(0xFFD2D79F)
+                                      : const Color(0x9FD2D79F),
                                 ),
                                 decoration: InputDecoration(
                                   labelStyle: GoogleFonts.roboto(
@@ -497,7 +510,9 @@ class _InformationPageState extends State<InformationPage> {
                               child: TextField(
                                 controller: lastNameController,
                                 style: GoogleFonts.roboto(
-                                  color: const Color(0x9FD2D79F),
+                                  color: isEditing
+                                      ? const Color(0xFFD2D79F)
+                                      : const Color(0x9FD2D79F),
                                 ),
                                 decoration: InputDecoration(
                                   labelStyle: GoogleFonts.roboto(
@@ -533,7 +548,9 @@ class _InformationPageState extends State<InformationPage> {
                         TextField(
                           controller: emailController,
                           style: GoogleFonts.roboto(
-                            color: const Color(0x9FD2D79F),
+                            color: isEditing
+                                ? const Color(0xFFD2D79F)
+                                : const Color(0x9FD2D79F),
                           ),
                           decoration: InputDecoration(
                             labelStyle: GoogleFonts.roboto(
@@ -582,15 +599,17 @@ class _InformationPageState extends State<InformationPage> {
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.02),
                         TextField(
-                          controller: usernameController,
+                          controller: companyController,
                           style: GoogleFonts.roboto(
-                            color: const Color(0x9FD2D79F),
+                            color: isEditing
+                                ? const Color(0xFFD2D79F)
+                                : const Color(0x9FD2D79F),
                           ),
                           decoration: InputDecoration(
                             labelStyle: GoogleFonts.roboto(
                               color: const Color(0xFFD2D79F),
                             ),
-                            enabled: false,
+                            enabled: isEditing,
                             filled: true,
                             fillColor: Colors.transparent,
                             disabledBorder: const OutlineInputBorder(
@@ -609,8 +628,8 @@ class _InformationPageState extends State<InformationPage> {
                               borderSide: BorderSide(
                                   color: Color(0xFFD2D79F), width: 1),
                             ),
-                            labelText: 'Username',
-                            hintText: 'username',
+                            labelText: 'Company Name',
+                            hintText: 'Company Name',
                             hintStyle: GoogleFonts.lexendDeca(),
                           ),
                         ),
@@ -646,7 +665,9 @@ class _InformationPageState extends State<InformationPage> {
                               hintStyle: GoogleFonts.lexendDeca(),
                             ),
                             style: GoogleFonts.roboto(
-                              color: const Color(0x9FD2D79F),
+                              color: isEditing
+                                  ? const Color(0xFFD2D79F)
+                                  : const Color(0x9FD2D79F),
                             ),
                             value: expected,
                             dropdownColor: const Color(0xFF121915),

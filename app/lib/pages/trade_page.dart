@@ -1,5 +1,6 @@
 import 'package:c_trade/api/trade/get_available.dart';
 import 'package:c_trade/model/responses/trader_response.dart';
+import 'package:c_trade/pages/trade_confirmation.dart';
 import 'package:c_trade/widget/bottom_navbar.dart';
 import 'package:c_trade/widget/topbar.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class TradePage extends StatefulWidget {
 
 class _TradePageState extends State<TradePage> {
   TradersResponse? traders;
+  TextEditingController amountController = TextEditingController();
+
   void handleFetchTrader(int amount) async {
     var res = await GetAvailableTrade.getAvailable(amount);
     if (res.success) {
@@ -23,6 +26,22 @@ class _TradePageState extends State<TradePage> {
     } else {
       handleShowError(res.message);
     }
+  }
+
+  void handleTradeConfirmation(TraderResponse trader) {
+    if (amountController.text.isEmpty) {
+      handleShowError('Please fill in the amount');
+      return;
+    }
+    int expected = int.parse(amountController.text);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TradeConfirm(
+          trader: trader,
+          expected: expected,
+        ),
+      ),
+    );
   }
 
   void handleShowError(String msg) {
@@ -66,13 +85,110 @@ class _TradePageState extends State<TradePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const RearrangeBar(),
+                    Container(
+                      margin: const EdgeInsets.only(top: 20, bottom: 10),
+                      child: const TopBar(title: "Trade"),
+                    ),
                     const FillAmount(),
-                    TradeBoxInform(handleSearch: handleFetchTrader),
+                    Column(children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery.of(context).size.height * 0.18,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFD2D79F),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: const Color(0xFFD2D79F),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 20,
+                            left: 25,
+                            right: 25,
+                            bottom: 20,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                child: TextField(
+                                  controller: amountController,
+                                  style: GoogleFonts.roboto(
+                                    color: const Color(0x9F483838),
+                                  ),
+                                  decoration: InputDecoration(
+                                      labelStyle: GoogleFonts.roboto(
+                                        color: const Color(0xFF483838),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.transparent,
+                                      disabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF483838), width: 1),
+                                      ),
+                                      enabledBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF483838), width: 1),
+                                      ),
+                                      border: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF483838), width: 1),
+                                      ),
+                                      focusedBorder: const OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color(0xFF483838), width: 1),
+                                      ),
+                                      labelText: 'Amount of Retail CC',
+                                      hintText: 'Amount of Retail CC',
+                                      hintStyle: GoogleFonts.lexendDeca(),
+                                      suffix: Text(
+                                        "kgCO2eq",
+                                        style: GoogleFonts.lexendDeca(),
+                                      )),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  var amount = amountController.text;
+                                  if (amount.isEmpty) return;
+                                  handleFetchTrader(int.parse(amount));
+                                },
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.05,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFF483838),
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Center(
+                                    child: Text(
+                                      "Enter",
+                                      style: GoogleFonts.lexendExa(
+                                        color: const Color(0xFFD2D79F),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ]),
                     const ChooseTrader(),
                     if (traders != null)
                       for (var trader in traders!.traders)
-                        TraderCard(trader: trader),
+                        TraderCard(
+                          trader: trader,
+                          handleTrade: handleTradeConfirmation,
+                        ),
                   ],
                 ),
               ),
@@ -81,19 +197,6 @@ class _TradePageState extends State<TradePage> {
       bottomNavigationBar: const BottomNavBar(
         pageName: 'trade',
       ),
-    );
-  }
-}
-
-class RearrangeBar extends StatelessWidget {
-  const RearrangeBar({
-    super.key,
-  });
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 20, bottom: 10),
-      child: const TopBar(title: "Trade"),
     );
   }
 }
@@ -160,122 +263,15 @@ class ChooseTrader extends StatelessWidget {
   }
 }
 
-class TradeBoxInform extends StatefulWidget {
-  final void Function(int) handleSearch;
-  const TradeBoxInform({super.key, required this.handleSearch});
-
-  @override
-  State<TradeBoxInform> createState() => _TradeBoxInformState();
-}
-
-class _TradeBoxInformState extends State<TradeBoxInform> {
-  TextEditingController amountController = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: [
-      Container(
-        width: MediaQuery.of(context).size.width * 0.9,
-        height: MediaQuery.of(context).size.height * 0.18,
-        decoration: BoxDecoration(
-          color: const Color(0xFFD2D79F),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: const Color(0xFFD2D79F),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 20,
-            left: 25,
-            right: 25,
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                child: TextField(
-                  controller: amountController,
-                  style: GoogleFonts.roboto(
-                    color: const Color(0x9F483838),
-                  ),
-                  decoration: InputDecoration(
-                      labelStyle: GoogleFonts.roboto(
-                        color: const Color(0xFF483838),
-                      ),
-                      filled: true,
-                      fillColor: Colors.transparent,
-                      disabledBorder: const OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF483838), width: 1),
-                      ),
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF483838), width: 1),
-                      ),
-                      border: const OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF483838), width: 1),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color(0xFF483838), width: 1),
-                      ),
-                      labelText: 'Amount of Retail CC',
-                      hintText: 'Amount of Retail CC',
-                      hintStyle: GoogleFonts.lexendDeca(),
-                      suffix: Text(
-                        "kgCO2eq",
-                        style: GoogleFonts.lexendDeca(),
-                      )),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  var amount = amountController.text;
-                  if (amount.isEmpty) return;
-                  widget.handleSearch(int.parse(amount));
-                },
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  decoration: BoxDecoration(
-                      color: const Color(0xFF483838),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Center(
-                    child: Text(
-                      "Enter",
-                      style: GoogleFonts.lexendExa(
-                        color: const Color(0xFFD2D79F),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      )
-    ]);
-  }
-}
-
 class TraderCard extends StatelessWidget {
   final TraderResponse trader;
+  final void Function(TraderResponse) handleTrade;
 
   const TraderCard({
     super.key,
     required this.trader,
+    required this.handleTrade,
   });
-
-  void handleTrade(int id) {
-    print('Trade with $id');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -314,13 +310,13 @@ class TraderCard extends StatelessWidget {
               Text(
                 '${trader.percentage > 0 ? '+' : ''}${trader.percentage}%',
                 style: GoogleFonts.lexendExa(
-                    color: trader.percentage > 0 ? Colors.green : Colors.red,
+                    color: trader.percentage >= 0 ? Colors.green : Colors.red,
                     fontSize: 14,
                     fontWeight: FontWeight.bold),
               ),
               InkWell(
                 onTap: () {
-                  handleTrade(trader.traderId);
+                  handleTrade(trader);
                 },
                 child: Container(
                   padding: const EdgeInsets.only(

@@ -17,9 +17,9 @@ class CustomCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 15.0,
-        left: 20.0,
-        right: 20.0,
-        bottom: 0.0,
+        // left: 20.0,
+        // right: 20.0,
+        bottom: 10.0,
       ),
       child: Container(
         decoration: const BoxDecoration(

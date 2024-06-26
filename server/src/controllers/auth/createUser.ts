@@ -4,9 +4,8 @@ import { getUserByUsername } from "../../services/database/user/get";
 
 const CreateUserController = async (c: Context) => {
 	try {
-		const { username, password, nameTitle, firstname, lastname, email, expectedMonthly } = await c.req.json();
-		if (!username || !password || !nameTitle || !firstname || !lastname || !email || !expectedMonthly) {
-			console.log("username: ", username, "password: ", password, "nameTitle: ", nameTitle, "firstname: ", firstname, "lastname: ", lastname, "email: ", email, "expectedMonthly: ", expectedMonthly);
+		const { username, password, nameTitle, firstname, lastname, email, expectedMonthly, company } = await c.req.json();
+		if (!username || !password || !nameTitle || !firstname || !lastname || !email || !expectedMonthly || !company) {
 			return c.json({
 				success: false,
 				message: "Missing required fields",
@@ -30,6 +29,7 @@ const CreateUserController = async (c: Context) => {
 			lastname,
 			email,
 			expectedMonthly,
+			company,
 		});
 		return c.json({
 			success: true,

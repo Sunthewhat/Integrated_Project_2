@@ -47,7 +47,7 @@ const BookTradeController = async (c: Context) => {
 		}
 		const createTrade = CreateCertificateService({
 			traderId,
-			userId,
+			userId: parseInt(userId),
 		});
 		const updated = UpdateTraderStatus({ id: traderId });
 		await createTrade;

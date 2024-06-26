@@ -109,7 +109,11 @@ class _SignInPageState extends State<SignInPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    for (int i = 0; i < 30; i++) const SizedBox(),
+                    for (int i = 0; i < 8; i++) const SizedBox(),
+                    const Image(
+                      image: AssetImage('assets/images/icon/ctrade.png'),
+                    ),
+                    for (int i = 0; i < 10; i++) const SizedBox(),
                     Text(
                       'Sign in',
                       style: GoogleFonts.lemonada(

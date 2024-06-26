@@ -59,36 +59,29 @@ class _CertificateState extends State<Certificate> {
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: SingleChildScrollView(
-            child: Column(children: [
-              const RearrangeBar(),
-              Column(
-                children: isFetching || isFetchingStats
-                    ? const [
-                        CircularProgressIndicator(),
-                        Text("Fetching data..."),
-                      ]
-                    : [
-                        TotalAmount(
-                          tradeInfo: tradeInfo,
-                        ),
-                        // Column(
-                        //   children: [
-                        //     ListView.builder(
-                        //       itemCount: certificates.length,
-                        //       itemBuilder: (BuildContext context, int index) {
-                        //         var certificate = certificates[index];
-                        //         return CustomCard(
-                        //           cert: certificate,
-                        //         );
-                        //       },
-                        //     ),
-                        //   ],
-                        // ),
-                        for (var c in certificates) CustomCard(cert: c),
-                      ],
-              ),
-            ]),
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * 0.05,
+              right: MediaQuery.of(context).size.width * 0.05,
+            ),
+            child: SingleChildScrollView(
+              child: Column(children: [
+                const RearrangeBar(),
+                Column(
+                  children: isFetching || isFetchingStats
+                      ? const [
+                          CircularProgressIndicator(),
+                          Text("Fetching data..."),
+                        ]
+                      : [
+                          TotalAmount(
+                            tradeInfo: tradeInfo,
+                          ),
+                          for (var c in certificates) CustomCard(cert: c),
+                        ],
+                ),
+              ]),
+            ),
           ),
         ),
       ),

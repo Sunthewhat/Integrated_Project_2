@@ -24,13 +24,13 @@ const GetTradeHistoryByUserIdService = async (userId: number) => {
 			traderCertificate: {
 				select: {
 					amount: true,
-					companyName: true,
 				},
 			},
 			userCertificate: {
 				select: {
 					firstname: true,
 					lastname: true,
+					company: true,
 				},
 			},
 		},
@@ -43,7 +43,7 @@ const GetTradeHistoryByUserIdService = async (userId: number) => {
 			date: e.date,
 			traderId: e.traderId,
 			amount: e.traderCertificate.amount,
-			companyName: e.traderCertificate.companyName,
+			companyName: e.userCertificate.company || "",
 			firstname: e.userCertificate.firstname || "",
 			lastname: e.userCertificate.lastname || "",
 		};

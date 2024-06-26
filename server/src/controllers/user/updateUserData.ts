@@ -3,7 +3,7 @@ import { UpdateUserData } from "../../services/database/user/update";
 
 const UpdateUserDataController = async (c: Context) => {
 	try {
-		const { userId, username, nameTitle, lastname, email, expectedMonthly, firstname } = await c.req.json();
+		const { userId, username, nameTitle, lastname, email, expectedMonthly, firstname, company } = await c.req.json();
 		const result = await UpdateUserData(userId, {
 			username,
 			firstname,
@@ -11,6 +11,7 @@ const UpdateUserDataController = async (c: Context) => {
 			email,
 			nameTitle,
 			expectedMonthly,
+			company,
 		});
 		return c.json({
 			success: true,

@@ -7,6 +7,7 @@ class GetUserResponse {
   String expectedMonthly;
   String firstname;
   String profileImage;
+  String company;
 
   GetUserResponse({
     required this.userId,
@@ -17,6 +18,7 @@ class GetUserResponse {
     required this.expectedMonthly,
     required this.firstname,
     required this.profileImage,
+    required this.company,
   });
 
   factory GetUserResponse.fromJson(Map<String, dynamic>? json) {
@@ -30,6 +32,7 @@ class GetUserResponse {
         expectedMonthly: '',
         firstname: '',
         profileImage: '',
+        company: '',
       );
     }
     return GetUserResponse(
@@ -41,6 +44,7 @@ class GetUserResponse {
       expectedMonthly: json['expectedMonthly'],
       firstname: json['firstname'],
       profileImage: json['profileImage'],
+      company: json['company'],
     );
   }
 }

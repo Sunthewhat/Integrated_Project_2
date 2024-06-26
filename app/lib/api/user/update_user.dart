@@ -11,6 +11,7 @@ class UpdateUser {
     required String email,
     required String nameTitle,
     required String expectedMonthly,
+    required String company,
   }) async {
     try {
       String userId = LocalStorage.getUserId() ?? '';
@@ -31,6 +32,7 @@ class UpdateUser {
           'email': email,
           'nameTitle': nameTitle,
           'expectedMonthly': expectedMonthly,
+          'company': company,
         },
       );
       var response = BaseResponse<Null>.fromJson(res.data, (data) => null);

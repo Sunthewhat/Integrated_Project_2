@@ -17,6 +17,7 @@ model user {
   firstname       String?
   lastname        String?
   email           String?
+  company         String?
   expectedMonthly String?
   profileImage    String?
   certificate     certificate[]

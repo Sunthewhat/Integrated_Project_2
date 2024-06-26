@@ -5,13 +5,15 @@ import 'package:dio/dio.dart';
 
 class Register {
   static Future<BaseResponse<RegisterResponse?>> register(
-      String username,
-      String password,
-      String nameTitle,
-      String firstname,
-      String lastname,
-      String email,
-      String expectedMonthly) async {
+    String username,
+    String password,
+    String nameTitle,
+    String firstname,
+    String lastname,
+    String email,
+    String expectedMonthly,
+    String company,
+  ) async {
     try {
       Response res = await Dio()
           .post('${EnvironmentConstant.baseUrl}/auth/register', data: {
@@ -22,6 +24,7 @@ class Register {
         'lastname': lastname,
         'email': email,
         'expectedMonthly': expectedMonthly,
+        'company': company,
       });
       var response = BaseResponse<RegisterResponse?>.fromJson(
           res.data, RegisterResponse.fromJson);

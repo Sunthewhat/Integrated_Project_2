@@ -1,4 +1,5 @@
 import 'package:c_trade/local_storage.dart';
+import 'package:c_trade/pages/signin_page.dart';
 import 'package:c_trade/pages/user_information_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,7 +94,11 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    for (int i = 0; i < 30; i++) const SizedBox(),
+                    for (int i = 0; i < 15; i++) const SizedBox(),
+                    const Image(
+                      image: AssetImage('assets/images/icon/ctrade.png'),
+                    ),
+                    for (int i = 0; i < 15; i++) const SizedBox(),
                     Text(
                       'Create Account',
                       style: GoogleFonts.lemonada(
@@ -208,6 +213,23 @@ class _SignUpPageState extends State<SignUpPage> {
                               fontSize: 16,
                             ),
                           ),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignInPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Back To Sign In',
+                        style: GoogleFonts.lexendDeca(
+                          color: const Color(0xFF42855B),
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     )

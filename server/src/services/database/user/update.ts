@@ -21,6 +21,7 @@ const UpdateUserData = async (
 		email: string;
 		nameTitle: string;
 		expectedMonthly: string;
+		company: string;
 	}
 ) => {
 	const updatedData = await prisma.user.update({
@@ -34,6 +35,7 @@ const UpdateUserData = async (
 			email: data.email,
 			nameTitle: data.nameTitle,
 			expectedMonthly: data.expectedMonthly,
+			company: data.company,
 		},
 	});
 	return updatedData;

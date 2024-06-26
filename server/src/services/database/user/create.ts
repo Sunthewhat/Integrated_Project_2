@@ -8,6 +8,7 @@ type CreateUserType = {
 	lastname: string;
 	email: string;
 	expectedMonthly: string;
+	company: string;
 };
 
 const createUser = async (data: CreateUserType) => {
@@ -20,6 +21,7 @@ const createUser = async (data: CreateUserType) => {
 			lastname: data.lastname,
 			email: data.email,
 			expectedMonthly: data.expectedMonthly,
+			company: data.company,
 		},
 	});
 	return newUser;

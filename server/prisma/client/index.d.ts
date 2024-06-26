@@ -237,8 +237,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.15.0
-   * Query Engine version: 12e25d8d06f6ea5a0252864dd9a03b1bb51f3022
+   * Prisma Client JS version: 5.15.1
+   * Query Engine version: 5675a3182f972f1a8f31d16eee6abf4fd54910e3
    */
   export type PrismaVersion = {
     client: string
@@ -1127,6 +1127,7 @@ export namespace Prisma {
     firstname: string | null
     lastname: string | null
     email: string | null
+    company: string | null
     expectedMonthly: string | null
     profileImage: string | null
   }
@@ -1139,6 +1140,7 @@ export namespace Prisma {
     firstname: string | null
     lastname: string | null
     email: string | null
+    company: string | null
     expectedMonthly: string | null
     profileImage: string | null
   }
@@ -1151,6 +1153,7 @@ export namespace Prisma {
     firstname: number
     lastname: number
     email: number
+    company: number
     expectedMonthly: number
     profileImage: number
     _all: number
@@ -1173,6 +1176,7 @@ export namespace Prisma {
     firstname?: true
     lastname?: true
     email?: true
+    company?: true
     expectedMonthly?: true
     profileImage?: true
   }
@@ -1185,6 +1189,7 @@ export namespace Prisma {
     firstname?: true
     lastname?: true
     email?: true
+    company?: true
     expectedMonthly?: true
     profileImage?: true
   }
@@ -1197,6 +1202,7 @@ export namespace Prisma {
     firstname?: true
     lastname?: true
     email?: true
+    company?: true
     expectedMonthly?: true
     profileImage?: true
     _all?: true
@@ -1296,6 +1302,7 @@ export namespace Prisma {
     firstname: string | null
     lastname: string | null
     email: string | null
+    company: string | null
     expectedMonthly: string | null
     profileImage: string | null
     _count: UserCountAggregateOutputType | null
@@ -1327,6 +1334,7 @@ export namespace Prisma {
     firstname?: boolean
     lastname?: boolean
     email?: boolean
+    company?: boolean
     expectedMonthly?: boolean
     profileImage?: boolean
     certificate?: boolean | user$certificateArgs<ExtArgs>
@@ -1342,6 +1350,7 @@ export namespace Prisma {
     firstname?: boolean
     lastname?: boolean
     email?: boolean
+    company?: boolean
     expectedMonthly?: boolean
     profileImage?: boolean
   }
@@ -1364,6 +1373,7 @@ export namespace Prisma {
       firstname: string | null
       lastname: string | null
       email: string | null
+      company: string | null
       expectedMonthly: string | null
       profileImage: string | null
     }, ExtArgs["result"]["user"]>
@@ -1767,6 +1777,7 @@ export namespace Prisma {
     readonly firstname: FieldRef<"user", 'String'>
     readonly lastname: FieldRef<"user", 'String'>
     readonly email: FieldRef<"user", 'String'>
+    readonly company: FieldRef<"user", 'String'>
     readonly expectedMonthly: FieldRef<"user", 'String'>
     readonly profileImage: FieldRef<"user", 'String'>
   }
@@ -4011,6 +4022,7 @@ export namespace Prisma {
     firstname: 'firstname',
     lastname: 'lastname',
     email: 'email',
+    company: 'company',
     expectedMonthly: 'expectedMonthly',
     profileImage: 'profileImage'
   };
@@ -4108,6 +4120,7 @@ export namespace Prisma {
     firstname?: StringNullableFilter<"user"> | string | null
     lastname?: StringNullableFilter<"user"> | string | null
     email?: StringNullableFilter<"user"> | string | null
+    company?: StringNullableFilter<"user"> | string | null
     expectedMonthly?: StringNullableFilter<"user"> | string | null
     profileImage?: StringNullableFilter<"user"> | string | null
     certificate?: CertificateListRelationFilter
@@ -4121,6 +4134,7 @@ export namespace Prisma {
     firstname?: SortOrderInput | SortOrder
     lastname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
+    company?: SortOrderInput | SortOrder
     expectedMonthly?: SortOrderInput | SortOrder
     profileImage?: SortOrderInput | SortOrder
     certificate?: certificateOrderByRelationAggregateInput
@@ -4137,6 +4151,7 @@ export namespace Prisma {
     firstname?: StringNullableFilter<"user"> | string | null
     lastname?: StringNullableFilter<"user"> | string | null
     email?: StringNullableFilter<"user"> | string | null
+    company?: StringNullableFilter<"user"> | string | null
     expectedMonthly?: StringNullableFilter<"user"> | string | null
     profileImage?: StringNullableFilter<"user"> | string | null
     certificate?: CertificateListRelationFilter
@@ -4150,6 +4165,7 @@ export namespace Prisma {
     firstname?: SortOrderInput | SortOrder
     lastname?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
+    company?: SortOrderInput | SortOrder
     expectedMonthly?: SortOrderInput | SortOrder
     profileImage?: SortOrderInput | SortOrder
     _count?: userCountOrderByAggregateInput
@@ -4170,6 +4186,7 @@ export namespace Prisma {
     firstname?: StringNullableWithAggregatesFilter<"user"> | string | null
     lastname?: StringNullableWithAggregatesFilter<"user"> | string | null
     email?: StringNullableWithAggregatesFilter<"user"> | string | null
+    company?: StringNullableWithAggregatesFilter<"user"> | string | null
     expectedMonthly?: StringNullableWithAggregatesFilter<"user"> | string | null
     profileImage?: StringNullableWithAggregatesFilter<"user"> | string | null
   }
@@ -4288,6 +4305,7 @@ export namespace Prisma {
     firstname?: string | null
     lastname?: string | null
     email?: string | null
+    company?: string | null
     expectedMonthly?: string | null
     profileImage?: string | null
     certificate?: certificateCreateNestedManyWithoutUserCertificateInput
@@ -4301,6 +4319,7 @@ export namespace Prisma {
     firstname?: string | null
     lastname?: string | null
     email?: string | null
+    company?: string | null
     expectedMonthly?: string | null
     profileImage?: string | null
     certificate?: certificateUncheckedCreateNestedManyWithoutUserCertificateInput
@@ -4313,6 +4332,7 @@ export namespace Prisma {
     firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     certificate?: certificateUpdateManyWithoutUserCertificateNestedInput
@@ -4326,6 +4346,7 @@ export namespace Prisma {
     firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
     certificate?: certificateUncheckedUpdateManyWithoutUserCertificateNestedInput
@@ -4339,6 +4360,7 @@ export namespace Prisma {
     firstname?: string | null
     lastname?: string | null
     email?: string | null
+    company?: string | null
     expectedMonthly?: string | null
     profileImage?: string | null
   }
@@ -4350,6 +4372,7 @@ export namespace Prisma {
     firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -4362,6 +4385,7 @@ export namespace Prisma {
     firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -4525,6 +4549,7 @@ export namespace Prisma {
     firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
+    company?: SortOrder
     expectedMonthly?: SortOrder
     profileImage?: SortOrder
   }
@@ -4541,6 +4566,7 @@ export namespace Prisma {
     firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
+    company?: SortOrder
     expectedMonthly?: SortOrder
     profileImage?: SortOrder
   }
@@ -4553,6 +4579,7 @@ export namespace Prisma {
     firstname?: SortOrder
     lastname?: SortOrder
     email?: SortOrder
+    company?: SortOrder
     expectedMonthly?: SortOrder
     profileImage?: SortOrder
   }
@@ -5061,6 +5088,7 @@ export namespace Prisma {
     firstname?: string | null
     lastname?: string | null
     email?: string | null
+    company?: string | null
     expectedMonthly?: string | null
     profileImage?: string | null
   }
@@ -5073,6 +5101,7 @@ export namespace Prisma {
     firstname?: string | null
     lastname?: string | null
     email?: string | null
+    company?: string | null
     expectedMonthly?: string | null
     profileImage?: string | null
   }
@@ -5118,6 +5147,7 @@ export namespace Prisma {
     firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -5130,6 +5160,7 @@ export namespace Prisma {
     firstname?: NullableStringFieldUpdateOperationsInput | string | null
     lastname?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
     expectedMonthly?: NullableStringFieldUpdateOperationsInput | string | null
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
