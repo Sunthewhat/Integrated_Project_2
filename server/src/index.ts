@@ -16,4 +16,7 @@ export const prisma = new PrismaClient();
 
 app.route("", mainRouter);
 
-export default app;
+export default {
+	port: process.env.PORT || 3000,
+	fetch: app.fetch,
+};

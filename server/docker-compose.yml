@@ -1,0 +1,13 @@
+services:
+  server:
+    image: ctrade
+    container_name: ctrade_server
+    restart: unless-stopped
+    networks:
+      reverseproxy:
+        ipv4_address: 192.168.0.10
+
+networks:
+  reverseproxy:
+    external: true
+    name: reverseproxy
