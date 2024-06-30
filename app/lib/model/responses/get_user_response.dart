@@ -43,7 +43,7 @@ class GetUserResponse {
       email: json['email'],
       expectedMonthly: json['expectedMonthly'],
       firstname: json['firstname'],
-      profileImage: json['profileImage'],
+      profileImage: json['profileImage'] ?? '',
       company: json['company'],
     );
   }

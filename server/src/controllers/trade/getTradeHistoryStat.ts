@@ -96,6 +96,8 @@ const GetTradeHistoryStat = async (c: Context) => {
 			data: monthlySum,
 		});
 	} catch (e) {
+		console.log(e);
+
 		return c.json({
 			success: false,
 			message: e,

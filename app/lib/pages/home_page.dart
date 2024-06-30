@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Hi ! $surname',
+                                    'Hi ! $name',
                                     style: GoogleFonts.lemonada(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
