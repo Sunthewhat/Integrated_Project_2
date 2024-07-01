@@ -32,6 +32,7 @@ class _InformationPageState extends State<InformationPage> {
   bool isUploadFailed = false;
   bool isFetching = true;
   GetUserResponse? user;
+  bool isRegistering = false;
 
   List<String> nameTitles = ['Mr.', 'Mrs.', 'Ms.', 'Dr.'];
   List<String> expecteds = [
@@ -55,7 +56,6 @@ class _InformationPageState extends State<InformationPage> {
 
   @override
   void initState() {
-    print(widget.isRegister);
     if (widget.isRegister) {
       isEditing = true;
       usernameController = TextEditingController(text: username);
@@ -109,6 +109,10 @@ class _InformationPageState extends State<InformationPage> {
   }
 
   void handleRegister() async {
+    if (isRegistering) return;
+    setState(() {
+      isRegistering = true;
+    });
     String username = usernameController.text;
     String firstName = firstNameController.text;
     String lastName = lastNameController.text;
@@ -130,22 +134,32 @@ class _InformationPageState extends State<InformationPage> {
     var response = await Register.register(username, password, nameTitle,
         firstName, lastName, email, expected, company);
     if (response.success) {
+      await LocalStorage.setUserId(response.data!.userId!);
       if (image == null) {
+        setState(() {
+          isRegistering = false;
+        });
         handleHomePage();
         return;
       }
-      await LocalStorage.setUserId(response.data!.userId!);
       var imageResponse = await UploadImage.upload(image!);
       if (imageResponse.success) {
+        setState(() {
+          isRegistering = false;
+        });
         handleHomePage();
       } else {
         setState(() {
           isUploadFailed = true;
+          isRegistering = false;
         });
         handleShowError(
             "Failed to upload Image \n ${imageResponse.message}", null);
       }
     } else {
+      setState(() {
+        isRegistering = false;
+      });
       handleShowError(response.message, null);
     }
   }
