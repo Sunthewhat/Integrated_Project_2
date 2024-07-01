@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
 
   void _getUserDetails() async {
     var response = await GetUserById.getUserById();
-    print(response.message);
     if (response.success) {
       setState(() {
         isLoading = false;
@@ -68,7 +67,6 @@ class _HomePageState extends State<HomePage> {
 
   void _getTradeInfo() async {
     var response = await GetTradeInfo.getTradeInfo();
-    print(response.message);
     if (response.success) {
       setState(() {
         isInfoLoading = false;
@@ -80,7 +78,6 @@ class _HomePageState extends State<HomePage> {
 
   void _getStats() async {
     var response = await GetTradeStats.getTradeStats();
-    print(response.message);
     if (response.success) {
       setState(() {
         isStatsLoading = false;
